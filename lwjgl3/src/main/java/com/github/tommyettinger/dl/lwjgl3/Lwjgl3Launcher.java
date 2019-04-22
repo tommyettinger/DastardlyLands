@@ -16,8 +16,8 @@ public class Lwjgl3Launcher {
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
         Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
-        configuration.setTitle("DastardlyLands");
-        configuration.setWindowedMode(90 * 10, (25 + 7) * 20);
+        configuration.setTitle("Dastardly Lands");
+        configuration.setWindowedMode(100 * 10, (25 + 7) * 20);
         configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
         return configuration;
     }
