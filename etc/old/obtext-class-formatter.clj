@@ -71,9 +71,9 @@
          	[[_ class-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [class-name (vec (conj (map parse-entry more) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))
          	 (line-seq rdr)))))
              
-(def fin2 (into (sorted-map) (map (fn [[k [d & ms]]] [k (into (apply vector (map (fn [[dk dv]] [dk [(read-string dv)]]) d)) (map (fn [m] (let [vc (vec m) main-key (first (ffirst vc))] (if (= (count (ffirst vc)) 1)
+(def fin2 (into (sorted-map) (map (fn [[k [d & ms]]] [k (vec (apply concat (into (apply vector (map (fn [[dk dv]] [dk [(read-string dv)]]) d)) (map (fn [m] (let [vc (vec m) main-key (first (ffirst vc))] (if (= (count (ffirst vc)) 1)
     [main-key (if (= (get-in vc [0 1 0 0]) (get-in vc [0 1 1 0]) (get-in vc [0 1 2 0])) [(get-in vc [0 1 0 0]) [(get-in vc [0 1 0 1]) (get-in vc [0 1 1 1]) (get-in vc [0 1 2 1])]] (vec (apply concat (map #(if (= (count %) 1) [(first %)] [(first %) [(second %)]]) (get-in vc [0 1])))))]
-    [main-key [(get-in vc [0 0 1]) (if (= (count (get-in vc [0 1 0])) 1) (get-in vc [0 1 0]) [(get-in vc [0 1 0 0]) [(get-in vc [0 1 0 1])]])]]))) ms))]) fin)))
+    [main-key [(get-in vc [0 0 1]) (if (= (count (get-in vc [0 1 0])) 1) (get-in vc [0 1 0]) [(get-in vc [0 1 0 0]) [(get-in vc [0 1 0 1])]])]]))) ms))))]) fin)))
 
 
-(spit (clojure.string/replace (with-out-str (ppr/pprint fin)) #"[\{\}]" "") (str "classes-" (System/currentTimeMillis) ".obtext"))
+(spit (clojure.string/replace (with-out-str (ppr/pprint fin2)) #"[\{\}]" "") (str "classes-" (System/currentTimeMillis) ".txt"))
