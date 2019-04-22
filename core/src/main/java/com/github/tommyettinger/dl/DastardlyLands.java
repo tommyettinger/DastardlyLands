@@ -54,7 +54,7 @@ public class DastardlyLands extends ApplicationAdapter {
     // SquidLib has many methods that expect an IRNG instance, and there's several classes to choose from.
     // In this program we'll use GWTRNG, which will behave better on the HTML target than other generators.
     private GWTRNG rng;
-    private SparseLayers display, languageDisplay;
+    private SparseLayers display, splitDisplay;
     private DungeonGenerator dungeonGen;
     // decoDungeon stores the dungeon map with features like grass and water, if present, as chars like '"' and '~'.
     // bareDungeon stores the dungeon map with just walls as '#' and anything not a wall as '.'.
@@ -78,7 +78,7 @@ public class DastardlyLands extends ApplicationAdapter {
     //one cell; resizing the window can make the units cellWidth and cellHeight use smaller or larger than a pixel.
 
     /** In number of cells */
-    private static final int gridWidth = 90;
+    private static final int gridWidth = 100;
     /** In number of cells */
     private static final int gridHeight = 25;
 
@@ -86,7 +86,9 @@ public class DastardlyLands extends ApplicationAdapter {
     private static final int bigWidth = gridWidth * 2;
     /** In number of cells */
     private static final int bigHeight = gridHeight * 2;
-
+    
+    private static final int split = 60;
+    
     /** In number of cells */
     private static final int bonusHeight = 7;
     /** The pixel width of a cell */
@@ -95,7 +97,7 @@ public class DastardlyLands extends ApplicationAdapter {
     private static final int cellHeight = 20;
     private SquidInput input;
     private Color bgColor;
-    private Stage stage, languageStage;
+    private Stage stage, splitStage;
     private DijkstraMap playerToCursor;
     private Coord cursor, player;
     private List<Coord> toCursor;
@@ -121,56 +123,34 @@ public class DastardlyLands extends ApplicationAdapter {
     // languages appended after the plain-English version. The contents have the first item removed with each step, and
     // have new translations added whenever the line count is too low.
     private ArrayList<String> lang;
+    private String playerRole, enemyRole;
+    private ObText roles;
     private double[][] resistance;
     private double[][] visible;
-    // GreasedRegion is a hard-to-explain class, but it's an incredibly useful one for map generation and many other
-    // tasks; it stores a region of "on" cells where everything not in that region is considered "off," and can be used
-    // as a Collection of Coord points. However, it's more than that! Because of how it is implemented, it can perform
-    // bulk operations on as many as 64 points at a time, and can efficiently do things like expanding the "on" area to
-    // cover adjacent cells that were "off", retracting the "on" area away from "off" cells to shrink it, getting the
-    // surface ("on" cells that are adjacent to "off" cells) or fringe ("off" cells that are adjacent to "on" cells),
-    // and generally useful things like picking a random point from all "on" cells.
-    // Here, we use a GreasedRegion to store all floors that the player can walk on, a small rim of cells just beyond
-    // the player's vision that blocks pathfinding to areas we can't see a path to, and we also store all cells that we
-    // have seen in the past in a GreasedRegion (in most roguelikes, there would be one of these per dungeon floor).
     private GreasedRegion floors, blockage, seen;
-    // a Glyph is a kind of scene2d Actor that only holds one char in a specific color, but is drawn using the behavior
-    // of TextCellFactory (which most text in SquidLib is drawn with) instead of the different and not-very-compatible
-    // rules of Label, which older SquidLib code used when it needed text in an Actor. Glyphs are also lighter-weight in
-    // memory usage and time taken to draw than Labels.
     private TextCellFactory.Glyph pg;
-    // libGDX can use a kind of packed float (yes, the number type) to efficiently store colors, but it also uses a
-    // heavier-weight Color object sometimes; SquidLib has a large list of SColor objects that are often used as easy
-    // predefined colors since SColor extends Color. SparseLayers makes heavy use of packed float colors internally,
-    // but also allows Colors instead for most methods that take a packed float. Some cases, like very briefly-used
-    // colors that are some mix of two other colors, are much better to create as packed floats from other packed
-    // floats, usually using SColor.lerpFloatColors(), which avoids creating any objects. It's ideal to avoid creating
-    // new objects (such as Colors) frequently for only brief usage, because this can cause temporary garbage objects to
-    // build up and slow down the program while they get cleaned up (garbage collection, which is slower on Android).
-    // Recent versions of SquidLib include the packed float literal in the JavaDocs for any SColor, along with previews
-    // of that SColor as a background and foreground when used with other colors, plus more info like the hue,
-    // saturation, and value of the color. Here we just use the packed floats directly from the SColor docs, but we also
-    // mention what color it is in a line comment, which is a good habit so you can see a preview if needed.
-    // The format used for the floats is a hex literal; these are explained at the bottom of this file, in case you
-    // aren't familiar with them (they're a rather obscure feature of Java 5 and newer).
-    private static final float FLOAT_LIGHTING = -0x1.cff1fep126F, // same result as SColor.COSMIC_LATTE.toFloatBits()
-            GRAY_FLOAT = -0x1.7e7e7ep125F; // same result as SColor.CW_GRAY_BLACK.toFloatBits()
+    private static final float FLOAT_LIGHTING = SColor.COSMIC_LATTE.toFloatBits(),
+            GRAY_FLOAT = SColor.CW_GRAY_BLACK.toFloatBits(), 
+            VERY_DARK_FLOAT = SColor.DB_INK.toFloatBits();
 
     @Override
     public void create () {
         // gotta have a random number generator. We can seed a GWTRNG with any long we want, or even a String.
-        rng = new GWTRNG("Welcome to SquidLib!");
-
+//        rng = new GWTRNG("Welcome to SquidLib!");
+        rng = new GWTRNG();
+        final String fileText = Gdx.files.internal("classes-obtext.txt").readString();
+        roles = new ObText(fileText);
+        playerRole = roles.get(rng.nextInt(200)).primary;
+        enemyRole = roles.get(rng.nextInt(200)).primary;
         //Some classes in SquidLib need access to a batch to render certain things, so it's a good idea to have one.
         batch = new SpriteBatch();
         StretchViewport mainViewport = new StretchViewport(gridWidth * cellWidth, gridHeight * cellHeight),
-                languageViewport = new StretchViewport(gridWidth * cellWidth, bonusHeight * cellHeight);
+                splitViewport = new StretchViewport(gridWidth * cellWidth, bonusHeight * cellHeight);
         mainViewport.setScreenBounds(0, 0, gridWidth * cellWidth, gridHeight * cellHeight);
-        languageViewport
-                .setScreenBounds(0, 0, gridWidth * cellWidth, bonusHeight * cellHeight);
+        splitViewport.setScreenBounds(0, 0, gridWidth * cellWidth, bonusHeight * cellHeight);
         //Here we make sure our Stage, which holds any text-based grids we make, uses our Batch.
         stage = new Stage(mainViewport, batch);
-        languageStage = new Stage(languageViewport, batch);
+        splitStage = new Stage(splitViewport, batch);
         // the font will try to load Iosevka Slab as an embedded bitmap font with a (MSDF) distance field effect.
         // the distance field effect allows the font to be stretched without getting blurry or grainy too easily.
         // this font is covered under the SIL Open Font License (fully free), so there's no reason it can't be used.
@@ -188,12 +168,8 @@ public class DastardlyLands extends ApplicationAdapter {
         display = new SparseLayers(bigWidth, bigHeight + bonusHeight, cellWidth, cellHeight,
                 DefaultResources.getCrispSlabFamily());
         
-        languageDisplay = new SparseLayers(gridWidth, bonusHeight - 1, cellWidth, cellHeight, display.font);
-        // SparseLayers doesn't currently use the default background fields, but this isn't really a problem; we can
-        // set the background colors directly as floats with the SparseLayers.backgrounds field, and it can be handy
-        // to hold onto the current color we want to fill that with in the defaultPackedBackground field.
-        //SparseLayers has fillBackground() and fillArea() methods for coloring all or part of the backgrounds.
-        languageDisplay.defaultPackedBackground = FLOAT_LIGHTING;
+        splitDisplay = new SparseLayers(gridWidth, bonusHeight - 1, cellWidth, cellHeight, display.font);
+        splitDisplay.defaultPackedBackground = FLOAT_LIGHTING;
 
         //This uses the seeded GWTRNG we made earlier to build a procedural dungeon using a method that takes
         //rectangular sections of pre-drawn dungeon and drops them into place in a tiling pattern. It makes good winding
@@ -209,42 +185,6 @@ public class DastardlyLands extends ApplicationAdapter {
         decoDungeon = dungeonGen.generate();
         //getBareDungeon provides the simplest representation of the generated dungeon -- '#' for walls, '.' for floors.
         bareDungeon = dungeonGen.getBareDungeon();
-        //When we draw, we may want to use a nicer representation of walls. DungeonUtility has lots of useful methods
-        //for modifying char[][] dungeon grids, and this one takes each '#' and replaces it with a box-drawing char.
-        //The end result looks something like this, for a smaller 60x30 map:
-        //
-        // ┌───┐┌──────┬──────┐┌──┬─────┐   ┌──┐    ┌──────────┬─────┐
-        // │...││......│......└┘..│.....│   │..├───┐│..........│.....└┐
-        // │...││......│..........├──┐..├───┤..│...└┴────......├┐.....│
-        // │...││.................│┌─┘..│...│..│...............││.....│
-        // │...││...........┌─────┘│....│...│..│...........┌───┴┴───..│
-        // │...│└─┐....┌───┬┘      │........│..│......─────┤..........│
-        // │...└─┐│....│...│       │.......................│..........│
-        // │.....││........└─┐     │....│..................│.....┌────┘
-        // │.....││..........│     │....├─┬───────┬─┐......│.....│
-        // └┬──..└┼───┐......│   ┌─┴─..┌┘ │.......│ │.....┌┴──┐..│
-        //  │.....│  ┌┴─..───┴───┘.....└┐ │.......│┌┘.....└─┐ │..│
-        //  │.....└──┘..................└─┤.......││........│ │..│
-        //  │.............................│.......├┘........│ │..│
-        //  │.............┌──────┐........│.......│...─┐....│ │..│
-        //  │...........┌─┘      └──┐.....│..─────┘....│....│ │..│
-        // ┌┴─────......└─┐      ┌──┘..................│..──┴─┘..└─┐
-        // │..............└──────┘.....................│...........│
-        // │............................┌─┐.......│....│...........│
-        // │..│..│..┌┐..................│ │.......├────┤..──┬───┐..│
-        // │..│..│..│└┬──..─┬───┐......┌┘ └┐.....┌┘┌───┤....│   │..│
-        // │..├──┤..│ │.....│   │......├───┘.....│ │...│....│┌──┘..└──┐
-        // │..│┌─┘..└┐└┬─..─┤   │......│.........└─┘...│....││........│
-        // │..││.....│ │....│   │......│...............│....││........│
-        // │..││.....│ │....│   │......│..┌──┐.........├────┘│..│.....│
-        // ├──┴┤...│.└─┴─..┌┘   └┐....┌┤..│  │.....│...└─────┘..│.....│
-        // │...│...│.......└─────┴─..─┴┘..├──┘.....│............└─────┤
-        // │...│...│......................│........│..................│
-        // │.......├───┐..................│.......┌┤.......┌─┐........│
-        // │.......│   └──┐..┌────┐..┌────┤..┌────┘│.......│ │..┌──┐..│
-        // └───────┘      └──┘    └──┘    └──┘     └───────┘ └──┘  └──┘
-        //this is also good to compare against if the map looks incorrect, and you need an example of a correct map when
-        //no parameters are given to generate().
         lineDungeon = DungeonUtility.hashesToLines(decoDungeon);
 
         resistance = DungeonUtility.generateResistances(decoDungeon);
@@ -354,14 +294,14 @@ public class DastardlyLands extends ApplicationAdapter {
         lang = new ArrayList<>(16);
         // StringKit has various utilities for dealing with text, including wrapping text so it fits in a specific width
         // and inserting the lines into a List of Strings, as we do here with the List lang and the text artOfWar.
-        StringKit.wrap(lang, artOfWar, gridWidth - 2);
+        StringKit.wrap(lang, artOfWar, split-2);
         // FakeLanguageGen.registered is an array of the hand-made languages in FakeLanguageGen, not any random ones and
         // not most mixes of multiple languages. We get a random language from it with our GWTRNG, and use that to build
         // our current NaturalLanguageCipher. This NaturalLanguageCipher will act as an English-to-X dictionary for
         // whatever X is our randomly chosen language, and will try to follow the loose rules English follows when
         // it translates a word into an imaginary word in the fake language.
         translator = new NaturalLanguageCipher(rng.getRandomElement(FakeLanguageGen.registered));
-        StringKit.wrap(lang, translator.cipher(artOfWar), gridWidth - 2);
+        StringKit.wrap(lang, translator.cipher(artOfWar), split-2);
         // the 0L here can be used to adjust the languages generated; it acts a little like a seed for an RNG.
         translator.initialize(rng.getRandomElement(FakeLanguageGen.registered), 0L);
 
@@ -497,8 +437,8 @@ public class DastardlyLands extends ApplicationAdapter {
         //Gdx.input.setInputProcessor(input);
         //we add display, our one visual component that moves, to the list of things that act in the main Stage.
         stage.addActor(display);
-        //we add languageDisplay to languageStage, where it will be unchanged by camera moves in the main Stage.
-        languageStage.addActor(languageDisplay);
+        //we add splitDisplay to splitStage, where it will be unchanged by camera moves in the main Stage.
+        splitStage.addActor(splitDisplay);
 
 
     }
@@ -544,7 +484,7 @@ public class DastardlyLands extends ApplicationAdapter {
         // lines using a randomly selected fake language to translate the same Art of War text.
         while (lang.size() < bonusHeight - 1)
         {
-            StringKit.wrap(lang, translator.cipher(artOfWar), gridWidth - 2);
+            StringKit.wrap(lang, translator.cipher(artOfWar), split-2);
             translator.initialize(rng.getRandomElement(FakeLanguageGen.registered), 0L);
         }
     }
@@ -598,11 +538,22 @@ public class DastardlyLands extends ApplicationAdapter {
             // putWithLight() can take mix amounts greater than 1 or less than 0 to mix with extra bias.
             display.putWithLight(pt.x, pt.y, bgColors[pt.x][pt.y], SColor.FLOAT_WHITE, 1.25f);
         }
-        languageDisplay.clear(0);
-        languageDisplay.fillBackground(languageDisplay.defaultPackedBackground);
+        splitDisplay.clear(0);
+        splitDisplay.fillBackground(FLOAT_LIGHTING);
         for (int i = 0; i < 6; i++) {
-            languageDisplay.put(1, i, lang.get(i), SColor.DB_LEAD);
+            splitDisplay.put(1, i, lang.get(i), SColor.DB_LEAD);
         }
+        splitDisplay.fillArea(VERY_DARK_FLOAT, split, 0, gridWidth - split, bonusHeight);
+        char first = playerRole.charAt(0);
+        if(first == 'A' || first == 'E' || first == 'I' || first == 'O' || first == 'U')
+            splitDisplay.put(split+1, 0, "You are an " + playerRole + ".", FLOAT_LIGHTING, 0f);
+        else
+            splitDisplay.put(split+1, 0, "You are a " + playerRole + ".", FLOAT_LIGHTING, 0f);
+        first = enemyRole.charAt(0);
+        if(first == 'A' || first == 'E' || first == 'I' || first == 'O' || first == 'U')
+            splitDisplay.put(split+1, 2, "You must defeat an " + enemyRole + ".", FLOAT_LIGHTING, 0f);
+        else
+            splitDisplay.put(split+1, 2, "You must defeat a " + enemyRole + ".", FLOAT_LIGHTING, 0f);
     }
     @Override
     public void render () {
@@ -654,8 +605,8 @@ public class DastardlyLands extends ApplicationAdapter {
         // will display in the same place even though the map view will move around. We have the language stuff set up
         // its viewport so it is in place and won't be altered by the map. Then we just tell the Stage for the language
         // texts to draw.
-        languageStage.getViewport().apply(false);
-        languageStage.draw();
+        splitStage.getViewport().apply(false);
+        splitStage.draw();
         // certain classes that use scene2d.ui widgets need to be told to act() to process input.
         stage.act();
         // we have the main stage set itself up after the language stage has already drawn.
@@ -673,7 +624,7 @@ public class DastardlyLands extends ApplicationAdapter {
         // total new screen height in pixels divided by total number of rows on the screen
         float currentZoomY = (float)height / (gridHeight + bonusHeight);
         // message box should be given updated bounds since I don't think it will do this automatically
-        languageDisplay.setBounds(0, 0, width, currentZoomY * bonusHeight);
+        splitDisplay.setBounds(0, 0, width, currentZoomY * bonusHeight);
         // SquidMouse turns screen positions to cell positions, and needs to be told that cell sizes have changed
         // a quirk of how the camera works requires the mouse to be offset by half a cell if the width or height is odd
         // (gridWidth & 1) is 1 if gridWidth is odd or 0 if it is even; it's good to know and faster than using % , plus
@@ -681,13 +632,13 @@ public class DastardlyLands extends ApplicationAdapter {
         // x & 1 will always be 0 or 1).
         input.getMouse().reinitialize(currentZoomX, currentZoomY, gridWidth, gridHeight,
                 (gridWidth & 1) * (int)(currentZoomX * -0.5f), (gridHeight & 1) * (int) (currentZoomY * -0.5f));        // the viewports are updated separately so each doesn't interfere with the other's drawn area.
-        languageStage.getViewport().update(width, height, false);
+        splitStage.getViewport().update(width, height, false);
         // we also set the bounds of that drawn area here for each viewport.
-        languageStage.getViewport().setScreenBounds(0, 0, width, (int)languageDisplay.getHeight());
+        splitStage.getViewport().setScreenBounds(0, 0, width, (int) splitDisplay.getHeight());
         // we did this for the language viewport, now again for the main viewport
         stage.getViewport().update(width, height, false);
-        stage.getViewport().setScreenBounds(0, (int)languageDisplay.getHeight(),
-                width, height - (int)languageDisplay.getHeight());
+        stage.getViewport().setScreenBounds(0, (int) splitDisplay.getHeight(),
+                width, height - (int) splitDisplay.getHeight());
     }
 }
 // An explanation of hexadecimal float/double literals was mentioned earlier, so here it is.
