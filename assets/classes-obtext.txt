@@ -195,7 +195,7 @@
   "ailment"
   [2]
   "attack"
-  ["bludgeon" ["anti" ["armor"]]]
+  ["bludgeon" ["anti" ["armored"]]]
   "other"
   ["craft" ["armor"] "upgrade" ["heavy armor"]]
   "item"
@@ -841,7 +841,7 @@
   "ailment"
   [2]
   "attack"
-  ["bow" ["anti" ["armor"]]]
+  ["bow" ["anti" ["armored"]]]
   "stance"
   ["slow" ["accuracy"]]
   "item"
@@ -960,7 +960,7 @@
   "ailment"
   [2]
   "attack"
-  ["saber" ["anti" ["armor"]]]
+  ["saber" ["anti" ["armored"]]]
   "cantrip"
   ["wind" ["speed"]]
   "item"
@@ -2150,7 +2150,7 @@
   "ailment"
   [1]
   "attack"
-  ["gun" ["anti" ["armor"]]]
+  ["gun" ["anti" ["armored"]]]
   "tricks"
   ["accuracy" ["damage"]]
   "item"

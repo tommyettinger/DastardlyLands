@@ -9,22 +9,12 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import squidpony.ArrayTools;
-import squidpony.FakeLanguageGen;
-import squidpony.NaturalLanguageCipher;
-import squidpony.StringKit;
+import squidpony.*;
 import squidpony.squidai.DijkstraMap;
 import squidpony.squidgrid.Direction;
 import squidpony.squidgrid.FOV;
 import squidpony.squidgrid.Radius;
-import squidpony.squidgrid.gui.gdx.DefaultResources;
-import squidpony.squidgrid.gui.gdx.MapUtility;
-import squidpony.squidgrid.gui.gdx.PanelEffect;
-import squidpony.squidgrid.gui.gdx.SColor;
-import squidpony.squidgrid.gui.gdx.SparseLayers;
-import squidpony.squidgrid.gui.gdx.SquidInput;
-import squidpony.squidgrid.gui.gdx.SquidMouse;
-import squidpony.squidgrid.gui.gdx.TextCellFactory;
+import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
 import squidpony.squidgrid.mapping.LineKit;
@@ -123,7 +113,7 @@ public class DastardlyLands extends ApplicationAdapter {
     // languages appended after the plain-English version. The contents have the first item removed with each step, and
     // have new translations added whenever the line count is too low.
     private ArrayList<String> lang;
-    private String playerRole, enemyRole;
+    private ObText.ObTextEntry playerRole, enemyRole;
     private ObText roles;
     private double[][] resistance;
     private double[][] visible;
@@ -140,8 +130,8 @@ public class DastardlyLands extends ApplicationAdapter {
         rng = new GWTRNG();
         final String fileText = Gdx.files.internal("classes-obtext.txt").readString();
         roles = new ObText(fileText);
-        playerRole = roles.get(rng.nextInt(200)).primary;
-        enemyRole = roles.get(rng.nextInt(200)).primary;
+        playerRole = roles.get(rng.nextInt(roles.size()));
+        enemyRole = roles.get(rng.nextInt(roles.size()));
         //Some classes in SquidLib need access to a batch to render certain things, so it's a good idea to have one.
         batch = new SpriteBatch();
         StretchViewport mainViewport = new StretchViewport(gridWidth * cellWidth, gridHeight * cellHeight),
@@ -544,16 +534,24 @@ public class DastardlyLands extends ApplicationAdapter {
             splitDisplay.put(1, i, lang.get(i), SColor.DB_LEAD);
         }
         splitDisplay.fillArea(VERY_DARK_FLOAT, split, 0, gridWidth - split, bonusHeight);
-        char first = playerRole.charAt(0);
+        char first = playerRole.primary.charAt(0);
         if(first == 'A' || first == 'E' || first == 'I' || first == 'O' || first == 'U')
-            splitDisplay.put(split+1, 0, "You are an " + playerRole + ".", FLOAT_LIGHTING, 0f);
+            splitDisplay.put(split+1, 0, "You are an " + playerRole.primary + ".", FLOAT_LIGHTING, 0f);
         else
-            splitDisplay.put(split+1, 0, "You are a " + playerRole + ".", FLOAT_LIGHTING, 0f);
-        first = enemyRole.charAt(0);
+            splitDisplay.put(split+1, 0, "You are a " + playerRole.primary + ".", FLOAT_LIGHTING, 0f);
+        first = enemyRole.primary.charAt(0);
         if(first == 'A' || first == 'E' || first == 'I' || first == 'O' || first == 'U')
-            splitDisplay.put(split+1, 2, "You must defeat an " + enemyRole + ".", FLOAT_LIGHTING, 0f);
+            splitDisplay.put(split+1, 2, "You must defeat an " + enemyRole.primary + ".", FLOAT_LIGHTING, 0f);
         else
-            splitDisplay.put(split+1, 2, "You must defeat a " + enemyRole + ".", FLOAT_LIGHTING, 0f);
+            splitDisplay.put(split+1, 2, "You must defeat a " + enemyRole.primary + ".", FLOAT_LIGHTING, 0f);
+        for(ObText.ObTextEntry ent : playerRole.associated)
+        {
+            if(ent.primary.equals("attack"))
+            {
+                splitDisplay.put(split+1, 4, "You can make " + ent.firstAssociatedString() + " attacks.", FLOAT_LIGHTING, 0f);
+                break;
+            }
+        }
     }
     @Override
     public void render () {
