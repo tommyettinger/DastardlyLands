@@ -4,16 +4,21 @@ package com.github.tommyettinger.dl;
  * Created by Tommy Ettinger on 4/29/2019.
  */
 public class Trait {
-    public String category, kind, improvement;
+    public enum Category {
+        attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field,
+        item, passive, assist, hamper, other;
+    }
+    public Category category;
+    public String kind, improvement;
     public Trait()
     {
-        category = "attack";
+        category = Category.attack;
         kind = "blade";
         improvement = "with better damage";
     }
     public Trait(String category, String kind, String improvement)
     {
-        this.category = category;
+        this.category = Category.valueOf(category);
         this.kind = kind;
         this.improvement = improvement;
     }

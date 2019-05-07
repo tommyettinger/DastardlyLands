@@ -65,7 +65,7 @@
 		#"reduce disruption affecting allies" {["hamper"] [["disrupt"]]}
 		#"([^,]+), (.+)" :>> (fn [[_ half1 half2]] {["other"] [(parse-half half1) (parse-half half2)]})
 	))
-
+#_[attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, item, passive, assist, hamper, other]
 (def fin (into (sorted-map) (with-open [rdr (clojure.java.io/reader "complex-classes.txt")]
          (mapv (fn [st] (let
          	[[_ class-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [class-name (vec (conj (map parse-entry more) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))

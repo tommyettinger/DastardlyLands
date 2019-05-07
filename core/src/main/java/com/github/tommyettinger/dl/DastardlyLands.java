@@ -430,7 +430,8 @@ public class DastardlyLands extends ApplicationAdapter {
         //we add splitDisplay to splitStage, where it will be unchanged by camera moves in the main Stage.
         splitStage.addActor(splitDisplay);
 
-
+        System.out.println(playerRole.primary);
+        System.out.println(playerRole.associated.get(4).primary + ": " + StringKit.join(", ", playerRole.associated.get(4).shallowContents()));
     }
     /**
      * Move the player if he isn't bumping into a wall or trying to go off the map somehow.
