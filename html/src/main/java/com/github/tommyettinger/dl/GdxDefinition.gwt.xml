@@ -7,6 +7,10 @@
     <inherits name="regexodus" />
     <inherits name="squidlib" />
     <inherits name="squidlib-util" />
+    <inherits name='com.artemis.backends.artemis_backends_gwt' />
+    
+    <extend-configuration-property name="artemis.reflect.include" value="com.github.tommyettinger.dl.component" />
+    
     <entry-point class="com.github.tommyettinger.dl.gwt.GwtLauncher" />
     <set-configuration-property name="gdx.assetpath" value="../assets" />
     <set-configuration-property name="xsiframe.failIfScriptTag" value="FALSE"/>
