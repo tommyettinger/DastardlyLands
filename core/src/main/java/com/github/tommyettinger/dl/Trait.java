@@ -5,7 +5,7 @@ package com.github.tommyettinger.dl;
  */
 public class Trait {
     public enum Category {
-        attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field,
+        attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, infuse,
         item, passive, assist, hamper, other;
     }
     public Category category;

@@ -32,9 +32,9 @@
 		#"may inflict (\w+)" :>> (fn [[_ alpha]] ["weaken" alpha])
 		#"acts as (.+)" :>> (fn [[_ alpha]] ["fused" alpha])
 		#"(\w+) element" :>> (fn [[_ alpha]] ["element" alpha])
-		#"uses sp" ["needs" "sp"]
-		#"ambush required" ["needs" "ambush"]
-		#"pause required" ["needs" "pause"]
+		#"uses sp" ["sp"]
+		#"ambush required" ["ambush"]
+		#"pause required" ["pause"]
 	))
 (defn parse-entry [st]
 	(condp re-matches (s/lower-case st)
@@ -50,7 +50,7 @@
 		#"(\w+) affliction, (.+)" :>> (fn [[_ beta up]] {["afflict" beta] [(parse-upgrade up)]})
 		#"(\w+) boost, (.+)" :>> (fn [[_ beta up]] {["boost" beta] [(parse-upgrade up)]})
 		#"stance, suffer (\w+), (.+)" :>> (fn [[_ beta up]] {["stance" beta] [(parse-upgrade up)]})
-		#"infuse weapons with (\w+), (.+)" :>> (fn [[_ beta up]] {["boost" beta] [(parse-upgrade up)]})
+		#"infuse weapons with (\w+), (.+)" :>> (fn [[_ beta up]] {["infuse" beta] [(parse-upgrade up)]})
 		#"superior ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" (str beta "+")] [(parse-upgrade up)]})
 		#"twin ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" beta beta] [(parse-upgrade up)]})
 		#"party is immune to (\w+) when fielded" :>> (fn [[_ beta]] {["assist"] [["immune" beta]]})

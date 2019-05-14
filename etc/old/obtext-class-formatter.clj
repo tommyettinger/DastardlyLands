@@ -32,9 +32,9 @@
 		#"may inflict (\w+)" :>> (fn [[_ alpha]] ["weaken" alpha])
 		#"acts as (.+)" :>> (fn [[_ alpha]] ["fused" alpha])
 		#"(\w+) element" :>> (fn [[_ alpha]] ["element" alpha])
-		#"uses sp" ["needs" "sp"]
-		#"ambush required" ["needs" "ambush"]
-		#"pause required" ["needs" "pause"]
+		#"uses sp" ["sp"]
+		#"ambush required" ["ambush"]
+		#"pause required" ["pause"]
 	))
 (defn parse-entry [st]
 	(condp re-matches (s/lower-case st)
@@ -50,7 +50,7 @@
 		#"(\w+) affliction, (.+)" :>> (fn [[_ beta up]] {["afflict" beta] [(parse-upgrade up)]})
 		#"(\w+) boost, (.+)" :>> (fn [[_ beta up]] {["boost" beta] [(parse-upgrade up)]})
 		#"stance, suffer (\w+), (.+)" :>> (fn [[_ beta up]] {["stance" beta] [(parse-upgrade up)]})
-		#"infuse weapons with (\w+), (.+)" :>> (fn [[_ beta up]] {["boost" beta] [(parse-upgrade up)]})
+		#"infuse weapons with (\w+), (.+)" :>> (fn [[_ beta up]] {["infuse" beta] [(parse-upgrade up)]})
 		#"superior ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" (str beta "+")] [(parse-upgrade up)]})
 		#"twin ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" beta beta] [(parse-upgrade up)]})
 		#"party is immune to (\w+) when fielded" :>> (fn [[_ beta]] {["assist"] [["immune" beta]]})
@@ -65,7 +65,7 @@
 		#"reduce disruption affecting allies" {["hamper"] [["disrupt"]]}
 		#"([^,]+), (.+)" :>> (fn [[_ half1 half2]] {["other"] [(parse-half half1) (parse-half half2)]})
 	))
-#_[attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, item, passive, assist, hamper, other]
+#_[attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, infuse, item, passive, assist, hamper, other]
 (def fin (into (sorted-map) (with-open [rdr (clojure.java.io/reader "complex-classes.txt")]
          (mapv (fn [st] (let
          	[[_ class-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [class-name (vec (conj (map parse-entry more) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))
@@ -76,4 +76,4 @@
     [main-key [(get-in vc [0 0 1]) (if (= (count (get-in vc [0 1 0])) 1) (get-in vc [0 1 0]) [(get-in vc [0 1 0 0]) [(get-in vc [0 1 0 1])]])]]))) ms))))]) fin)))
 
 
-(spit (clojure.string/replace (with-out-str (ppr/pprint fin2)) #"[\{\}]" "") (str "classes-" (System/currentTimeMillis) ".txt"))
+(spit (str "classes-" (System/currentTimeMillis) ".txt") (clojure.string/replace (with-out-str (ppr/pprint fin2)) #"[\{\}]" ""))

@@ -1,4 +1,4 @@
- "Abjurer"
+"Abjurer"
  ["melee"
   [1]
   "ranged"
@@ -14,7 +14,7 @@
   "item"
   ["grimoire+" ["fused" ["shield"]]]
   "counter"
-  ["magic" ["weaken" ["nullify"]]]]
+  ["magic" ["weaken" ["nullify"]]]],
  "Acrobat"
  ["melee"
   [2]
@@ -25,13 +25,13 @@
   "ailment"
   [2]
   "attack"
-  ["unarmed" ["anti" ["moving"]]]
+  ["unarmed" ["weaken" ["slow"]]]
   "passive"
   ["mobile" ["dominate"]]
   "item"
   ["utility harness+" ["fused" ["sandals"]]]
   "tricks"
-  ["speed" ["speed"]]]
+  ["speed" ["speed"]]],
  "Adept"
  ["melee"
   [1]
@@ -48,7 +48,7 @@
   "other"
   ["craft" ["primal"] "upgrade" ["totem"]]
   "other"
-  ["forage" "identify" ["primal"]]]
+  ["forage" "identify" ["primal"]]],
  "Agent"
  ["melee"
   [3]
@@ -65,7 +65,7 @@
   "item"
   ["suit+" ["fused" ["black belt"]]]
   "tricks"
-  ["speed" ["weaken" ["confuse"]]]]
+  ["speed" ["weaken" ["confuse"]]]],
  "Alchemist"
  ["melee"
   [1]
@@ -82,7 +82,7 @@
   "other"
   ["craft" ["prototypes"] "upgrade" ["acid"]]
   "item"
-  ["bomb set+" ["accuracy"]]]
+  ["bomb set+" ["accuracy"]]],
  "Anarchist"
  ["melee"
   [4]
@@ -94,12 +94,12 @@
   [2]
   "attack"
   ["thrown" ["disrupt"]]
-  "boost"
-  ["entropy" ["needs" ["sp"]]]
+  "infuse"
+  ["entropy" ["sp"]]
   "other"
   ["break" ["restore"] "ruin" ["mundane"]]
   "assist"
-  ["disrupt"]]
+  ["disrupt"]],
  "Annihilator"
  ["melee"
   [1]
@@ -116,7 +116,7 @@
   "other"
   ["break" ["restore"] "limitless" ["fury froth"]]
   "arcana"
-  ["damage" ["damage"]]]
+  ["damage" ["damage"]]],
  "Arborist"
  ["melee"
   [2]
@@ -133,7 +133,7 @@
   "other"
   ["forage" "identify" ["wooden"]]
   "item"
-  ["greataxe+" ["accuracy"]]]
+  ["greataxe+" ["accuracy"]]],
  "Archer"
  ["melee"
   [0]
@@ -150,7 +150,7 @@
   "item"
   ["bow+" ["damage"]]
   "item"
-  ["quiver+" ["accuracy"]]]
+  ["quiver+" ["accuracy"]]],
  "Architect"
  ["melee"
   [2]
@@ -167,7 +167,7 @@
   "other"
   ["reveal" "maintain"]
   "other"
-  ["limitless" ["safety rune"] "identify" ["stone"]]]
+  ["limitless" ["safety rune"] "identify" ["stone"]]],
  "Ardent"
  ["melee"
   [3]
@@ -184,7 +184,7 @@
   "item"
   ["saber+" ["element" ["holy"]]]
   "item"
-  ["heavy armor+" ["fused" ["encyclopedia"]]]]
+  ["heavy armor+" ["fused" ["encyclopedia"]]]],
  "Armorer"
  ["melee"
   [4]
@@ -195,13 +195,13 @@
   "ailment"
   [2]
   "attack"
-  ["bludgeon" ["anti" ["armor"]]]
+  ["bludgeon" ["weaken" ["pin"]]]
   "other"
   ["craft" ["armor"] "upgrade" ["heavy armor"]]
   "item"
-  ["light armor+" ["resist"]]
+  ["light armor+" ["fused" ["mask"]]]
   "item"
-  ["hammer+" ["damage"]]]
+  ["hammer+" ["damage"]]],
  "Arrow Sage"
  ["melee"
   [0]
@@ -213,12 +213,12 @@
   [2]
   "attack"
   ["bow" ["accuracy"]]
-  "boost"
-  ["wind" ["needs" ["pause"]]]
+  "infuse"
+  ["wind" ["pause"]]
   "item"
   ["quiver+" ["speed"]]
   "other"
-  ["upgrade" ["quiver"] "reveal"]]
+  ["upgrade" ["quiver"] "reveal"]],
  "Artificer"
  ["melee"
   [3]
@@ -230,12 +230,12 @@
   [1]
   "attack"
   ["bludgeon" ["damage"]]
-  "boost"
-  ["earth" ["needs" ["sp"]]]
+  "infuse"
+  ["earth" ["sp"]]
   "other"
   ["craft" ["arcane"] "identify" ["stone"]]
   "item"
-  ["hammer" ["accuracy"]]]
+  ["hammer" ["accuracy"]]],
  "Ascetic"
  ["melee"
   [0]
@@ -252,7 +252,7 @@
   "assist"
   ["immune" ["hunger"]]
   "other"
-  ["limitless" ["pure water"] "identify" ["divine"]]]
+  ["limitless" ["pure water"] "identify" ["divine"]]],
  "Assassin"
  ["melee"
   [3]
@@ -264,12 +264,12 @@
   [2]
   "attack"
   ["knife" ["speed"]]
-  "boost"
-  ["poison" ["needs" ["ambush"]]]
+  "infuse"
+  ["poison" ["ambush"]]
   "item"
   ["stealth garb+" ["fused" ["utility harness"]]]
   "item"
-  ["dagger set+" ["accuracy"]]]
+  ["dagger set+" ["accuracy"]]],
  "Astrologer"
  ["melee"
   [0]
@@ -286,7 +286,7 @@
   "item"
   ["orb+" ["fused" ["encyclopedia"]]]
   "boost"
-  ["lucky" ["range"]]]
+  ["lucky" ["range"]]],
  "Atomic Mage"
  ["melee"
   [1]
@@ -303,7 +303,7 @@
   "other"
   ["limitless" ["uranium ore"] "sap"]
   "assist"
-  ["immune" ["atomic"]]]
+  ["immune" ["atomic"]]],
  "Avenger"
  ["melee"
   [3]
@@ -320,7 +320,7 @@
   "other"
   ["cleanse" "identify" ["divine"]]
   "item"
-  ["dagger set+" ["element" ["holy"]]]]
+  ["dagger set+" ["element" ["holy"]]]],
  "Baffler"
  ["melee"
   [3]
@@ -337,7 +337,7 @@
   "item"
   ["cape+" ["speed"]]
   "afflict"
-  ["slow" ["speed"]]]
+  ["slow" ["speed"]]],
  "Baker"
  ["melee"
   [3]
@@ -354,7 +354,7 @@
   "other"
   ["craft" ["food"] "upgrade" ["bread"]]
   "other"
-  ["limitless" ["bread"] "identify" ["food"]]]
+  ["limitless" ["bread"] "identify" ["food"]]],
  "Balancer"
  ["melee"
   [3]
@@ -371,7 +371,7 @@
   "item"
   ["polearm+" ["fused" ["scepter"]]]
   "counter"
-  ["magic" ["weaken" ["curse"]]]]
+  ["magic" ["weaken" ["curse"]]]],
  "Barbarian"
  ["melee"
   [4]
@@ -388,7 +388,7 @@
   "other"
   ["break" ["dominate"] "limitless" ["meat"]]
   "attack"
-  ["unarmed" ["weaken" ["daze"]]]]
+  ["unarmed" ["disrupt"]]],
  "Bard"
  ["melee"
   [1]
@@ -405,7 +405,7 @@
   "item"
   ["instrument+" ["speed"]]
   "afflict"
-  ["charm" ["duration"]]]
+  ["charm" ["duration"]]],
  "Bartender"
  ["melee"
   [2]
@@ -422,7 +422,7 @@
   "other"
   ["limitless" ["liquor"] "cleanse"]
   "other"
-  ["limitless" ["beer"] "identify" ["potions"]]]
+  ["limitless" ["beer"] "identify" ["potions"]]],
  "Beguiler"
  ["melee"
   [1]
@@ -439,7 +439,7 @@
   "item"
   ["elegant garb+" ["fused" ["orb"]]]
   "cantrip"
-  ["hex" ["accuracy"]]]
+  ["hex" ["accuracy"]]],
  "Berserker"
  ["melee"
   [4]
@@ -456,7 +456,7 @@
   "item"
   ["cloak+" ["fused" ["totem"]]]
   "passive"
-  ["immune" ["poison" "fear" "pain"]]]
+  ["immune" ["poison" "fear" "pain"]]],
  "Binder"
  ["melee"
   [3]
@@ -473,7 +473,7 @@
   "item"
   ["crown+" ["fused" ["grimoire"]]]
   "other"
-  ["sap" "identify" ["occult"]]]
+  ["sap" "identify" ["occult"]]],
  "Bladesmith"
  ["melee"
   [4]
@@ -490,7 +490,7 @@
   "other"
   ["craft" ["weapons"] "upgrade" ["katana"]]
   "other"
-  ["upgrade" ["longsword"] "upgrade" ["broadsword"]]]
+  ["upgrade" ["longsword"] "upgrade" ["broadsword"]]],
  "Blighter"
  ["melee"
   [3]
@@ -507,7 +507,7 @@
   "cantrip"
   ["wasting" ["anti" ["animal"]]]
   "other"
-  ["defile" "identify" ["primal"]]]
+  ["defile" "identify" ["primal"]]],
  "Blood Mage"
  ["melee"
   [1]
@@ -524,7 +524,7 @@
   "other"
   ["limitless" ["serum"] "identify" ["potions"]]
   "cantrip"
-  ["hex" ["accuracy"]]]
+  ["hex" ["accuracy"]]],
  "Bodyguard"
  ["melee"
   [4]
@@ -541,7 +541,7 @@
   "item"
   ["suit+" ["fused" ["light armor"]]]
   "counter"
-  ["melee" ["speed"]]]
+  ["melee" ["speed"]]],
  "Bomber"
  ["melee"
   [0]
@@ -552,13 +552,13 @@
   "ailment"
   [1]
   "attack"
-  ["thrown" ["spread"]]
+  ["thrown" ["range"]]
   "attack"
   ["trap" ["damage"]]
   "item"
   ["bomb set+" ["damage"]]
   "other"
-  ["craft" ["prototypes"] "upgrade" ["sticky flame"]]]
+  ["craft" ["prototypes"] "upgrade" ["sticky flame"]]],
  "Bone Mage"
  ["melee"
   [3]
@@ -575,7 +575,7 @@
   "item"
   ["light armor+" ["fused" ["armor spikes"]]]
   "boost"
-  ["ward" ["duration"]]]
+  ["ward" ["duration"]]],
  "Bowyer"
  ["melee"
   [2]
@@ -592,7 +592,7 @@
   "item"
   ["bow+" ["speed"]]
   "other"
-  ["upgrade" ["bow"] "upgrade" ["crossbow"]]]
+  ["upgrade" ["bow"] "upgrade" ["crossbow"]]],
  "Brahmin"
  ["melee"
   [2]
@@ -609,7 +609,7 @@
   "other"
   ["limitless" ["prayer bead"] "identify" ["written"]]
   "other"
-  ["reveal" "limitless" ["pure water"]]]
+  ["reveal" "limitless" ["pure water"]]],
  "Brewer"
  ["melee"
   [3]
@@ -626,7 +626,7 @@
   "other"
   ["craft" ["potions"] "upgrade" ["liquor"]]
   "afflict"
-  ["sicken" ["accuracy"]]]
+  ["sicken" ["accuracy"]]],
  "Brute"
  ["melee"
   [4]
@@ -643,7 +643,7 @@
   "other"
   ["break" ["disrupt"] "ruin" ["mundane"]]
   "passive"
-  ["immune" ["sicken" "scorn" "pain"]]]
+  ["immune" ["sicken" "scorn" "pain"]]],
  "Butcher"
  ["melee"
   [3]
@@ -660,7 +660,7 @@
   "other"
   ["ruin" ["mundane"] "poach"]
   "item"
-  ["carving knife+" ["damage"]]]
+  ["carving knife+" ["damage"]]],
  "Cackling Witch"
  ["melee"
   [1]
@@ -677,7 +677,7 @@
   "other"
   ["defile" "recharge"]
   "cantrip"
-  ["sound" ["spread"]]]
+  ["sound" ["spread"]]],
  "Cannoneer"
  ["melee"
   [2]
@@ -694,7 +694,7 @@
   "item"
   ["cannon+" ["damage"]]
   "other"
-  ["limitless" ["blast powder"] "break" ["disrupt"]]]
+  ["limitless" ["blast powder"] "break" ["disrupt"]]],
  "Cantor"
  ["melee"
   [2]
@@ -711,7 +711,7 @@
   "item"
   ["instrument+" ["fused" ["crystal"]]]
   "cantrip"
-  ["sound" ["duration"]]]
+  ["sound" ["duration"]]],
  "Cavalier"
  ["melee"
   [3]
@@ -728,7 +728,7 @@
   "item"
   ["lance+" ["damage"]]
   "tricks"
-  ["damage" ["speed"]]]
+  ["damage" ["speed"]]],
  "Chaser"
  ["melee"
   [3]
@@ -745,7 +745,7 @@
   "other"
   ["forage" "poach"]
   "item"
-  ["totem+" ["fused" ["sandals"]]]]
+  ["totem+" ["fused" ["sandals"]]]],
  "Cheesemaker"
  ["melee"
   [1]
@@ -762,7 +762,7 @@
   "other"
   ["craft" ["foods"] "upgrade" ["cheese"]]
   "other"
-  ["forage" "defile"]]
+  ["forage" "defile"]],
  "Chronomancer"
  ["melee"
   [0]
@@ -779,7 +779,7 @@
   "assist"
   ["immune" ["slow"]]
   "stance"
-  ["curse" ["speed"]]]
+  ["curse" ["speed"]]],
  "Churchless Cleric"
  ["melee"
   [2]
@@ -796,7 +796,7 @@
   "assist"
   ["immune" ["wasting"]]
   "attack"
-  ["staff" ["speed"]]]
+  ["staff" ["speed"]]],
  "Confectioner"
  ["melee"
   [1]
@@ -813,7 +813,7 @@
   "other"
   ["craft" ["foods"] "upgrade" ["candy"]]
   "afflict"
-  ["pin" ["accuracy"]]]
+  ["pin" ["accuracy"]]],
  "Conjurer"
  ["melee"
   [2]
@@ -830,7 +830,7 @@
   "other"
   ["limitless" ["acid"] "identify" ["arcane"]]
   "spell"
-  ["water" ["accuracy"]]]
+  ["water" ["accuracy"]]],
  "Crossbowman"
  ["melee"
   [1]
@@ -841,13 +841,13 @@
   "ailment"
   [2]
   "attack"
-  ["bow" ["anti" ["armor"]]]
+  ["bow" ["damage"]]
   "stance"
   ["slow" ["accuracy"]]
   "item"
   ["crossbow+" ["range"]]
   "tricks"
-  ["accuracy" ["weaken" ["slow"]]]]
+  ["accuracy" ["weaken" ["slow"]]]],
  "Daggermaster"
  ["melee"
   [3]
@@ -864,7 +864,7 @@
   "item"
   ["dagger set+" ["speed"]]
   "counter"
-  ["melee" ["weaken" ["disarm"]]]]
+  ["melee" ["weaken" ["disarm"]]]],
  "Dark Mage"
  ["melee"
   [0]
@@ -881,7 +881,7 @@
   "assist"
   ["immune" ["blind"]]
   "item"
-  ["orb+" ["damage"]]]
+  ["orb+" ["damage"]]],
  "Dawnblade"
  ["melee"
   [4]
@@ -898,7 +898,7 @@
   "item"
   ["saber+" ["element" ["light"]]]
   "boost"
-  ["serene" ["accuracy"]]]
+  ["serene" ["accuracy"]]],
  "Death Knight"
  ["melee"
   [3]
@@ -910,12 +910,12 @@
   [3]
   "attack"
   ["blade" ["weaken" ["pain"]]]
-  "boost"
-  ["wasting" ["needs" ["sp"]]]
+  "infuse"
+  ["wasting" ["sp"]]
   "item"
   ["broadsword+" ["damage"]]
   "tricks"
-  ["damage" ["accuracy"]]]
+  ["damage" ["accuracy"]]],
  "Demonwearer"
  ["melee"
   [4]
@@ -932,7 +932,7 @@
   "item"
   ["cape+" ["fused" ["armor spikes"]]]
   "counter"
-  ["melee" ["damage"]]]
+  ["melee" ["damage"]]],
  "Diplomat"
  ["melee"
   [1]
@@ -949,7 +949,7 @@
   "assist"
   ["immune" ["scorn"]]
   "other"
-  ["limitless" ["shackle glyph"] "identify" ["written"]]]
+  ["limitless" ["shackle glyph"] "identify" ["written"]]],
  "Disciple"
  ["melee"
   [2]
@@ -960,13 +960,13 @@
   "ailment"
   [2]
   "attack"
-  ["saber" ["anti" ["armor"]]]
+  ["saber" ["damage"]]
   "cantrip"
   ["wind" ["speed"]]
   "item"
   ["saber+" ["fused" ["light armor"]]]
   "counter"
-  ["ranged" ["speed"]]]
+  ["ranged" ["speed"]]],
  "Diviner"
  ["melee"
   [0]
@@ -983,7 +983,7 @@
   "item"
   ["cannon+" ["range"]]
   "other"
-  ["identify" ["arcane"] "reveal"]]
+  ["identify" ["arcane"] "reveal"]],
  "Doctor"
  ["melee"
   [2]
@@ -1000,7 +1000,7 @@
   "other"
   ["preserve" "poach"]
   "other"
-  ["cleanse" "limitless" ["liquor"]]]
+  ["cleanse" "limitless" ["liquor"]]],
  "Doomsayer"
  ["melee"
   [1]
@@ -1017,7 +1017,7 @@
   "other"
   ["defile" "identify" ["occult"]]
   "item"
-  ["hat+" ["fused" ["orb"]]]]
+  ["hat+" ["fused" ["orb"]]]],
  "Dracomancer"
  ["melee"
   [3]
@@ -1034,7 +1034,7 @@
   "item"
   ["staff+" ["fused" ["scepter"]]]
   "afflict"
-  ["fear" ["duration"]]]
+  ["fear" ["duration"]]],
  "Dressmaker"
  ["melee"
   [3]
@@ -1051,7 +1051,7 @@
   "other"
   ["craft" ["clothing"] "upgrade" ["elegant garb"]]
   "afflict"
-  ["disarm" ["accuracy"]]]
+  ["disarm" ["accuracy"]]],
  "Druid"
  ["melee"
   [3]
@@ -1068,7 +1068,7 @@
   "other"
   ["forage" "identify" ["primal"]]
   "cantrip"
-  ["water" ["damage"]]]
+  ["water" ["damage"]]],
  "Duskblade"
  ["melee"
   [4]
@@ -1085,7 +1085,7 @@
   "item"
   ["saber+" ["element" ["atomic"]]]
   "counter"
-  ["melee" ["disrupt"]]]
+  ["melee" ["disrupt"]]],
  "Earth Mage"
  ["melee"
   [2]
@@ -1102,7 +1102,7 @@
   "other"
   ["reveal" "maintain"]
   "other"
-  ["limitless" ["rumble stone"] "identify" ["stone"]]]
+  ["limitless" ["rumble stone"] "identify" ["stone"]]],
  "Elite Trooper"
  ["melee"
   [3]
@@ -1119,7 +1119,7 @@
   "item"
   ["heavy armor+" ["fused" ["musket"]]]
   "tricks"
-  ["speed" ["accuracy"]]]
+  ["speed" ["accuracy"]]],
  "Empath"
  ["melee"
   [1]
@@ -1136,7 +1136,7 @@
   "assist"
   ["immune" ["confuse"]]
   "assist"
-  ["dominate"]]
+  ["dominate"]],
  "Enforcer"
  ["melee"
   [0]
@@ -1153,7 +1153,7 @@
   "item"
   ["grimoire+" ["accuracy"]]
   "afflict"
-  ["nullify" ["accuracy"]]]
+  ["nullify" ["accuracy"]]],
  "Eternalist"
  ["melee"
   [2]
@@ -1170,7 +1170,7 @@
   "other"
   ["preserve" "identify" ["occult"]]
   "item"
-  ["grimoire+" ["fused" ["crystal"]]]]
+  ["grimoire+" ["fused" ["crystal"]]]],
  "Evangelist"
  ["melee"
   [1]
@@ -1187,7 +1187,7 @@
   "assist"
   ["immune" ["fear"]]
   "afflict"
-  ["confuse" ["accuracy"]]]
+  ["confuse" ["accuracy"]]],
  "Evoker"
  ["melee"
   [1]
@@ -1204,7 +1204,7 @@
   "item"
   ["scepter+" ["accuracy"]]
   "spell"
-  ["fire" ["damage"]]]
+  ["fire" ["damage"]]],
  "Exemplar"
  ["melee"
   [3]
@@ -1216,12 +1216,12 @@
   [0]
   "attack"
   ["unarmed" ["dominate"]]
-  "boost"
-  ["atomic" ["needs" ["sp"]]]
+  "infuse"
+  ["atomic" ["sp"]]
   "item"
   ["crown+" ["fused" ["light armor"]]]
   "counter"
-  ["melee" ["damage"]]]
+  ["melee" ["damage"]]],
  "Exorcist"
  ["melee"
   [2]
@@ -1238,7 +1238,7 @@
   "passive"
   ["immune" ["wasting" "curse" "fear"]]
   "attack"
-  ["angelic" ["disrupt"]]]
+  ["angelic" ["disrupt"]]],
  "Fencer"
  ["melee"
   [4]
@@ -1255,7 +1255,7 @@
   "item"
   ["saber+" ["accuracy"]]
   "counter"
-  ["melee" ["speed"]]]
+  ["melee" ["speed"]]],
  "Feytouched"
  ["melee"
   [0]
@@ -1272,7 +1272,7 @@
   "passive"
   ["immune" ["charm" "confuse" "berserk"]]
   "afflict"
-  ["scorn" ["speed"]]]
+  ["scorn" ["speed"]]],
  "Fire Mage"
  ["melee"
   [1]
@@ -1289,7 +1289,7 @@
   "assist"
   ["immune" ["fire"]]
   "other"
-  ["limitless" ["sticky flame"] "upgrade" ["nut"]]]
+  ["limitless" ["sticky flame"] "upgrade" ["nut"]]],
  "Fisherman"
  ["melee"
   [2]
@@ -1306,7 +1306,7 @@
   "other"
   ["limitless" ["fish"] "poach"]
   "item"
-  ["net+" ["speed"]]]
+  ["net+" ["speed"]]],
  "Fishmonger"
  ["melee"
   [3]
@@ -1323,7 +1323,7 @@
   "other"
   ["limitless" ["fish"] "maintain"]
   "assist"
-  ["disrupt"]]
+  ["disrupt"]],
  "Fist Fighter"
  ["melee"
   [4]
@@ -1340,7 +1340,7 @@
   "assist"
   ["immune" ["slow"]]
   "counter"
-  ["melee" ["weaken" ["confuse"]]]]
+  ["melee" ["weaken" ["confuse"]]]],
  "Gadgeteer"
  ["melee"
   [2]
@@ -1357,7 +1357,7 @@
   "item"
   ["utility harness+" ["fused" ["light armor"]]]
   "attack"
-  ["trap" ["speed"]]]
+  ["trap" ["speed"]]],
  "Gambler"
  ["melee"
   [1]
@@ -1374,7 +1374,7 @@
   "item"
   ["hat+" ["fused" ["grimoire"]]]
   "cantrip"
-  ["hex" ["speed"]]]
+  ["hex" ["speed"]]],
  "Gatekeeper"
  ["melee"
   [1]
@@ -1391,7 +1391,7 @@
   "other"
   ["cleanse" "maintain"]
   "item"
-  ["fossil fang+" ["fused" ["totem"]]]]
+  ["fossil fang+" ["fused" ["totem"]]]],
  "Gatherer"
  ["melee"
   [2]
@@ -1408,7 +1408,7 @@
   "other"
   ["limitless" ["nut"] "identify" ["food"]]
   "other"
-  ["limitless" ["vegetable"] "forage"]]
+  ["limitless" ["vegetable"] "forage"]],
  "Geometer"
  ["melee"
   [2]
@@ -1425,7 +1425,7 @@
   "other"
   ["limitless" ["safety rune"] "cleanse"]
   "cantrip"
-  ["fortune" ["range"]]]
+  ["fortune" ["range"]]],
  "Gladiator"
  ["melee"
   [4]
@@ -1442,7 +1442,7 @@
   "item"
   ["shortsword+" ["damage"]]
   "counter"
-  ["melee" ["weaken" ["scorn"]]]]
+  ["melee" ["weaken" ["scorn"]]]],
  "Haberdasher"
  ["melee"
   [1]
@@ -1459,7 +1459,7 @@
   "other"
   ["craft" ["clothing"] "upgrade" ["hat"]]
   "afflict"
-  ["charm" ["accuracy"]]]
+  ["charm" ["accuracy"]]],
  "Harlequin"
  ["melee"
   [2]
@@ -1476,7 +1476,7 @@
   "item"
   ["bomb set+" ["speed"]]
   "tricks"
-  ["speed" ["weaken" ["curse"]]]]
+  ["speed" ["weaken" ["curse"]]]],
  "Havoc Mage"
  ["melee"
   [3]
@@ -1493,7 +1493,7 @@
   "spell"
   ["entropy" ["damage"]]
   "item"
-  ["flail+" ["fused" ["scepter"]]]]
+  ["flail+" ["fused" ["scepter"]]]],
  "Hedge Mage"
  ["melee"
   [1]
@@ -1510,7 +1510,7 @@
   "other"
   ["craft" ["potions"] "upgrade" ["ambrosia"]]
   "other"
-  ["cleanse" "forage"]]
+  ["cleanse" "forage"]],
  "Herder"
  ["melee"
   [2]
@@ -1527,7 +1527,7 @@
   "assist"
   ["immune" ["confuse"]]
   "assist"
-  ["dominate"]]
+  ["dominate"]],
  "Hive Caller"
  ["melee"
   [1]
@@ -1544,7 +1544,7 @@
   "item"
   ["light armor+" ["fused" ["cloak"]]]
   "other"
-  ["identify" ["primal"] "limitless" ["honey"]]]
+  ["identify" ["primal"] "limitless" ["honey"]]],
  "Holy Cleric"
  ["melee"
   [1]
@@ -1561,7 +1561,7 @@
   "other"
   ["cleanse" "identify" ["divine"]]
   "hamper"
-  ["disrupt"]]
+  ["disrupt"]],
  "Hooligan"
  ["melee"
   [2]
@@ -1578,7 +1578,7 @@
   "other"
   ["limitless" ["beer"] "ruin" ["mundane"]]
   "assist"
-  ["disrupt"]]
+  ["disrupt"]],
  "Hoplite"
  ["melee"
   [4]
@@ -1595,7 +1595,7 @@
   "counter"
   ["melee" ["dominate"]]
   "item"
-  ["shield+" ["accuracy"]]]
+  ["shield+" ["accuracy"]]],
  "Hunter"
  ["melee"
   [1]
@@ -1612,7 +1612,7 @@
   "tricks"
   ["accuracy" ["damage"]]
   "other"
-  ["limitless" ["meat"] "poach"]]
+  ["limitless" ["meat"] "poach"]],
  "Hurler"
  ["melee"
   [1]
@@ -1629,7 +1629,7 @@
   "item"
   ["javelin set+" ["range"]]
   "item"
-  ["handaxe set+" ["speed"]]]
+  ["handaxe set+" ["speed"]]],
  "Ice Master"
  ["melee"
   [0]
@@ -1646,7 +1646,7 @@
   "other"
   ["limitless" ["pure water"] "preserve"]
   "other"
-  ["limitless" ["cold snap"] "sap"]]
+  ["limitless" ["cold snap"] "sap"]],
  "Ice Stalker"
  ["melee"
   [2]
@@ -1658,12 +1658,12 @@
   [4]
   "attack"
   ["thrown" ["weaken" ["curse"]]]
-  "boost"
-  ["water" ["needs" ["ambush"]]]
+  "infuse"
+  ["water" ["ambush"]]
   "item"
   ["javelin set+" ["damage"]]
   "item"
-  ["stealth garb+" ["fused" ["cloak"]]]]
+  ["stealth garb+" ["fused" ["cloak"]]]],
  "Illusionist"
  ["melee"
   [0]
@@ -1680,7 +1680,7 @@
   "assist"
   ["immune" ["confuse"]]
   "item"
-  ["orb+" ["fused" ["amulet"]]]]
+  ["orb+" ["fused" ["amulet"]]]],
  "Impaler"
  ["melee"
   [3]
@@ -1697,7 +1697,7 @@
   "item"
   ["longspear+" ["damage"]]
   "counter"
-  ["melee" ["speed"]]]
+  ["melee" ["speed"]]],
  "Inquisitor"
  ["melee"
   [1]
@@ -1709,12 +1709,12 @@
   [2]
   "attack"
   ["bow" ["dominate"]]
-  "boost"
-  ["holy" ["needs" ["pause"]]]
+  "infuse"
+  ["holy" ["pause"]]
   "item"
   ["crossbow+" ["accuracy"]]
   "item"
-  ["relic+" ["fused" ["amulet"]]]]
+  ["relic+" ["fused" ["amulet"]]]],
  "Jeweler"
  ["melee"
   [2]
@@ -1731,7 +1731,7 @@
   "other"
   ["limitless" ["uranium ore"] "identify" ["stone"]]
   "other"
-  ["upgrade" ["orb"] "upgrade" ["crown"]]]
+  ["upgrade" ["orb"] "upgrade" ["crown"]]],
  "Juggernaut"
  ["melee"
   [4]
@@ -1748,7 +1748,7 @@
   "item"
   ["heavy armor+" ["fused" ["armor spikes"]]]
   "item"
-  ["crossbow+" ["damage"]]]
+  ["crossbow+" ["damage"]]],
  "Justiciar"
  ["melee"
   [3]
@@ -1760,12 +1760,12 @@
   [2]
   "attack"
   ["spear" ["dominate"]]
-  "boost"
-  ["order" ["needs" ["sp"]]]
+  "infuse"
+  ["order" ["sp"]]
   "other"
   ["limitless" ["shackle glyph"] "maintain"]
   "item"
-  ["marque+" ["fused" ["encyclopedia"]]]]
+  ["marque+" ["fused" ["encyclopedia"]]]],
  "Kensei"
  ["melee"
   [4]
@@ -1782,7 +1782,7 @@
   "item"
   ["katana+" ["damage"]]
   "passive"
-  ["perceptive" ["dominate"]]]
+  ["perceptive" ["dominate"]]],
  "Khan"
  ["melee"
   [1]
@@ -1799,7 +1799,7 @@
   "item"
   ["bow+" ["range"]]
   "tricks"
-  ["damage" ["speed"]]]
+  ["damage" ["speed"]]],
  "Kineticist"
  ["melee"
   [1]
@@ -1816,7 +1816,7 @@
   "assist"
   ["immune" ["pin"]]
   "item"
-  ["crystal+" ["fused" ["sandals"]]]]
+  ["crystal+" ["fused" ["sandals"]]]],
  "Lasher"
  ["melee"
   [3]
@@ -1833,7 +1833,7 @@
   "item"
   ["whip+" ["accuracy"]]
   "item"
-  ["light armor+" ["fused" ["crown"]]]]
+  ["light armor+" ["fused" ["crown"]]]],
  "Liberator"
  ["melee"
   [2]
@@ -1850,7 +1850,7 @@
   "item"
   ["broadsword+" ["speed"]]
   "tricks"
-  ["speed" ["weaken" ["disarm"]]]]
+  ["speed" ["weaken" ["disarm"]]]],
  "Light Mage"
  ["melee"
   [1]
@@ -1867,7 +1867,7 @@
   "other"
   ["limitless" ["sun drop"] "recharge"]
   "item"
-  ["elegant garb+" ["fused" ["robe"]]]]
+  ["elegant garb+" ["fused" ["robe"]]]],
  "Lorekeeper"
  ["melee"
   [2]
@@ -1884,7 +1884,7 @@
   "assist"
   ["immune" ["berserk"]]
   "other"
-  ["identify" ["written"] "limitless" ["forbidden scroll"]]]
+  ["identify" ["written"] "limitless" ["forbidden scroll"]]],
  "Magekiller"
  ["melee"
   [1]
@@ -1901,7 +1901,7 @@
   "other"
   ["limitless" ["dispel gel"] "identify" ["arcane"]]
   "counter"
-  ["magic" ["speed"]]]
+  ["magic" ["speed"]]],
  "Maharaja"
  ["melee"
   [2]
@@ -1918,7 +1918,7 @@
   "item"
   ["elegant garb+" ["fused" ["crown"]]]
   "other"
-  ["limitless" ["pure water"] "acquire" ["valuable"]]]
+  ["limitless" ["pure water"] "acquire" ["valuable"]]],
  "Marauder"
  ["melee"
   [3]
@@ -1929,13 +1929,13 @@
   "ailment"
   [2]
   "attack"
-  ["thrown" ["anti" ["moving"]]]
+  ["thrown" ["damage"]]
   "tricks"
   ["speed" ["disrupt"]]
   "item"
   ["handaxe set+" ["damage"]]
   "assist"
-  ["disrupt"]]
+  ["disrupt"]],
  "Marksman"
  ["melee"
   [2]
@@ -1952,7 +1952,7 @@
   "item"
   ["crossbow+" ["range"]]
   "counter"
-  ["ranged" ["damage"]]]
+  ["ranged" ["damage"]]],
  "Martial Savant"
  ["melee"
   [4]
@@ -1969,7 +1969,7 @@
   "item"
   ["cloak+" ["fused" ["black belt"]]]
   "tricks"
-  ["accuracy" ["speed"]]]
+  ["accuracy" ["speed"]]],
  "Mask Maker"
  ["melee"
   [2]
@@ -1986,7 +1986,7 @@
   "other"
   ["craft" ["primal"] "upgrade" ["mask"]]
   "item"
-  ["hatchet+" ["accuracy"]]]
+  ["hatchet+" ["accuracy"]]],
  "Mastermind"
  ["melee"
   [2]
@@ -2003,7 +2003,7 @@
   "other"
   ["reveal" "identify" ["valuable"]]
   "assist"
-  ["immune" ["confuse"]]]
+  ["immune" ["confuse"]]],
  "Merchant"
  ["melee"
   [2]
@@ -2020,7 +2020,7 @@
   "other"
   ["acquire" ["mundane"] "identify" ["valuable"]]
   "afflict"
-  ["confuse" ["speed"]]]
+  ["confuse" ["speed"]]],
  "Merged Warrior"
  ["melee"
   [4]
@@ -2037,7 +2037,7 @@
   "passive"
   ["immune" ["hunger" "pain" "bloodlet"]]
   "item"
-  ["heavy armor+" ["fused" ["utility harness"]]]]
+  ["heavy armor+" ["fused" ["utility harness"]]]],
  "Metamancer"
  ["melee"
   [0]
@@ -2054,7 +2054,7 @@
   "assist"
   ["immune" ["nullify"]]
   "afflict"
-  ["curse" ["accuracy"]]]
+  ["curse" ["accuracy"]]],
  "Mindblade"
  ["melee"
   [3]
@@ -2071,7 +2071,7 @@
   "item"
   ["dagger set+" ["fused" ["orb"]]]
   "tricks"
-  ["accuracy" ["weaken" ["confuse"]]]]
+  ["accuracy" ["weaken" ["confuse"]]]],
  "Mirror Mage"
  ["melee"
   [1]
@@ -2088,7 +2088,7 @@
   "assist"
   ["immune" ["light"]]
   "item"
-  ["robe+" ["fused" ["light armor"]]]]
+  ["robe+" ["fused" ["light armor"]]]],
  "Mob Boss"
  ["melee"
   [3]
@@ -2105,7 +2105,7 @@
   "item"
   ["hat+" ["fused" ["crown"]]]
   "other"
-  ["limitless" ["liquor"] "acquire" ["valuable"]]]
+  ["limitless" ["liquor"] "acquire" ["valuable"]]],
  "Monk"
  ["melee"
   [4]
@@ -2122,7 +2122,7 @@
   "item"
   ["black belt+" ["fused" ["light armor"]]]
   "passive"
-  ["mobile" ["dominate"]]]
+  ["mobile" ["dominate"]]],
  "Mugger"
  ["melee"
   [3]
@@ -2139,7 +2139,7 @@
   "other"
   ["acquire" ["mundane"] "ruin" ["mundane"]]
   "assist"
-  ["disrupt"]]
+  ["disrupt"]],
  "Musketeer"
  ["melee"
   [1]
@@ -2150,13 +2150,13 @@
   "ailment"
   [1]
   "attack"
-  ["gun" ["anti" ["armor"]]]
+  ["gun" ["dominate"]]
   "tricks"
   ["accuracy" ["damage"]]
   "item"
   ["musket+" ["range"]]
   "item"
-  ["heavy armor+" ["fused" ["mask"]]]]
+  ["heavy armor+" ["fused" ["mask"]]]],
  "Mutant"
  ["melee"
   [2]
@@ -2173,7 +2173,7 @@
   "assist"
   ["immune" ["atomic"]]
   "passive"
-  ["immune" ["nullify" "pain" "sicken"]]]
+  ["immune" ["nullify" "pain" "sicken"]]],
  "Mystic"
  ["melee"
   [3]
@@ -2190,7 +2190,7 @@
   "item"
   ["sandals+" ["fused" ["black belt"]]]
   "item"
-  ["robe+" ["fused" ["crystal"]]]]
+  ["robe+" ["fused" ["crystal"]]]],
  "Natural Cleric"
  ["melee"
   [0]
@@ -2207,7 +2207,7 @@
   "other"
   ["forage" "identify" ["divine"]]
   "cantrip"
-  ["earth" ["disrupt"]]]
+  ["earth" ["disrupt"]]],
  "Necromancer"
  ["melee"
   [2]
@@ -2224,7 +2224,7 @@
   "item"
   ["grimoire+" ["damage"]]
   "arcana"
-  ["damage" ["accuracy"]]]
+  ["damage" ["accuracy"]]],
  "Nihang"
  ["melee"
   [2]
@@ -2241,7 +2241,7 @@
   "item"
   ["chakram set+" ["damage"]]
   "item"
-  ["shortsword+" ["accuracy"]]]
+  ["shortsword+" ["accuracy"]]],
  "Ninja"
  ["melee"
   [3]
@@ -2258,7 +2258,7 @@
   "item"
   ["shuriken set+" ["speed"]]
   "attack"
-  ["trap" ["weaken" ["blind"]]]]
+  ["trap" ["weaken" ["blind"]]]],
  "Noble"
  ["melee"
   [2]
@@ -2275,7 +2275,7 @@
   "item"
   ["crown+" ["fused" ["marque"]]]
   "other"
-  ["limitless" ["wine"] "acquire" ["valuable"]]]
+  ["limitless" ["wine"] "acquire" ["valuable"]]],
  "Officer"
  ["melee"
   [3]
@@ -2292,7 +2292,7 @@
   "assist"
   ["immune" ["fear"]]
   "item"
-  ["scimitar+" ["accuracy"]]]
+  ["scimitar+" ["accuracy"]]],
  "Orthodox Cleric"
  ["melee"
   [2]
@@ -2309,7 +2309,7 @@
   "other"
   ["craft" ["divine"] "identify" ["divine"]]
   "arcana"
-  ["damage" ["spread"]]]
+  ["damage" ["spread"]]],
  "Paladin"
  ["melee"
   [3]
@@ -2326,7 +2326,7 @@
   "item"
   ["longsword+" ["element" ["holy"]]]
   "item"
-  ["heavy armor+" ["resist"]]]
+  ["heavy armor+" ["fused" ["relic"]]]],
  "Pantheon Acolyte"
  ["melee"
   [1]
@@ -2343,7 +2343,7 @@
   "item"
   ["symbol+" ["fused" ["scepter"]]]
   "attack"
-  ["angelic" ["weaken" ["confuse"]]]]
+  ["angelic" ["weaken" ["confuse"]]]],
  "Phantom"
  ["melee"
   [2]
@@ -2360,7 +2360,7 @@
   "item"
   ["carving knife+" ["element" ["shadow"]]]
   "item"
-  ["stealth garb+" ["fused" ["mask"]]]]
+  ["stealth garb+" ["fused" ["mask"]]]],
  "Philosopher"
  ["melee"
   [1]
@@ -2377,7 +2377,7 @@
   "item"
   ["grimoire+" ["accuracy"]]
   "other"
-  ["identify" ["written"] "identify" ["arcane"]]]
+  ["identify" ["written"] "identify" ["arcane"]]],
  "Pirate"
  ["melee"
   [4]
@@ -2394,7 +2394,7 @@
   "other"
   ["limitless" ["black spot"] "identify" ["valuable"]]
   "assist"
-  ["disrupt"]]
+  ["disrupt"]],
  "Pistoleer"
  ["melee"
   [2]
@@ -2411,7 +2411,7 @@
   "item"
   ["derringer set+" ["range"]]
   "tricks"
-  ["speed" ["damage"]]]
+  ["speed" ["damage"]]],
  "Plains Ravager"
  ["melee"
   [3]
@@ -2428,7 +2428,7 @@
   "item"
   ["handaxe set+" ["speed"]]
   "assist"
-  ["immune" ["fear"]]]
+  ["immune" ["fear"]]],
  "Poison Oracle"
  ["melee"
   [2]
@@ -2445,7 +2445,7 @@
   "other"
   ["limitless" ["egg"] "forage"]
   "item"
-  ["carving knife+" ["element" ["poison"]]]]
+  ["carving knife+" ["element" ["poison"]]]],
  "Pole Master"
  ["melee"
   [4]
@@ -2458,11 +2458,11 @@
   "attack"
   ["staff" ["weaken" ["daze"]]]
   "counter"
-  ["melee" ["speed"]]
-  "item"
-  ["pole+" ["damage"]]
+  ["melee" ["damage"]]
+  "passive"
+  ["apparent" ["dominate"]]
   "tricks"
-  ["damage" ["speed"]]]
+  ["damage" ["speed"]]],
  "Powderwitch"
  ["melee"
   [0]
@@ -2479,7 +2479,7 @@
   "other"
   ["craft" ["prototypes"] "upgrade" ["blast powder"]]
   "item"
-  ["pistol+" ["range"]]]
+  ["pistol+" ["range"]]],
  "Prophet"
  ["melee"
   [0]
@@ -2496,7 +2496,7 @@
   "assist"
   ["immune" ["daze"]]
   "afflict"
-  ["confuse" ["duration"]]]
+  ["confuse" ["duration"]]],
  "Quilter"
  ["melee"
   [3]
@@ -2513,7 +2513,7 @@
   "other"
   ["craft" ["clothing"] "upgrade" ["cloak"]]
   "item"
-  ["robe+" ["fused" ["crystal"]]]]
+  ["robe+" ["fused" ["crystal"]]]],
  "Raider"
  ["melee"
   [3]
@@ -2530,7 +2530,7 @@
   "other"
   ["limitless" ["liquor"] "acquire" ["mundane"]]
   "assist"
-  ["disrupt"]]
+  ["disrupt"]],
  "Ranger"
  ["melee"
   [3]
@@ -2547,7 +2547,7 @@
   "item"
   ["shortsword" ["accuracy"]]
   "item"
-  ["cloak+" ["fused" ["stealth garb"]]]]
+  ["cloak+" ["fused" ["stealth garb"]]]],
  "Remaker"
  ["melee"
   [2]
@@ -2564,7 +2564,7 @@
   "other"
   ["craft" ["divine"] "upgrade" ["relic"]]
   "attack"
-  ["angelic" ["damage"]]]
+  ["angelic" ["damage"]]],
  "Revolutionary"
  ["melee"
   [2]
@@ -2581,7 +2581,7 @@
   "assist"
   ["immune" ["order"]]
   "tricks"
-  ["speed" ["damage"]]]
+  ["speed" ["damage"]]],
  "Rogue"
  ["melee"
   [3]
@@ -2598,7 +2598,7 @@
   "item"
   ["dagger set+" ["accuracy"]]
   "other"
-  ["acquire" ["valuable"] "identify" ["valuable"]]]
+  ["acquire" ["valuable"] "identify" ["valuable"]]],
  "Runeknife"
  ["melee"
   [3]
@@ -2610,12 +2610,12 @@
   [1]
   "attack"
   ["knife" ["anti" ["construct"]]]
-  "boost"
-  ["void" ["needs" ["sp"]]]
+  "infuse"
+  ["void" ["sp"]]
   "item"
   ["carving knife+" ["damage"]]
   "cantrip"
-  ["time" ["speed"]]]
+  ["time" ["speed"]]],
  "Samurai"
  ["melee"
   [4]
@@ -2632,7 +2632,7 @@
   "item"
   ["katana+" ["fused" ["marque"]]]
   "counter"
-  ["melee" ["accuracy"]]]
+  ["melee" ["accuracy"]]],
  "Sand Soldier"
  ["melee"
   [4]
@@ -2649,7 +2649,7 @@
   "item"
   ["scimitar+" ["speed"]]
   "passive"
-  ["immune" ["fire" "poison" "bloodlet"]]]
+  ["immune" ["fire" "poison" "bloodlet"]]],
  "Scar Warrior"
  ["melee"
   [3]
@@ -2666,7 +2666,7 @@
   "item"
   ["longspear+" ["speed"]]
   "counter"
-  ["melee" ["damage"]]]
+  ["melee" ["damage"]]],
  "Scout"
  ["melee"
   [0]
@@ -2683,7 +2683,7 @@
   "item"
   ["stealth garb+" ["fused" ["cloak"]]]
   "tricks"
-  ["speed" ["disrupt"]]]
+  ["speed" ["disrupt"]]],
  "Sentinel"
  ["melee"
   [4]
@@ -2700,7 +2700,7 @@
   "assist"
   ["immune" ["entropy"]]
   "boost"
-  ["aware" ["speed"]]]
+  ["aware" ["speed"]]],
  "Shaman"
  ["melee"
   [1]
@@ -2717,7 +2717,7 @@
   "item"
   ["mask+" ["fused" ["grimoire"]]]
   "arcana"
-  ["speed" ["disrupt"]]]
+  ["speed" ["disrupt"]]],
  "Shaper"
  ["melee"
   [3]
@@ -2734,7 +2734,7 @@
   "other"
   ["limitless" ["egg"] "acquire" ["wooden"]]
   "assist"
-  ["immune" ["poison"]]]
+  ["immune" ["poison"]]],
  "Shapeshifter"
  ["melee"
   [2]
@@ -2751,7 +2751,7 @@
   "passive"
   ["immune" ["poison" "bloodlet" "slow"]]
   "attack"
-  ["angelic" ["accuracy"]]]
+  ["angelic" ["accuracy"]]],
  "Shieldbearer"
  ["melee"
   [4]
@@ -2764,11 +2764,11 @@
   "attack"
   ["bludgeon" ["dominate"]]
   "item"
-  ["shield+" ["fused" ["crystal"]]]
+  ["shield+" ["fused" ["utility harness"]]]
   "item"
-  ["heavy armor+" ["resist"]]
+  ["heavy armor+" ["fused" ["cloak"]]]
   "counter"
-  ["melee" ["weaken" ["daze"]]]]
+  ["melee" ["weaken" ["daze"]]]],
  "Shock Mage"
  ["melee"
   [1]
@@ -2785,7 +2785,7 @@
   "other"
   ["recharge" "sap"]
   "counter"
-  ["magic" ["weaken" ["daze"]]]]
+  ["magic" ["weaken" ["daze"]]]],
  "Skin Mage"
  ["melee"
   [2]
@@ -2802,7 +2802,7 @@
   "item"
   ["cape+" ["fused" ["grimoire"]]]
   "other"
-  ["limitless" ["meat"] "identify" ["occult"]]]
+  ["limitless" ["meat"] "identify" ["occult"]]],
  "Skirmisher"
  ["melee"
   [3]
@@ -2819,7 +2819,7 @@
   "item"
   ["dagger set+" ["speed"]]
   "attack"
-  ["trap" ["disrupt"]]]
+  ["trap" ["disrupt"]]],
  "Slime Mage"
  ["melee"
   [1]
@@ -2836,7 +2836,7 @@
   "other"
   ["defile" "cleanse"]
   "item"
-  ["crystal+" ["fused" ["light armor"]]]]
+  ["crystal+" ["fused" ["light armor"]]]],
  "Sohei"
  ["melee"
   [4]
@@ -2848,12 +2848,12 @@
   [2]
   "attack"
   ["spear" ["speed"]]
-  "boost"
-  ["fire" ["needs" ["pause"]]]
+  "infuse"
+  ["fire" ["pause"]]
   "item"
   ["polearm+" ["accuracy"]]
   "counter"
-  ["melee" ["dominate"]]]
+  ["melee" ["dominate"]]],
  "Sommelier"
  ["melee"
   [0]
@@ -2870,7 +2870,7 @@
   "other"
   ["limitless" ["wine"] "identify" ["potions"]]
   "other"
-  ["limitless" ["cheese"] "cleanse"]]
+  ["limitless" ["cheese"] "cleanse"]],
  "Sound Mage"
  ["melee"
   [1]
@@ -2887,7 +2887,7 @@
   "assist"
   ["immune" ["sound"]]
   "item"
-  ["instrument+" ["accuracy"]]]
+  ["instrument+" ["accuracy"]]],
  "Spellthief"
  ["melee"
   [1]
@@ -2904,7 +2904,7 @@
   "other"
   ["recharge" "sap"]
   "item"
-  ["orb+" ["fused" ["robe"]]]]
+  ["orb+" ["fused" ["robe"]]]],
  "Spike Knight"
  ["melee"
   [4]
@@ -2921,7 +2921,7 @@
   "item"
   ["armor spikes+" ["fused" ["black belt"]]]
   "item"
-  ["heavy armor+" ["resist"]]]
+  ["heavy armor+" ["fused" ["crown"]]]],
  "Spirit Drummer"
  ["melee"
   [1]
@@ -2938,7 +2938,7 @@
   "item"
   ["instrument+" ["fused" ["sandals"]]]
   "assist"
-  ["immune" ["slow"]]]
+  ["immune" ["slow"]]],
  "Staffguard"
  ["melee"
   [3]
@@ -2955,7 +2955,7 @@
   "item"
   ["staff+" ["fused" ["orb"]]]
   "item"
-  ["heavy armor+" ["fused" ["crystal"]]]]
+  ["heavy armor+" ["fused" ["crystal"]]]],
  "Stage Magician"
  ["melee"
   [3]
@@ -2972,7 +2972,7 @@
   "item"
   ["hat+" ["fused" ["scepter"]]]
   "item"
-  ["suit+" ["fused" ["elegant garb"]]]]
+  ["suit+" ["fused" ["elegant garb"]]]],
  "Swamp Lord"
  ["melee"
   [2]
@@ -2989,7 +2989,7 @@
   "other"
   ["defile" "forage"]
   "arcana"
-  ["damage" ["spread"]]]
+  ["damage" ["spread"]]],
  "Swashbuckler"
  ["melee"
   [4]
@@ -3006,7 +3006,7 @@
   "item"
   ["saber+" ["speed"]]
   "tricks"
-  ["speed" ["disrupt"]]]
+  ["speed" ["disrupt"]]],
  "Swordmaster"
  ["melee"
   [4]
@@ -3023,7 +3023,7 @@
   "item"
   ["longsword+" ["damage"]]
   "counter"
-  ["melee" ["weaken" ["bloodlet"]]]]
+  ["melee" ["weaken" ["bloodlet"]]]],
  "Tailor"
  ["melee"
   [2]
@@ -3040,7 +3040,7 @@
   "other"
   ["craft" ["clothing"] "upgrade" ["suit"]]
   "other"
-  ["upgrade" ["stealth garb"] "identify" ["clothing"]]]
+  ["upgrade" ["stealth garb"] "identify" ["clothing"]]],
  "Tamer"
  ["melee"
   [3]
@@ -3057,7 +3057,7 @@
   "item"
   ["whip+" ["fused" ["totem"]]]
   "tricks"
-  ["damage" ["dominate"]]]
+  ["damage" ["dominate"]]],
  "Telepath"
  ["melee"
   [0]
@@ -3074,7 +3074,7 @@
   "item"
   ["crystal+" ["fused" ["marque"]]]
   "afflict"
-  ["charm" ["speed"]]]
+  ["charm" ["speed"]]],
  "Theologist"
  ["melee"
   [2]
@@ -3091,7 +3091,7 @@
   "item"
   ["symbol+" ["fused" ["grimoire"]]]
   "counter"
-  ["magic" ["anti" ["fiend"]]]]
+  ["magic" ["anti" ["fiend"]]]],
  "Thief"
  ["melee"
   [2]
@@ -3108,7 +3108,7 @@
   "item"
   ["stealth garb+" ["fused" ["black belt"]]]
   "tricks"
-  ["speed" ["disrupt"]]]
+  ["speed" ["disrupt"]]],
  "Thunderfury"
  ["melee"
   [3]
@@ -3120,12 +3120,12 @@
   [3]
   "attack"
   ["axe" ["weaken" ["daze"]]]
-  "boost"
-  ["storm" ["needs" ["sp"]]]
+  "infuse"
+  ["storm" ["sp"]]
   "item"
   ["greataxe+" ["damage"]]
   "tricks"
-  ["damage" ["dominate"]]]
+  ["damage" ["dominate"]]],
  "Totem Incarnate"
  ["melee"
   [2]
@@ -3142,7 +3142,7 @@
   "passive"
   ["immune" ["earth" "fear" "pain"]]
   "assist"
-  ["immune" ["curse"]]]
+  ["immune" ["curse"]]],
  "Trapper"
  ["melee"
   [0]
@@ -3159,7 +3159,7 @@
   "other"
   ["limitless" ["shackle glyph"] "reveal"]
   "item"
-  ["handaxe set+" ["damage"]]]
+  ["handaxe set+" ["damage"]]],
  "Trickster"
  ["melee"
   [1]
@@ -3176,7 +3176,7 @@
   "item"
   ["razor deck+" ["accuracy"]]
   "counter"
-  ["ranged" ["disrupt"]]]
+  ["ranged" ["disrupt"]]],
  "Truenamer"
  ["melee"
   [1]
@@ -3193,7 +3193,7 @@
   "other"
   ["craft" ["written"] "identify" ["written"]]
   "item"
-  ["grimoire+" ["fused" ["robe"]]]]
+  ["grimoire+" ["fused" ["robe"]]]],
  "Unbeliever"
  ["melee"
   [0]
@@ -3210,7 +3210,7 @@
   "passive"
   ["immune" ["holy" "order" "curse"]]
   "tricks"
-  ["accuracy" ["weaken" ["nullify"]]]]
+  ["accuracy" ["weaken" ["nullify"]]]],
  "Viking"
  ["melee"
   [4]
@@ -3227,7 +3227,7 @@
   "item"
   ["greataxe+" ["damage"]]
   "item"
-  ["hat+" ["fused" ["light armor"]]]]
+  ["hat+" ["fused" ["light armor"]]]],
  "Void Mage"
  ["melee"
   [0]
@@ -3244,7 +3244,7 @@
   "passive"
   ["immune" ["void" "nullify" "scorn"]]
   "item"
-  ["orb+" ["speed"]]]
+  ["orb+" ["speed"]]],
  "Warden"
  ["melee"
   [4]
@@ -3261,7 +3261,7 @@
   "counter"
   ["melee" ["element" ["earth"]]]
   "item"
-  ["heavy armor+" ["fused" ["totem"]]]]
+  ["heavy armor+" ["fused" ["totem"]]]],
  "Warlock"
  ["melee"
   [1]
@@ -3278,7 +3278,7 @@
   "item"
   ["scepter+" ["accuracy"]]
   "other"
-  ["limitless" ["fury froth"] "defile"]]
+  ["limitless" ["fury froth"] "defile"]],
  "Water Mage"
  ["melee"
   [2]
@@ -3295,7 +3295,7 @@
   "other"
   ["limitless" ["pure water"] "cleanse"]
   "assist"
-  ["immune" ["water"]]]
+  ["immune" ["water"]]],
  "Wild Mage"
  ["melee"
   [2]
@@ -3312,7 +3312,7 @@
   "other"
   ["break" ["restore"] "limitless" ["candy"]]
   "assist"
-  ["disrupt"]]
+  ["disrupt"]],
  "Wind Mage"
  ["melee"
   [0]
@@ -3329,7 +3329,7 @@
   "item"
   ["orb+" ["fused" ["sandals"]]]
   "arcana"
-  ["speed" ["accuracy"]]]
+  ["speed" ["accuracy"]]],
  "Xenomancer"
  ["melee"
   [0]
@@ -3346,7 +3346,7 @@
   "passive"
   ["immune" ["nullify" "confuse" "daze"]]
   "item"
-  ["amulet+" ["fused" ["robe"]]]]
+  ["amulet+" ["fused" ["robe"]]]],
  "Yakuza"
  ["melee"
   [3]
@@ -3363,7 +3363,7 @@
   "item"
   ["katana+" ["speed"]]
   "assist"
-  ["immune" ["pain"]]]
+  ["immune" ["pain"]]],
  "Zealot"
  ["melee"
   [3]
@@ -3380,7 +3380,7 @@
   "item"
   ["carving knife+" ["element" ["holy"]]]
   "passive"
-  ["immune" ["fear" "pain" "scorn"]]]
+  ["immune" ["fear" "pain" "scorn"]]],
  "Zen Sniper"
  ["melee"
   [2]
@@ -3391,7 +3391,7 @@
   "ailment"
   [1]
   "attack"
-  ["bow" ["anti" ["moving"]]]
+  ["bow" ["weaken" ["confuse"]]]
   "attack"
   ["unarmed" ["speed"]]
   "item"
