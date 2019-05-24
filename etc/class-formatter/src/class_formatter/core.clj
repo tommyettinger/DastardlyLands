@@ -67,18 +67,21 @@
   		#"raise dominance earned by allies" {["assist"] [["dominate"]]}
   		#"raise disruption caused by allies" {["assist"] [["disrupt"]]}
   		#"reduce disruption affecting allies" {["hamper"] [["disrupt"]]}
-  		#"([^,]+), (.+)" :>> (fn [[_ half1 half2]] {["other"] [(parse-half half1) (parse-half half2)]})
+  		#"([^,]+), (.+)" :>> (fn [[_ half1 half2]] [[["other"] [(parse-half half1)]] [["other"] [(parse-half half2)]]])
   	))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  ""
   [& args]
-  #_[attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, infuse, item, passive, assist, hamper, other]
+  #_'[attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, infuse, item, passive, assist, hamper, other]
   (let [fin (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/complex-classes.txt")]
            (mapv (fn [st] (let
            	[[_ class-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [class-name (vec (conj (map parse-entry more) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))
            	 (line-seq rdr))))
-        fin2 (into (sorted-map) (mapv (fn [c] [(key c) (assoc (into {} (mapv (fn[[k v]] [k (read-string v)]) (first (fnext c)))) "perks" (vec (apply concat (mapv #(mapv (fn [[k v]] (into k v)) %) (rest (fnext c))))))]) fin))]
+        fin2 (into (sorted-map)
+                (mapv (fn [c] [(key c) (assoc 
+                (into {} (mapv (fn[[k v]] [k (read-string v)]) (first (fnext c)))) ;; defenses, strings to ints
+                "perks" (vec (apply concat (mapv #(mapv (fn [[k v]] (into k v)) %) (rest (fnext c))))))]) fin))]
         (spit (str "classes-" (System/currentTimeMillis) ".json") (json/write-str fin2))
         ;(spit (str "classes-" (System/currentTimeMillis) ".json") (with-out-str (ppr/pprint fin2)))
         ))

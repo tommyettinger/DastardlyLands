@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://tommyettinger.github.com/dl/data/Roles.json",
+  "type": "object",
+  "definitions": {
+    "Category": {
+      "type": "string",
+      "enum": [
+        "attack", "spell", "cantrip", "tricks", "arcana", "stance",
+        "afflict", "aura", "boost", "field", "infuse",
+        "item", "passive", "assist", "hamper", "other"]
+    },
+    "Perk": {
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/Category"
+        }
+      ],
+      "additionalItems": {
+        "type": ["string", "array"]
+      }
+    },
+    "Role": {
+      "type": "object",
+      "properties": {
+        "melee": { "type": "integer"},
+        "ranged": { "type": "integer"},
+        "magic": { "type": "integer"},
+        "ailment": { "type": "integer"},
+        "perks": {
+          "type": "array",
+          "items": [
+            {
+              "$ref": "#/definitions/Perk"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": {
+    "$ref": "#/definitions/Role"
+  }
+}
