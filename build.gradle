@@ -18,10 +18,21 @@ allprojects {
 
 configure(subprojects) {
   apply plugin: 'java-library'
-  sourceCompatibility = 11
-  compileJava {
-    options.incremental = true
+  sourceCompatibility = 8
+  dependencies {
+    api "systems.manifold:manifold-all:$manifoldVersion"
+//    annotationProcessor "systems.manifold:manifold-all:$manifoldVersion"
+    compile files("${System.properties['java.home']}/lib/tools.jar")
+
   }
+  compileJava {
+    doFirst {
+      options.compilerArgs += '-Xplugin:Manifold'
+    }
+    options.incremental = true
+    options.fork = true
+  }
+  
 }
 
 subprojects {

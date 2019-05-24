@@ -9,7 +9,11 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import squidpony.*;
+import com.github.tommyettinger.dl.data.Roles;
+import squidpony.ArrayTools;
+import squidpony.FakeLanguageGen;
+import squidpony.NaturalLanguageCipher;
+import squidpony.StringKit;
 import squidpony.squidai.DijkstraMap;
 import squidpony.squidgrid.Direction;
 import squidpony.squidgrid.FOV;
@@ -21,9 +25,13 @@ import squidpony.squidgrid.mapping.LineKit;
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.GWTRNG;
 import squidpony.squidmath.GreasedRegion;
+import squidpony.squidmath.OrderedMap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+
 
 /**
  * This is a small, not-overly-simple demo that presents some important features of SquidLib and shows a faster,
@@ -113,8 +121,11 @@ public class DastardlyLands extends ApplicationAdapter {
     // languages appended after the plain-English version. The contents have the first item removed with each step, and
     // have new translations added whenever the line count is too low.
     private ArrayList<String> lang;
-    private ObText.ObTextEntry playerRole, enemyRole;
-    private ObText roles;
+//    private ObText.ObTextEntry playerRole, enemyRole;
+//    private ObText roles;
+    private Roles rolesJson;
+    private OrderedMap<String,  Roles.Role> roles;
+    private Map.Entry<String, Roles.Role> playerRole, enemyRole;
     private double[][] resistance;
     private double[][] visible;
     private GreasedRegion floors, blockage, seen;
@@ -129,9 +140,11 @@ public class DastardlyLands extends ApplicationAdapter {
 //        rng = new GWTRNG("Welcome to SquidLib!");
         rng = new GWTRNG();
         final String fileText = Gdx.files.internal("classes-obtext.txt").readString();
-        roles = new ObText(fileText);
-        playerRole = roles.get(rng.nextInt(roles.size()));
-        enemyRole = roles.get(rng.nextInt(roles.size()));
+        roles = new OrderedMap<>((Map<String, Roles.Role>) Roles.load().fromJson(Gdx.files.internal("roles.json").readString()));
+        
+        //roles = new ObText(fileText);
+        playerRole = roles.randomEntry(rng);
+        enemyRole = roles.randomEntry(rng);
         //Some classes in SquidLib need access to a batch to render certain things, so it's a good idea to have one.
         batch = new SpriteBatch();
         StretchViewport mainViewport = new StretchViewport(gridWidth * cellWidth, gridHeight * cellHeight),
@@ -430,8 +443,8 @@ public class DastardlyLands extends ApplicationAdapter {
         //we add splitDisplay to splitStage, where it will be unchanged by camera moves in the main Stage.
         splitStage.addActor(splitDisplay);
 
-        System.out.println(playerRole.primary);
-        System.out.println(playerRole.associated.get(4).primary + ": " + StringKit.join(", ", playerRole.associated.get(4).shallowContents()));
+        System.out.println(playerRole.getKey());
+        //System.out.println(playerRole.associated.get(4).primary + ": " + StringKit.join(", ", playerRole.associated.get(4).shallowContents()));
     }
     /**
      * Move the player if he isn't bumping into a wall or trying to go off the map somehow.
@@ -535,24 +548,25 @@ public class DastardlyLands extends ApplicationAdapter {
             splitDisplay.put(1, i, lang.get(i), SColor.DB_LEAD);
         }
         splitDisplay.fillArea(VERY_DARK_FLOAT, split, 0, gridWidth - split, bonusHeight);
-        char first = playerRole.primary.charAt(0);
+        char first = playerRole.getKey().charAt(0);
         if(first == 'A' || first == 'E' || first == 'I' || first == 'O' || first == 'U')
-            splitDisplay.put(split+1, 0, "You are an " + playerRole.primary + ".", FLOAT_LIGHTING, 0f);
+            splitDisplay.put(split+1, 0, "You are an " + playerRole.getKey() + ".", FLOAT_LIGHTING, 0f);
         else
-            splitDisplay.put(split+1, 0, "You are a " + playerRole.primary + ".", FLOAT_LIGHTING, 0f);
-        first = enemyRole.primary.charAt(0);
+            splitDisplay.put(split+1, 0, "You are a " + playerRole.getKey() + ".", FLOAT_LIGHTING, 0f);
+        first = enemyRole.getKey().charAt(0);
         if(first == 'A' || first == 'E' || first == 'I' || first == 'O' || first == 'U')
-            splitDisplay.put(split+1, 2, "You must defeat an " + enemyRole.primary + ".", FLOAT_LIGHTING, 0f);
+            splitDisplay.put(split+1, 2, "You must defeat an " + enemyRole.getKey() + ".", FLOAT_LIGHTING, 0f);
         else
-            splitDisplay.put(split+1, 2, "You must defeat a " + enemyRole.primary + ".", FLOAT_LIGHTING, 0f);
-        for(ObText.ObTextEntry ent : playerRole.associated)
-        {
-            if(ent.primary.equals("attack"))
-            {
-                splitDisplay.put(split+1, 4, "You can make " + ent.firstAssociatedString() + " attacks.", FLOAT_LIGHTING, 0f);
-                break;
-            }
-        }
+            splitDisplay.put(split+1, 2, "You must defeat a " + enemyRole.getKey() + ".", FLOAT_LIGHTING, 0f);
+        splitDisplay.put(split+1, 4, (playerRole.getValue().getPerks().first().toString()), FLOAT_LIGHTING, 0f);
+//        for(ObText.ObTextEntry ent : playerRole.associated)
+//        {
+//            if(ent.primary.equals("attack"))
+//            {
+//                splitDisplay.put(split+1, 4, "You can make " + ent.firstAssociatedString() + " attacks.", FLOAT_LIGHTING, 0f);
+//                break;
+//            }
+//        }
     }
     @Override
     public void render () {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://tommyettinger.github.com/dl/Roles.json",
+  "$id": "https://tommyettinger.github.com/dl/data/Roles.json",
   "type": "object",
   "definitions": {
     "Category": {
@@ -12,12 +12,7 @@
     },
     "Perk": {
       "type": "array",
-      "items": [
-        {
-          "$ref": "#/definitions/Category"
-        }
-      ],
-      "additionalItems": {
+      "items": {
         "type": ["string", "array"]
       }
     },
