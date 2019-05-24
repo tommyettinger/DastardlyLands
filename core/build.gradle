@@ -10,7 +10,7 @@ dependencies {
 }
 
 tasks.withType(JavaCompile) {
-  options.compilerArgs += '-Xplugin:Manifold exceptions'
+  options.compilerArgs += '-Xplugin:Manifold'
   options.fork = true
   options.incremental = true
 }
