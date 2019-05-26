@@ -42,32 +42,32 @@
   	))
   (defn parse-entry [st]
   	(condp re-matches (s/lower-case st)
-  		#"(\w+) attacks, (.+)" :>> (fn [[_ beta up]] {["attack" beta] [(parse-upgrade up)]})
-  		#"(\w+) spells, (.+)" :>> (fn [[_ beta up]] {["spell" beta] [(parse-upgrade up)]})
-  		#"(\w+) cantrips, (.+)" :>> (fn [[_ beta up]] {["cantrip" beta] [(parse-upgrade up)]})
-  		#"power ((tricks)|(arcana)), (.+)" :>> (fn [[_ alpha __ ___ up]] {[alpha "damage"] [(parse-upgrade up)]})
-  		#"precision ((tricks)|(arcana)), (.+)" :>> (fn [[_ alpha __ ___ up]] {[alpha "accuracy"] [(parse-upgrade up)]})
-  		#"speed ((tricks)|(arcana)), (.+)" :>> (fn [[_ alpha __ ___ up]] {[alpha "speed"] [(parse-upgrade up)]})
-  		#"(\w+) counter, (.+)" :>> (fn [[_ beta up]] {["counter" beta] [(parse-upgrade up)]})
-  		#"(\w+) field, (.+)" :>> (fn [[_ beta up]] {["field" beta] [(parse-upgrade up)]})
-  		#"(\w+) aura, (.+)" :>> (fn [[_ beta up]] {["aura" beta] [(parse-upgrade up)]})
-  		#"(\w+) affliction, (.+)" :>> (fn [[_ beta up]] {["afflict" beta] [(parse-upgrade up)]})
-  		#"(\w+) boost, (.+)" :>> (fn [[_ beta up]] {["boost" beta] [(parse-upgrade up)]})
-  		#"stance, suffer (\w+), (.+)" :>> (fn [[_ beta up]] {["stance" beta] [(parse-upgrade up)]})
-  		#"infuse weapons with (\w+), (.+)" :>> (fn [[_ beta up]] {["infuse" beta] [(parse-upgrade up)]})
-  		#"superior ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" (str beta "+")] [(parse-upgrade up)]})
-  		#"twin ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" beta beta] [(parse-upgrade up)]})
-  		#"party is immune to (\w+) when fielded" :>> (fn [[_ beta]] {["assist"] [["immune" beta]]})
-  		#"immune to (\w+), (\w+), (\w+)" :>> (fn [[_ beta1 beta2 beta3]] {["passive"] [["immune" beta1] ["immune" beta2] ["immune" beta3]]})
-  		#"dominance from movement" {["passive"] [["mobile" "dominate"]]}
-  		#"dominance from being seen" {["passive"] [["apparent" "dominate"]]}
-  		#"dominance from taking damage" {["passive"] [["masochistic" "dominate"]]}
-  		#"dominance from enemy ailments" {["passive"] [["sadistic" "dominate"]]}
-  		#"dominance from enemies using skills" {["passive"] [["perceptive" "dominate"]]}
-  		#"raise dominance earned by allies" {["assist"] [["dominate"]]}
-  		#"raise disruption caused by allies" {["assist"] [["disrupt"]]}
-  		#"reduce disruption affecting allies" {["hamper"] [["disrupt"]]}
-  		#"([^,]+), (.+)" :>> (fn [[_ half1 half2]] [[["other"] [(parse-half half1)]] [["other"] [(parse-half half2)]]])
+  		#"(\w+) attacks, (.+)" :>> (fn [[_ beta up]] {["attack" beta] (parse-upgrade up)})
+  		#"(\w+) spells, (.+)" :>> (fn [[_ beta up]] {["spell" beta] (parse-upgrade up)})
+  		#"(\w+) cantrips, (.+)" :>> (fn [[_ beta up]] {["cantrip" beta] (parse-upgrade up)})
+  		#"power ((tricks)|(arcana)), (.+)" :>> (fn [[_ alpha __ ___ up]] {[alpha "damage"] (parse-upgrade up)})
+  		#"precision ((tricks)|(arcana)), (.+)" :>> (fn [[_ alpha __ ___ up]] {[alpha "accuracy"] (parse-upgrade up)})
+  		#"speed ((tricks)|(arcana)), (.+)" :>> (fn [[_ alpha __ ___ up]] {[alpha "speed"] (parse-upgrade up)})
+  		#"(\w+) counter, (.+)" :>> (fn [[_ beta up]] {["counter" beta] (parse-upgrade up)})
+  		#"(\w+) field, (.+)" :>> (fn [[_ beta up]] {["field" beta] (parse-upgrade up)})
+  		#"(\w+) aura, (.+)" :>> (fn [[_ beta up]] {["aura" beta] (parse-upgrade up)})
+  		#"(\w+) affliction, (.+)" :>> (fn [[_ beta up]] {["afflict" beta] (parse-upgrade up)})
+  		#"(\w+) boost, (.+)" :>> (fn [[_ beta up]] {["boost" beta] (parse-upgrade up)})
+  		#"stance, suffer (\w+), (.+)" :>> (fn [[_ beta up]] {["stance" beta] (parse-upgrade up)})
+  		#"infuse weapons with (\w+), (.+)" :>> (fn [[_ beta up]] {["infuse" beta] (parse-upgrade up)})
+  		#"superior ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" (str beta "+")] (parse-upgrade up)})
+  		#"twin ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" beta beta] (parse-upgrade up)})
+  		#"party is immune to (\w+) when fielded" :>> (fn [[_ beta]] {["assist"] ["immune" beta]})
+  		#"immune to (\w+), (\w+), (\w+)" :>> (fn [[_ beta1 beta2 beta3]] [[["passive"] ["immune" beta1]] [["passive"] ["immune" beta2]] [["passive"] ["immune" beta3]]])
+  		#"dominance from movement" {["passive"] ["mobile" "dominate"]}
+  		#"dominance from being seen" {["passive"] ["apparent" "dominate"]}
+  		#"dominance from taking damage" {["passive"] ["masochistic" "dominate"]}
+  		#"dominance from enemy ailments" {["passive"] ["sadistic" "dominate"]}
+  		#"dominance from enemies using skills" {["passive"] ["perceptive" "dominate"]}
+  		#"raise dominance earned by allies" {["assist"] ["dominate"]}
+  		#"raise disruption caused by allies" {["assist"] ["disrupt"]}
+  		#"reduce disruption affecting allies" {["hamper"]  ["disrupt"]}
+  		#"([^,]+), (.+)" :>> (fn [[_ half1 half2]] [[["other"] (parse-half half1)] [["other"] (parse-half half2)]])
   	))
 
 (defn -main

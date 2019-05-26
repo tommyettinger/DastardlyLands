@@ -10,10 +10,10 @@
         "afflict", "aura", "boost", "field", "infuse",
         "item", "passive", "assist", "hamper", "other"]
     },
-    "Perk": {
+    "PerkRaw": {
       "type": "array",
       "items": {
-        "type": ["string", "array"]
+        "type": "string"
       }
     },
     "Role": {
@@ -27,7 +27,7 @@
           "type": "array",
           "items": [
             {
-              "$ref": "#/definitions/Perk"
+              "$ref": "#/definitions/PerkRaw"
             }
           ]
         }

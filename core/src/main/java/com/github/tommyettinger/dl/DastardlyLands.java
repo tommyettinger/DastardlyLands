@@ -443,7 +443,7 @@ public class DastardlyLands extends ApplicationAdapter {
         //we add splitDisplay to splitStage, where it will be unchanged by camera moves in the main Stage.
         splitStage.addActor(splitDisplay);
 
-        System.out.println(playerRole.getKey());
+//        System.out.println(playerRole.getKey());
         //System.out.println(playerRole.associated.get(4).primary + ": " + StringKit.join(", ", playerRole.associated.get(4).shallowContents()));
     }
     /**
