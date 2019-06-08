@@ -74,14 +74,19 @@
   ""
   [& args]
   #_'[attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, infuse, item, passive, assist, hamper, other]
-  (let [fin (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/complex-classes.txt")]
+  (let [roles (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/complex-classes.txt")]
            (mapv (fn [st] (let
-           	[[_ class-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [class-name (vec (conj (map parse-entry more) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))
+           	[[_ role-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [role-name (vec (conj (map parse-entry more) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))
            	 (line-seq rdr))))
-        fin2 (into (sorted-map)
+        roles (into (sorted-map)
                 (mapv (fn [c] [(key c) (assoc 
                 (into {} (mapv (fn[[k v]] [k (read-string v)]) (first (fnext c)))) ;; defenses, strings to ints
-                "perks" (vec (apply concat (mapv #(mapv (fn [[k v]] (into k v)) %) (rest (fnext c))))))]) fin))]
-        (spit (str "classes-" (System/currentTimeMillis) ".json") (json/write-str fin2))
-        ;(spit (str "classes-" (System/currentTimeMillis) ".json") (with-out-str (ppr/pprint fin2)))
+                "perks" (vec (apply concat (mapv #(mapv (fn [[k v]] (into k v)) %) (rest (fnext c))))))]) roles))
+        items (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/all-items.txt")]
+                         (mapv (fn [st] (let
+                         	[[_ item-name symbol description] (re-find #"([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [item-name {"symbol" symbol "description" description}]))
+                         	 (line-seq rdr))))
+                ]
+        (spit (str "roles-" (System/currentTimeMillis) ".json") (json/write-str roles))
+        (spit (str "items-" (System/currentTimeMillis) ".json") (json/write-str items))
         ))
