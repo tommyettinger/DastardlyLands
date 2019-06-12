@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.github.tommyettinger.dl.data.Items;
 import com.github.tommyettinger.dl.data.Roles;
 import squidpony.ArrayTools;
 import squidpony.FakeLanguageGen;
@@ -22,10 +23,7 @@ import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
 import squidpony.squidgrid.mapping.LineKit;
-import squidpony.squidmath.Coord;
-import squidpony.squidmath.GWTRNG;
-import squidpony.squidmath.GreasedRegion;
-import squidpony.squidmath.OrderedMap;
+import squidpony.squidmath.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +49,7 @@ public class DastardlyLands extends ApplicationAdapter {
     
     // SquidLib has many methods that expect an IRNG instance, and there's several classes to choose from.
     // In this program we'll use GWTRNG, which will behave better on the HTML target than other generators.
-    private GWTRNG rng;
+    private StatefulRNG rng;
     private SparseLayers display, splitDisplay;
     private DungeonGenerator dungeonGen;
     // decoDungeon stores the dungeon map with features like grass and water, if present, as chars like '"' and '~'.
@@ -98,6 +96,7 @@ public class DastardlyLands extends ApplicationAdapter {
     private Stage stage, splitStage;
     private DijkstraMap playerToCursor;
     private Coord cursor, player;
+    private OrderedMap<Coord, Item> things;
     private List<Coord> toCursor;
     private List<Coord> awaitedMoves;
     // a passage from the ancient text The Art of War, which remains relevant in any era but is mostly used as a basis
@@ -125,6 +124,7 @@ public class DastardlyLands extends ApplicationAdapter {
 //    private ObText roles;
     private Roles rolesJson;
     private OrderedMap<String,  Roles.Role> roles;
+    private OrderedMap<String, Items.Item> items;
     private Map.Entry<String, Roles.Role> playerRole, enemyRole;
     private double[][] resistance;
     private double[][] visible;
@@ -138,13 +138,14 @@ public class DastardlyLands extends ApplicationAdapter {
     public void create () {
         // gotta have a random number generator. We can seed a GWTRNG with any long we want, or even a String.
 //        rng = new GWTRNG("Welcome to SquidLib!");
-        rng = new GWTRNG();
+        rng = new StatefulRNG();
         final String fileText = Gdx.files.internal("classes-obtext.txt").readString();
-        roles = new OrderedMap<>((Map<String, Roles.Role>) Roles.load().fromJson(Gdx.files.internal("roles.json").readString()));
+        roles = new OrderedMap<>((Map<String, Roles.Role>) Roles.load().fromJson(Gdx.files.internal("roles.json").readString("UTF8")));
         
         //roles = new ObText(fileText);
         playerRole = roles.randomEntry(rng);
         enemyRole = roles.randomEntry(rng);
+        items = new OrderedMap<>((Map<String, Items.Item>)Items.load().fromJson(Gdx.files.internal("items.json").readString("UTF8")));
         //Some classes in SquidLib need access to a batch to render certain things, so it's a good idea to have one.
         batch = new SpriteBatch();
         StretchViewport mainViewport = new StretchViewport(gridWidth * cellWidth, gridHeight * cellHeight),
@@ -225,7 +226,14 @@ public class DastardlyLands extends ApplicationAdapter {
         //if you gave a seed to the GWTRNG constructor, then the cell this chooses will be reliable for testing. If you
         //don't seed the GWTRNG, any valid cell should be possible.
         player = floors.singleRandom(rng);
-
+        floors.remove(player);
+        Coord[] itemPositions = floors.mixedRandomSeparated(0.07, -1, rng.nextLong());
+        things = new OrderedMap<>(itemPositions.length);
+        for (Coord c : itemPositions)
+        {
+            final int pos = rng.nextSignedInt(items.size());
+            things.put(c, new Item(rng, items.keyAt(pos), items.getAt(pos)));
+        }
         //These need to have their positions set before adding any entities if there is an offset involved.
         //There is no offset used here, but it's still a good practice here to set positions early on.
         display.setPosition(0f, 0f);
@@ -502,7 +510,8 @@ public class DastardlyLands extends ApplicationAdapter {
         //past from affecting the current frame. This isn't a problem here, but would probably be an issue if we had
         //monsters running in and out of our vision. If artifacts from previous frames show up, uncomment the next line.
         //display.clear();
-
+        
+        Item it;
         for (int x = 0; x < bigWidth; x++) {
             for (int y = 0; y < bigHeight; y++) {
                 if(visible[x][y] > 0.0) {
@@ -515,15 +524,18 @@ public class DastardlyLands extends ApplicationAdapter {
                     // cells around the player and dimmer ones near the edge of vision. This lighting is "consistent"
                     // because all cells at the same distance will have the same amount of lighting applied.
                     // We use prunedDungeon here so segments of walls that the player isn't aware of won't be shown.
-                    display.putWithConsistentLight(x, y, prunedDungeon[x][y], colors[x][y], bgColors[x][y], FLOAT_LIGHTING, visible[x][y]);
+                    it = things.get(Coord.get(x, y));
+                    if(it != null)
+                    {
+                        display.putWithConsistentLight(x, y, it.symbol, it.color, bgColors[x][y], FLOAT_LIGHTING, visible[x][y]);
+                    }
+                    else
+                        display.putWithConsistentLight(x, y, prunedDungeon[x][y], colors[x][y], bgColors[x][y], FLOAT_LIGHTING, visible[x][y]);
                 } else if(seen.contains(x, y))
                 {
                     // If a position isn't currently visible but was before, it will be in seen.
                     // Here, we don't show the changing light because this part of the map is remembered, not currently
-                    // lit by a torch. SColor.lerpFloatColors is used very often inside SquidLib because it allows
-                    // getting a mix of two colors without creating any new objects (no Color or SColor needs to be
-                    // involved), and that really helps performance on Android and GWT, where the garbage collector
-                    // isn't as good as on desktop JVMs.
+                    // lit by a torch.
                     display.put(x, y, prunedDungeon[x][y], colors[x][y], SColor.lerpFloatColors(bgColors[x][y], GRAY_FLOAT, 0.45f));
                 }
                 // Note that if a position isn't visible or previously seen, we don't  put anything in display.
@@ -534,7 +546,7 @@ public class DastardlyLands extends ApplicationAdapter {
                 // getting drawn in, so those Glyphs won't be rendered either unless you specifically draw one.
             }
         }
-
+        display.clear(player.x, player.y, 0);
         Coord pt;
         for (int i = 0; i < toCursor.size(); i++) {
             pt = toCursor.get(i);

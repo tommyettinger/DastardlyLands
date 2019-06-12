@@ -81,7 +81,7 @@
                 (mapv (fn [c] [(key c) (assoc 
                 (into {} (mapv (fn[[k v]] [k (read-string v)]) (first (fnext c)))) ;; defenses, strings to ints
                 "perks" (vec (apply concat (mapv #(mapv (fn [[k v]] (into k v)) %) (rest (fnext c))))))]) roles))
-        items (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/all-items.txt")]
+        items (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/all-items.txt" :encoding "UTF-8")]
                          (mapv (fn [st] (let
                          	[[_ item-name symbol description] (re-find #"([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [item-name {"symbol" symbol "description" description}]))
                          	 (line-seq rdr))))
@@ -98,5 +98,5 @@
              ))
         ]
         (spit (str "roles-" (System/currentTimeMillis) ".json") (replacer (json/write-str roles)))
-        (spit (str "items-" (System/currentTimeMillis) ".json") (replacer (json/write-str items)))
+        (spit (str "items-" (System/currentTimeMillis) ".json") (replacer (json/write-str items :escape-unicode false)))
         ))
