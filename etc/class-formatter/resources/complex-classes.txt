@@ -192,7 +192,7 @@ Void Mage	0	1	4	3	Void spells, may inflict Nullify	Precision arcana, better dura
 Warden	4	0	1	3	Spear attacks, dominating	Limitless Armor Seed, foraging	Melee counter, Earth element	Superior Heavy Armor, acts as Totem
 Warlock	1	4	2	1	Wasting cantrips, may inflict Curse	Precision arcana, better speed	Superior Scepter, better accuracy	Limitless Fury Froth, defile items
 Water Mage	2	1	2	3	Water spells, better accuracy	Power arcana, better spread	Limitless Pure Water, cleanse items	Party is immune to Water when fielded
-Wild Mage	2	2	3	1	Lucky field, better spread	Storm cantrips, disrupting	Break items to regain SP, limitless Candy	Raise disruption caused by allies
+Wild Mage	2	2	3	1	Lucky field, better spread	Storm cantrips, disrupting	Break items to regain SP, limitless Candy	Superior Elegant Garb, acts as Amulet
 Wind Mage	0	4	3	1	Wind spells, better speed	Ranged counter, better damage	Superior Orb, acts as Sandals	Speed arcana, better accuracy
 Xenomancer	0	1	4	3	Cosmic spells, may inflict Hunger	Magic counter, dominating	Immune to Nullify, Confuse, Daze	Superior Amulet, acts as Robe
 Yakuza	3	2	0	3	Blade attacks, may inflict Fear	Superior Suit, acts as Mask	Superior Katana, better speed	Party is immune to Pain when fielded

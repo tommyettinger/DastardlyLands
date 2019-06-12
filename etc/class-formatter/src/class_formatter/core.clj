@@ -8,23 +8,22 @@
   )
   (defn parse-half [st]
   	(condp re-matches st
-  		#"craft (\w+)" :>> (fn [[_ alpha]] ["craft" alpha])
-  		#"acquire (\w+)" :>> (fn [[_ alpha]] ["acquire" alpha])
-  		#"identify (\w+)" :>> (fn [[_ alpha]] ["identify" alpha])
-  		#"upgrade ([^,]+)" :>> (fn [[_ alpha]] ["upgrade" alpha])
-  		#"ruin (\w+)" :>> (fn [[_ alpha]] ["ruin" alpha])
-  		#"limitless ([^,]+)" :>> (fn [[_ alpha]] ["limitless" alpha])
-  		#"craft (\w+)" :>> (fn [[_ alpha]] ["craft" alpha])
-  		#"(\w+) items" :>> (fn [[_ alpha]] [alpha])
-  		#"(\w+) base" :>> (fn [[_ alpha]] ["base" alpha])
-  		#"poach monsters" ["poach"]
-  		#"preserve corpses" ["preserve"]
-  		#"foraging" ["forage"]
-  		#"reveal" ["reveal"]
-  		#"maintenance" ["maintain"]
-  		#"break items to regain sp" ["break" "restore"]
-  		#"break items to dominate" ["break" "dominate"]
-  		#"break items to disrupt" ["break" "disrupt"]
+  		#"craft (\w+)" :>> (fn [[_ alpha]] [["other"] ["craft" alpha]])
+  		#"acquire (\w+)" :>> (fn [[_ alpha]] [["other"] ["acquire" alpha]])
+  		#"identify (\w+)" :>> (fn [[_ alpha]] [["other"] ["identify" alpha]])
+  		#"upgrade ([^,]+)" :>> (fn [[_ alpha]] [["other"] ["upgrade" alpha]])
+  		#"ruin (\w+)" :>> (fn [[_ alpha]] [["other"] ["ruin"]])
+  		#"limitless ([^,]+)" :>> (fn [[_ alpha]] [["item" alpha] ["limitless"]])
+  		#"(\w+) items" :>> (fn [[_ alpha]] [["other"] [alpha]])
+  		; #"(\w+) base" :>> (fn [[_ alpha]] [["other"] ["base" alpha]])
+  		#"poach monsters" [["other"] ["poach"]]
+  		#"preserve corpses" [["other"] ["preserve"]]
+  		#"foraging" [["other"] ["forage"]]
+  		#"reveal" [["other"] ["reveal"]]
+  		#"maintenance" [["other"] ["maintain"]]
+  		#"break items to regain sp" [["other"] ["break" "restore"]]
+  		#"break items to dominate" [["other"] ["break" "dominate"]]
+  		#"break items to disrupt" [["other"] ["break" "disrupt"]]
   	))
   (defn parse-upgrade [st]
   	(condp re-matches st
@@ -55,25 +54,25 @@
   		#"(\w+) boost, (.+)" :>> (fn [[_ beta up]] {["boost" beta] (parse-upgrade up)})
   		#"stance, suffer (\w+), (.+)" :>> (fn [[_ beta up]] {["stance" beta] (parse-upgrade up)})
   		#"infuse weapons with (\w+), (.+)" :>> (fn [[_ beta up]] {["infuse" beta] (parse-upgrade up)})
-  		#"superior ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" (str beta "+")] (parse-upgrade up)})
-  		#"twin ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" beta beta] (parse-upgrade up)})
+  		#"superior ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" beta "superior"] (parse-upgrade up)})
+  		#"twin ([^,]+), (.+)" :>> (fn [[_ beta up]] {["item" beta "twin"] (parse-upgrade up)})
   		#"party is immune to (\w+) when fielded" :>> (fn [[_ beta]] {["assist"] ["immune" beta]})
   		#"immune to (\w+), (\w+), (\w+)" :>> (fn [[_ beta1 beta2 beta3]] [[["passive"] ["immune" beta1]] [["passive"] ["immune" beta2]] [["passive"] ["immune" beta3]]])
-  		#"dominance from movement" {["passive"] ["mobile" "dominate"]}
-  		#"dominance from being seen" {["passive"] ["apparent" "dominate"]}
-  		#"dominance from taking damage" {["passive"] ["masochistic" "dominate"]}
-  		#"dominance from enemy ailments" {["passive"] ["sadistic" "dominate"]}
-  		#"dominance from enemies using skills" {["passive"] ["perceptive" "dominate"]}
+  		#"dominance from movement" {["control"] ["mobile"]}
+  		#"dominance from being seen" {["control"] ["apparent"]}
+  		#"dominance from taking damage" {["control"] ["masochistic"]}
+  		#"dominance from enemy ailments" {["control"] ["sadistic"]}
+  		#"dominance from enemies using skills" {["control"] ["perceptive"]}
   		#"raise dominance earned by allies" {["assist"] ["dominate"]}
   		#"raise disruption caused by allies" {["assist"] ["disrupt"]}
   		#"reduce disruption affecting allies" {["hamper"]  ["disrupt"]}
-  		#"([^,]+), (.+)" :>> (fn [[_ half1 half2]] [[["other"] (parse-half half1)] [["other"] (parse-half half2)]])
+  		#"([^,]+), (.+)" :>> (fn [[_ half1 half2]] [(parse-half half1) (parse-half half2)])
   	))
 
 (defn -main
   ""
   [& args]
-  #_'[attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, infuse, item, passive, assist, hamper, other]
+  #_'[attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, infuse, item, control, assist, hamper, other]
   (let [roles (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/complex-classes.txt")]
            (mapv (fn [st] (let
            	[[_ role-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [role-name (vec (conj (map parse-entry more) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))
@@ -86,7 +85,18 @@
                          (mapv (fn [st] (let
                          	[[_ item-name symbol description] (re-find #"([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [item-name {"symbol" symbol "description" description}]))
                          	 (line-seq rdr))))
-                ]
-        (spit (str "roles-" (System/currentTimeMillis) ".json") (json/write-str roles))
-        (spit (str "items-" (System/currentTimeMillis) ".json") (json/write-str items))
+        replacer (fn [text] (-> text
+               (s/replace "\"hunger\"" "\"starve\"")
+               (s/replace "\"berserk\"" "\"enrage\"")
+               (s/replace "\"bloodlet\"" "\"cut\"")
+               (s/replace "\"pain\"" "\"agonize\"")
+               (s/replace "\"fear\"" "\"frighten\"")
+               (s/replace "\"serene\"" "\"calm\"")
+               (s/replace "\"haste\"" "\"hasten\"")
+               (s/replace "\"lucky\"" "\"bless\"")
+               (s/replace "\"aware\"" "\"advise\"")
+             ))
+        ]
+        (spit (str "roles-" (System/currentTimeMillis) ".json") (replacer (json/write-str roles)))
+        (spit (str "items-" (System/currentTimeMillis) ".json") (replacer (json/write-str items)))
         ))

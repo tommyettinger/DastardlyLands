@@ -84,7 +84,7 @@ Honey	ᶠ	A chunk of honeycomb laden with sweet, sticky goodness; sometimes foun
 Liquor	ᵈ	Liquor gets you drunk quicker, but it can be sickeningly strong.
 Meat	ᶠ	Though not quite as strengthening as an Egg, Meat is much more filling.
 Nut	ᶠ	Gobbling down Nuts helps keep your body hardened to attack, while continuing to be filling.
-Prayer Bead	※	A tiny, rune-enscribed stone; when the rune is read aloud, it erupts in deific power.
+Prayer Bead	※	A tiny, rune-inscribed stone; when the rune is read aloud, it erupts in deific power.
 Rumble Stone	※	A fist-sized rock painted to depict a scene of disaster; when thrown, the earth trembles.
 Safety Rune	ɂ	A scroll containing a calligraphic word; when dropped to the ground it shields those nearby.
 Serum	ᶳ	An oily fluid made mostly from monster organs; grants a drinker brief but mighty strength.

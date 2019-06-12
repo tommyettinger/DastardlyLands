@@ -1,1 +1,398 @@
-{"Acid":{"symbol":"\u203b","description":"A foul-smelling liquid that scalds flesh, but is easily stopped by armor."},"Ambrosia":{"symbol":"\u1d48","description":"A cup of the milky nectar of the gods that replenishes both body and mind."},"Amulet":{"symbol":"\u0264","description":"A chunk of a strange stone that fell from between the stars, now worn as a necklace to grant magical power and sometimes resilience against Atomic attacks."},"Angelic":{"symbol":"\u22c1","description":"Those who can take the form of Celestials grow shining wings that can buffet enemies."},"Armor Seed":{"symbol":"\u1db3","description":"A small green seed that grows into flexible armor made of vines when watered."},"Armor Spikes":{"symbol":"\u02c7","description":"A series of heavily spiked straps meant to fit over armor, these defenses make fighting you in melee a challenge."},"Beer":{"symbol":"\u1d48","description":"A favorite of those who don't want to stop drinking."},"Black Belt":{"symbol":"\u208b","description":"A martial artist's best friend, the Black Belt is a common reward from a dojo to a long-time student."},"Black Spot":{"symbol":"\u203b","description":"A pirate's foul mouth is nothing compared to the curse they can emit with a Black Spot."},"Blast Powder":{"symbol":"\u1db3","description":"For one shot, it's an incredible improvement over the black powder firearms typically use."},"Bomb Set":{"symbol":"\u1d58","description":"A satchel filled with primitive grenades, each a simple clay pot filled with black powder."},"Bow":{"symbol":"\u232a","description":"An old variety of ranged weapon that has seen considerable improvement to compete with firearms."},"Bread":{"symbol":"\u1da0","description":"Wholesome, pure, and very filling, Bread is the simplest way to ease an aching belly."},"Broadsword":{"symbol":"\u2660","description":"A wide-bladed two-handed sword that mixes the savagery of an axe with the precision of a sword."},"Cake":{"symbol":"\u1da0","description":"A baked delight decorated with sugary icing; it isn't as filling as you'd hope."},"Candy":{"symbol":"\u1da0","description":"Once you start eating Candy, you don't want to stop eating Candy."},"Cannon":{"symbol":"\u027c","description":"A very-long-ranged weapon that can obliterate one enemy with fire, though it takes ages to load."},"Cape":{"symbol":"\u235d","description":"Among the least effective ways to kill someone, but great for confusing foes and deflecting projectiles."},"Carving Knife":{"symbol":"\u25b6","description":"This sharpened chef's implement is just as good at slicing up a steak as it is slashing living flesh."},"Chakram Set":{"symbol":"\u00b0","description":"A collection of bladed hoops, meant to be worn along the forearms for blocking or hurled quickly at foes."},"Cheese":{"symbol":"\u1da0","description":"A fairly nutritious food that makes you briefly more robust, but rots quickly."},"Cloak":{"symbol":"\u1d16","description":"An overcloak that helps protect against ailments and magic, and sometimes is waterproof enough to guard against Water attacks."},"Cold Snap":{"symbol":"\u203b","description":"A frigid piece of blue alchemical crystal that instantly chills its surroundings when broken."},"Crossbow":{"symbol":"\u22a2","description":"Part-way between the Bow and the Musket, Crossbows are highly accurate and easily pierce armor."},"Crown":{"symbol":"\u1d55","description":"A royal headpiece that ensures the wearer won't be belittled; the best Crowns protect against Holy attacks, the result of mistrust between churches and kings."},"Crystal":{"symbol":"\u2b20","description":"A potent meditation aid that allows its holder to ignore hunger and may scatter Light attacks."},"Dagger Set":{"symbol":"\u25b6","description":"A versatile choice, the Dagger Set is typically concealed between layers of clothing for surprise stabs."},"Derringer Set":{"symbol":"\u1d63","description":"Carrying many small loaded firearms lets you avoid loading a gun in combat, though the range isn't great."},"Dispel Gel":{"symbol":"\u0242","description":"A cube of gray jelly in a paper wrapper that absorbs magic power when the wrapper breaks."},"Egg":{"symbol":"\u1da0","description":"Eating a raw Egg is a great way to feel strong, but eating too many makes you ill instead."},"Elegant Garb":{"symbol":"\u2126","description":"A dress or toga so beautiful that anyone charming you can't concentrate; it may flow and divert Wind attacks."},"Encyclopedia":{"symbol":"\u2343","description":"Just carrying an Encyclopedia helps you feel confident in your mental faculties and may shield against subtle Void attacks."},"Fish":{"symbol":"\u1da0","description":"Even a small fish is powerfully nutritious and helps sharpen your reflexes."},"Flail":{"symbol":"\u00a1","description":"A nasty spiked ball whipped around on a heavy chain; it's simply brutal against armored foes."},"Forbidden Scroll":{"symbol":"\u203b","description":"Illegal, but still sometimes used by mages as a last resort to avoid other mages' spells."},"Fossil Fang":{"symbol":"\u027f","description":"A gift of the land to those who protect it, this massive tooth carries primal magic power."},"Fruit":{"symbol":"\u1da0","description":"A small sweet fruit that is nicely invigorating; commonly found by foraging."},"Fury Froth":{"symbol":"\u203b","description":"A roiling foam held in a sealed lead flask; when opened it lashes out at everything nearby."},"Greataxe":{"symbol":"\u2691","description":"It's hard to beat this two-handed axe when it comes to overkill; the destruction these wreak is legendary."},"Grimoire":{"symbol":"\u2357","description":"A Black Book, with a Shadow attack that turns magic defense against the target but is otherwise weak."},"Hammer":{"symbol":"\u2109","description":"A heavy one-handed tool converted into a weapon of war that is especially strong against armor."},"Handaxe Set":{"symbol":"\u2691","description":"Some call them tomahawks, others hunga munga; this is a bag of throwing axes by any name."},"Hat":{"symbol":"\u028d","description":"A headpiece that carries minor protective spells; some are built to divert Sound attacks from the wearer's head."},"Hatchet":{"symbol":"\u2691","description":"A medium-sized axe balanced for carving wood rather than throwing, it can carve flesh just as well."},"Heavy Armor":{"symbol":"\u220f","description":"Though it is one of the strongest protections available against physical attack, Heavy Armor is exhausting to wear."},"Honey":{"symbol":"\u1da0","description":"A chunk of honeycomb laden with sweet, sticky goodness; sometimes found by foraging."},"Instrument":{"symbol":"\u266a","description":"A fine musical instrument designed to play clear notes for casting spells, with a simple Sound attack."},"Javelin Set":{"symbol":"\u2197","description":"A back-carried container of short spear-like weapons balanced more for throwing than thrusting."},"Katana":{"symbol":"\u026d","description":"A curved blade attributed mystical power that can make effortless quick slices with impressive accuracy."},"Lance":{"symbol":"\u2191","description":"An uncommon weapon, the Lance can't attack a close-by enemy but can annihilate further-away foes."},"Light Armor":{"symbol":"\u2229","description":"Light Armor helps protect its wearer from physical attack, and may also protect against magic or other forms of attack as well."},"Liquor":{"symbol":"\u1d48","description":"Liquor gets you drunk quicker, but it can be sickeningly strong."},"Longspear":{"symbol":"\u2191","description":"The art of killing a man with a pointed stick has gotten more complex over time, but the weapon has not."},"Longsword":{"symbol":"\u2020","description":"Longswords have good accuracy, damage, and parrying ability, helping their bearer excel in every battle."},"Marque":{"symbol":"\u233a","description":"A letter written by an authority that gives its holder a disciplined calm, and may protect from effects related to the laws of the land."},"Mask":{"symbol":"\u229b","description":"A primitive wood face-covering, it serves the simple purpose of protecting the eyes and face, but may also grant protection from Fire."},"Meat":{"symbol":"\u1da0","description":"Though not quite as strengthening as an Egg, Meat is much more filling."},"Musket":{"symbol":"\u027c","description":"A two-handed firearm that spits out a heavy lead ball; its damage is impressive, but its load time isn't."},"Net":{"symbol":"\u236f","description":"A tool used for fishing or trapping, refitted for bringing down human targets without harming them."},"Nut":{"symbol":"\u1da0","description":"Gobbling down Nuts helps keep your body hardened to attack, while continuing to be filling."},"Orb":{"symbol":"\u25cf","description":"A perfectly round crystal that allows its bearer to both contemplate Void and attack with Void magic."},"Pistol":{"symbol":"\u1d63","description":"A one-handed firearm that pierces armor easily and at decent range, but is slow to reload."},"Pole":{"symbol":"\u2503","description":"Whether an collapsible pole or just a piece of bamboo, a Pole is excellent at whacking multiple foes."},"Polearm":{"symbol":"\u219f","description":"A Polearm could be a halberd, glaive, ranseur, guan do, or just about any sharp thing on a long stick."},"Prayer Bead":{"symbol":"\u203b","description":"A tiny, rune-enscribed stone; when the rune is read aloud, it erupts in deific power."},"Pure Water":{"symbol":"\u1d48","description":"A glass vessel filled with water so clear it might be divine; can cleanse evil from objects."},"Quiver":{"symbol":"\u2033","description":"A container filled with arrows or bolts meant for Bows or Crossbows, having a better Quiver means you are better at archery."},"Razor Deck":{"symbol":"\u2370","description":"An fine deck of cards with razor-sharp wire running around each card's edge; a tricky thrown weapon."},"Relic":{"symbol":"\u037c","description":"A preserved piece of an object involved in a miracle long ago, a Relic protects against curses and may even work against deadly Wasting attacks."},"Robe":{"symbol":"\u236c","description":"Though this appears to be an overly-decorated bathrobe, it is known to magicians as a potent reflector of their spells."},"Rotten Food":{"symbol":"\u1d60","description":"A putrid lump of unidentifiable garbage that can defile whatever it is smeared on."},"Rumble Stone":{"symbol":"\u203b","description":"A fist-sized rock painted to depict a scene of disaster; when thrown, the earth trembles."},"Saber":{"symbol":"\u026d","description":"An elegant dueling weapon that is sharp all along its blade; ideal for thrusting attacks and parries."},"Safety Rune":{"symbol":"\u0242","description":"A scroll containing a calligraphic word; when dropped to the ground it shields those nearby."},"Sandals":{"symbol":"\u1d0c","description":"An easy way to move more quickly that provides resistance to entangling effects, and may carry protection against Earth attacks."},"Scepter":{"symbol":"\u2224","description":"A magician's response to the firearm; this is a two-handed heavy staff that \"fires\" massive magic blasts."},"Scimitar":{"symbol":"\u026d","description":"A strongly curved one-handed blade meant for drawing blood from multiple foes with one sweeping slice"},"Serum":{"symbol":"\u1db3","description":"An oily fluid made mostly from monster organs; grants a drinker brief but mighty strength."},"Shackle Glyph":{"symbol":"\u203b","description":"An alphabetical letter made of thin iron chains that contorts to trap an enemy of the law."},"Shield":{"symbol":"\u2295","description":"Not esteemed as a weapon, Shields greatly support a bearer's defenses, and for that they are common."},"Shortsword":{"symbol":"\u25b6","description":"Not quite a knife or a sword, Shortswords are heavier than they look, but can still be swung quickly."},"Shuriken Set":{"symbol":"\u2605","description":"Some dismiss Dagger Sets and prefer these throwing stars; they cause brutal damage to exposed skin."},"Soul Smoke":{"symbol":"\u0242","description":"A bottle of smoke that can replenish exhausted items, but may carry a curse if overused."},"Staff":{"symbol":"\u236d","description":"A Staff can sweep but otherwise is a lackluster weapon; its mirror and parry abilities make it useful."},"Stealth Garb":{"symbol":"\u1d25","description":"A black, tightly-fitting garment that can be worn over armor and helps wriggle out of immobilization; may shield against Shadow attacks."},"Sticky Flame":{"symbol":"\u203b","description":"A white blob of alchemical origin, it burns fiercely when exposed to air or even water."},"Suit":{"symbol":"\u0245","description":"A finely tailored garment that helps your confidence; may carry enchantment against Entropy attacks."},"Sun Drop":{"symbol":"\u203b","description":"A pouch holding a glass vial with shining fluid inside; the light is strong enough to burn."},"Symbol":{"symbol":"\u1d34","description":"A holy symbol, regardless of religion, can issue divine judgment even when simply worn or carried."},"Tornado Fan":{"symbol":"\u203b","description":"What appears to be a simple paper fan can be activated once to summon a mighty gale."},"Totem":{"symbol":"\u1d15","description":"A small amulet made of hand-carved wood and bone that helps protect from nature's most common nuisances, sometimes including Poison attacks."},"Unarmed":{"symbol":"\u0271","description":"Since Unarmed attacks can be mixed into weapon attacks, many warriors pick up basic brawling skills."},"Uranium Ore":{"symbol":"\u203b","description":"A chunk of greenish-yellow rock with a magic spell holding its radiation in... until it's thrown."},"Utility Harness":{"symbol":"\u2021","description":"A cluster of cables linking a harness over your body to items you want to hold onto; good ones are designed to ground the user against Storm attacks."},"Vegetable":{"symbol":"\u1da0","description":"Vegetables are commonly found by foraging, and are filling even if somewhat boring."},"Vile":{"symbol":"\u2717","description":"Those who can take the form of Fiends exude horrid tentacles that rot the flesh of their enemies."},"Whip":{"symbol":"\u0286","description":"The tool of a harsh taskmaster or possibly a beast tamer, Whips are strong against unarmored foes."},"Wild":{"symbol":"\u02ac","description":"Those who can take the form of Animals gain better defenses and attacks, but can't wield weapons."},"Wine":{"symbol":"\u1d48","description":"An elegant drink that only gets finer with age, and helps a drinker stay safe from magic."}}
+{
+  "Acid": {
+    "symbol": "\u203b",
+    "description": "A foul-smelling liquid that scalds flesh, but is easily stopped by armor."
+  },
+  "Ambrosia": {
+    "symbol": "\u1d48",
+    "description": "A cup of the milky nectar of the gods that replenishes both body and mind."
+  },
+  "Amulet": {
+    "symbol": "\u0264",
+    "description": "A chunk of a strange stone that fell from between the stars, now worn as a necklace to grant magical power and sometimes resilience against Atomic attacks."
+  },
+  "Angelic": {
+    "symbol": "\u22c1",
+    "description": "Those who can take the form of Celestials grow shining wings that can buffet enemies."
+  },
+  "Armor Seed": {
+    "symbol": "\u1db3",
+    "description": "A small green seed that grows into flexible armor made of vines when watered."
+  },
+  "Armor Spikes": {
+    "symbol": "\u02c7",
+    "description": "A series of heavily spiked straps meant to fit over armor, these defenses make fighting you in melee a challenge."
+  },
+  "Beer": {
+    "symbol": "\u1d48",
+    "description": "A favorite of those who don't want to stop drinking."
+  },
+  "Black Belt": {
+    "symbol": "\u208b",
+    "description": "A martial artist's best friend, the Black Belt is a common reward from a dojo to a long-time student."
+  },
+  "Black Spot": {
+    "symbol": "\u203b",
+    "description": "A pirate's foul mouth is nothing compared to the curse they can emit with a Black Spot."
+  },
+  "Blast Powder": {
+    "symbol": "\u1db3",
+    "description": "For one shot, it's an incredible improvement over the black powder firearms typically use."
+  },
+  "Bomb Set": {
+    "symbol": "\u1d58",
+    "description": "A satchel filled with primitive grenades, each a simple clay pot filled with black powder."
+  },
+  "Bow": {
+    "symbol": "\u232a",
+    "description": "An old variety of ranged weapon that has seen considerable improvement to compete with firearms."
+  },
+  "Bread": {
+    "symbol": "\u1da0",
+    "description": "Wholesome, pure, and very filling, Bread is the simplest way to ease an aching belly."
+  },
+  "Broadsword": {
+    "symbol": "\u2660",
+    "description": "A wide-bladed two-handed sword that mixes the savagery of an axe with the precision of a sword."
+  },
+  "Cake": {
+    "symbol": "\u1da0",
+    "description": "A baked delight decorated with sugary icing; it isn't as filling as you'd hope."
+  },
+  "Candy": {
+    "symbol": "\u1da0",
+    "description": "Once you start eating Candy, you don't want to stop eating Candy."
+  },
+  "Cannon": {
+    "symbol": "\u027c",
+    "description": "A very-long-ranged weapon that can obliterate one enemy with fire, though it takes ages to load."
+  },
+  "Cape": {
+    "symbol": "\u235d",
+    "description": "Among the least effective ways to kill someone, but great for confusing foes and deflecting projectiles."
+  },
+  "Carving Knife": {
+    "symbol": "\u25b6",
+    "description": "This sharpened chef's implement is just as good at slicing up a steak as it is slashing living flesh."
+  },
+  "Chakram Set": {
+    "symbol": "\u00b0",
+    "description": "A collection of bladed hoops, meant to be worn along the forearms for blocking or hurled quickly at foes."
+  },
+  "Cheese": {
+    "symbol": "\u1da0",
+    "description": "A fairly nutritious food that makes you briefly more robust, but rots quickly."
+  },
+  "Cloak": {
+    "symbol": "\u1d16",
+    "description": "An overcloak that helps protect against ailments and magic, and sometimes is waterproof enough to guard against Water attacks."
+  },
+  "Cold Snap": {
+    "symbol": "\u203b",
+    "description": "A frigid piece of blue alchemical crystal that instantly chills its surroundings when broken."
+  },
+  "Crossbow": {
+    "symbol": "\u22a2",
+    "description": "Part-way between the Bow and the Musket, Crossbows are highly accurate and easily pierce armor."
+  },
+  "Crown": {
+    "symbol": "\u1d55",
+    "description": "A royal headpiece that ensures the wearer won't be belittled; the best Crowns protect against Holy attacks, the result of mistrust between churches and kings."
+  },
+  "Crystal": {
+    "symbol": "\u2b20",
+    "description": "A potent meditation aid that allows its holder to ignore hunger and may scatter Light attacks."
+  },
+  "Dagger Set": {
+    "symbol": "\u25b6",
+    "description": "A versatile choice, the Dagger Set is typically concealed between layers of clothing for surprise stabs."
+  },
+  "Derringer Set": {
+    "symbol": "\u1d63",
+    "description": "Carrying many small loaded firearms lets you avoid loading a gun in combat, though the range isn't great."
+  },
+  "Dispel Gel": {
+    "symbol": "\u0242",
+    "description": "A cube of gray jelly in a paper wrapper that absorbs magic power when the wrapper breaks."
+  },
+  "Egg": {
+    "symbol": "\u1da0",
+    "description": "Eating a raw Egg is a great way to feel strong, but eating too many makes you ill instead."
+  },
+  "Elegant Garb": {
+    "symbol": "\u2126",
+    "description": "A dress or toga so beautiful that anyone charming you can't concentrate; it may flow and divert Wind attacks."
+  },
+  "Encyclopedia": {
+    "symbol": "\u2343",
+    "description": "Just carrying an Encyclopedia helps you feel confident in your mental faculties and may shield against subtle Void attacks."
+  },
+  "Fish": {
+    "symbol": "\u1da0",
+    "description": "Even a small fish is powerfully nutritious and helps sharpen your reflexes."
+  },
+  "Flail": {
+    "symbol": "\u00a1",
+    "description": "A nasty spiked ball whipped around on a heavy chain; it's simply brutal against armored foes."
+  },
+  "Forbidden Scroll": {
+    "symbol": "\u203b",
+    "description": "Illegal, but still sometimes used by mages as a last resort to avoid other mages' spells."
+  },
+  "Fossil Fang": {
+    "symbol": "\u027f",
+    "description": "A gift of the land to those who protect it, this massive tooth carries primal magic power."
+  },
+  "Fruit": {
+    "symbol": "\u1da0",
+    "description": "A small sweet fruit that is nicely invigorating; commonly found by foraging."
+  },
+  "Fury Froth": {
+    "symbol": "\u203b",
+    "description": "A roiling foam held in a sealed lead flask; when opened it lashes out at everything nearby."
+  },
+  "Greataxe": {
+    "symbol": "\u2691",
+    "description": "It's hard to beat this two-handed axe when it comes to overkill; the destruction these wreak is legendary."
+  },
+  "Grimoire": {
+    "symbol": "\u2357",
+    "description": "A Black Book, with a Shadow attack that turns magic defense against the target but is otherwise weak."
+  },
+  "Hammer": {
+    "symbol": "\u2109",
+    "description": "A heavy one-handed tool converted into a weapon of war that is especially strong against armor."
+  },
+  "Handaxe Set": {
+    "symbol": "\u2691",
+    "description": "Some call them tomahawks, others hunga munga; this is a bag of throwing axes by any name."
+  },
+  "Hat": {
+    "symbol": "\u028d",
+    "description": "A headpiece that carries minor protective spells; some are built to divert Sound attacks from the wearer's head."
+  },
+  "Hatchet": {
+    "symbol": "\u2691",
+    "description": "A medium-sized axe balanced for carving wood rather than throwing, it can carve flesh just as well."
+  },
+  "Heavy Armor": {
+    "symbol": "\u220f",
+    "description": "Though it is one of the strongest protections available against physical attack, Heavy Armor is exhausting to wear."
+  },
+  "Honey": {
+    "symbol": "\u1da0",
+    "description": "A chunk of honeycomb laden with sweet, sticky goodness; sometimes found by foraging."
+  },
+  "Instrument": {
+    "symbol": "\u266a",
+    "description": "A fine musical instrument designed to play clear notes for casting spells, with a simple Sound attack."
+  },
+  "Javelin Set": {
+    "symbol": "\u2197",
+    "description": "A back-carried container of short spear-like weapons balanced more for throwing than thrusting."
+  },
+  "Katana": {
+    "symbol": "\u026d",
+    "description": "A curved blade attributed mystical power that can make effortless quick slices with impressive accuracy."
+  },
+  "Lance": {
+    "symbol": "\u2191",
+    "description": "An uncommon weapon, the Lance can't attack a close-by enemy but can annihilate further-away foes."
+  },
+  "Light Armor": {
+    "symbol": "\u2229",
+    "description": "Light Armor helps protect its wearer from physical attack, and may also protect against magic or other forms of attack as well."
+  },
+  "Liquor": {
+    "symbol": "\u1d48",
+    "description": "Liquor gets you drunk quicker, but it can be sickeningly strong."
+  },
+  "Longspear": {
+    "symbol": "\u2191",
+    "description": "The art of killing a man with a pointed stick has gotten more complex over time, but the weapon has not."
+  },
+  "Longsword": {
+    "symbol": "\u2020",
+    "description": "Longswords have good accuracy, damage, and parrying ability, helping their bearer excel in every battle."
+  },
+  "Marque": {
+    "symbol": "\u233a",
+    "description": "A letter written by an authority that gives its holder a disciplined calm, and may protect from effects related to the laws of the land."
+  },
+  "Mask": {
+    "symbol": "\u229b",
+    "description": "A primitive wood face-covering, it serves the simple purpose of protecting the eyes and face, but may also grant protection from Fire."
+  },
+  "Meat": {
+    "symbol": "\u1da0",
+    "description": "Though not quite as strengthening as an Egg, Meat is much more filling."
+  },
+  "Musket": {
+    "symbol": "\u027c",
+    "description": "A two-handed firearm that spits out a heavy lead ball; its damage is impressive, but its load time isn't."
+  },
+  "Net": {
+    "symbol": "\u236f",
+    "description": "A tool used for fishing or trapping, refitted for bringing down human targets without harming them."
+  },
+  "Nut": {
+    "symbol": "\u1da0",
+    "description": "Gobbling down Nuts helps keep your body hardened to attack, while continuing to be filling."
+  },
+  "Orb": {
+    "symbol": "\u25cf",
+    "description": "A perfectly round crystal that allows its bearer to both contemplate Void and attack with Void magic."
+  },
+  "Pistol": {
+    "symbol": "\u1d63",
+    "description": "A one-handed firearm that pierces armor easily and at decent range, but is slow to reload."
+  },
+  "Pole": {
+    "symbol": "\u2503",
+    "description": "Whether an collapsible pole or just a piece of bamboo, a Pole is excellent at whacking multiple foes."
+  },
+  "Polearm": {
+    "symbol": "\u219f",
+    "description": "A Polearm could be a halberd, glaive, ranseur, guan do, or just about any sharp thing on a long stick."
+  },
+  "Prayer Bead": {
+    "symbol": "\u203b",
+    "description": "A tiny, rune-inscribed stone; when the rune is read aloud, it erupts in deific power."
+  },
+  "Pure Water": {
+    "symbol": "\u1d48",
+    "description": "A glass vessel filled with water so clear it might be divine; can cleanse evil from objects."
+  },
+  "Quiver": {
+    "symbol": "\u2033",
+    "description": "A container filled with arrows or bolts meant for Bows or Crossbows, having a better Quiver means you are better at archery."
+  },
+  "Razor Deck": {
+    "symbol": "\u2370",
+    "description": "An fine deck of cards with razor-sharp wire running around each card's edge; a tricky thrown weapon."
+  },
+  "Relic": {
+    "symbol": "\u037c",
+    "description": "A preserved piece of an object involved in a miracle long ago, a Relic protects against curses and may even work against deadly Wasting attacks."
+  },
+  "Robe": {
+    "symbol": "\u236c",
+    "description": "Though this appears to be an overly-decorated bathrobe, it is known to magicians as a potent reflector of their spells."
+  },
+  "Rotten Food": {
+    "symbol": "\u1d60",
+    "description": "A putrid lump of unidentifiable garbage that can defile whatever it is smeared on."
+  },
+  "Rumble Stone": {
+    "symbol": "\u203b",
+    "description": "A fist-sized rock painted to depict a scene of disaster; when thrown, the earth trembles."
+  },
+  "Saber": {
+    "symbol": "\u026d",
+    "description": "An elegant dueling weapon that is sharp all along its blade; ideal for thrusting attacks and parries."
+  },
+  "Safety Rune": {
+    "symbol": "\u0242",
+    "description": "A scroll containing a calligraphic word; when dropped to the ground it shields those nearby."
+  },
+  "Sandals": {
+    "symbol": "\u1d0c",
+    "description": "An easy way to move more quickly that provides resistance to entangling effects, and may carry protection against Earth attacks."
+  },
+  "Scepter": {
+    "symbol": "\u2224",
+    "description": "A magician's response to the firearm; this is a two-handed heavy staff that \"fires\" massive magic blasts."
+  },
+  "Scimitar": {
+    "symbol": "\u026d",
+    "description": "A strongly curved one-handed blade meant for drawing blood from multiple foes with one sweeping slice"
+  },
+  "Serum": {
+    "symbol": "\u1db3",
+    "description": "An oily fluid made mostly from monster organs; grants a drinker brief but mighty strength."
+  },
+  "Shackle Glyph": {
+    "symbol": "\u203b",
+    "description": "An alphabetical letter made of thin iron chains that contorts to trap an enemy of the law."
+  },
+  "Shield": {
+    "symbol": "\u2295",
+    "description": "Not esteemed as a weapon, Shields greatly support a bearer's defenses, and for that they are common."
+  },
+  "Shortsword": {
+    "symbol": "\u25b6",
+    "description": "Not quite a knife or a sword, Shortswords are heavier than they look, but can still be swung quickly."
+  },
+  "Shuriken Set": {
+    "symbol": "\u2605",
+    "description": "Some dismiss Dagger Sets and prefer these throwing stars; they cause brutal damage to exposed skin."
+  },
+  "Soul Smoke": {
+    "symbol": "\u0242",
+    "description": "A bottle of smoke that can replenish exhausted items, but may carry a curse if overused."
+  },
+  "Staff": {
+    "symbol": "\u236d",
+    "description": "A Staff can sweep but otherwise is a lackluster weapon; its mirror and parry abilities make it useful."
+  },
+  "Stealth Garb": {
+    "symbol": "\u1d25",
+    "description": "A black, tightly-fitting garment that can be worn over armor and helps wriggle out of immobilization; may shield against Shadow attacks."
+  },
+  "Sticky Flame": {
+    "symbol": "\u203b",
+    "description": "A white blob of alchemical origin, it burns fiercely when exposed to air or even water."
+  },
+  "Suit": {
+    "symbol": "\u0245",
+    "description": "A finely tailored garment that helps your confidence; may carry enchantment against Entropy attacks."
+  },
+  "Sun Drop": {
+    "symbol": "\u203b",
+    "description": "A pouch holding a glass vial with shining fluid inside; the light is strong enough to burn."
+  },
+  "Symbol": {
+    "symbol": "\u1d34",
+    "description": "A holy symbol, regardless of religion, can issue divine judgment even when simply worn or carried."
+  },
+  "Tornado Fan": {
+    "symbol": "\u203b",
+    "description": "What appears to be a simple paper fan can be activated once to summon a mighty gale."
+  },
+  "Totem": {
+    "symbol": "\u1d15",
+    "description": "A small amulet made of hand-carved wood and bone that helps protect from nature's most common nuisances, sometimes including Poison attacks."
+  },
+  "Unarmed": {
+    "symbol": "\u0271",
+    "description": "Since Unarmed attacks can be mixed into weapon attacks, many warriors pick up basic brawling skills."
+  },
+  "Uranium Ore": {
+    "symbol": "\u203b",
+    "description": "A chunk of greenish-yellow rock with a magic spell holding its radiation in... until it's thrown."
+  },
+  "Utility Harness": {
+    "symbol": "\u2021",
+    "description": "A cluster of cables linking a harness over your body to items you want to hold onto; good ones are designed to ground the user against Storm attacks."
+  },
+  "Vegetable": {
+    "symbol": "\u1da0",
+    "description": "Vegetables are commonly found by foraging, and are filling even if somewhat boring."
+  },
+  "Vile": {
+    "symbol": "\u2717",
+    "description": "Those who can take the form of Fiends exude horrid tentacles that rot the flesh of their enemies."
+  },
+  "Whip": {
+    "symbol": "\u0286",
+    "description": "The tool of a harsh taskmaster or possibly a beast tamer, Whips are strong against unarmored foes."
+  },
+  "Wild": {
+    "symbol": "\u02ac",
+    "description": "Those who can take the form of Animals gain better defenses and attacks, but can't wield weapons."
+  },
+  "Wine": {
+    "symbol": "\u1d48",
+    "description": "An elegant drink that only gets finer with age, and helps a drinker stay safe from magic."
+  }
+}

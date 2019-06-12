@@ -3,13 +3,6 @@
   "$id": "https://tommyettinger.github.com/dl/data/Roles.json",
   "type": "object",
   "definitions": {
-    "Category": {
-      "type": "string",
-      "enum": [
-        "attack", "spell", "cantrip", "tricks", "arcana", "stance",
-        "afflict", "aura", "boost", "field", "infuse",
-        "item", "passive", "assist", "hamper", "other"]
-    },
     "PerkRaw": {
       "type": "array",
       "items": {

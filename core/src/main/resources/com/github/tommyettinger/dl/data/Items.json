@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tommyettinger.github.com/dl/data/Items.json",
+  "type": "object",
+  "definitions": {
+    "Item": {
+      "type": "object",
+      "properties": {
+        "symbol": { "type": "string"},
+        "description": { "type": "string"}
+      }
+    }
+  },
+  "additionalProperties": {
+    "$ref": "#/definitions/Item"
+  }
+}
