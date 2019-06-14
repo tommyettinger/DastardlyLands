@@ -12,7 +12,6 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.github.tommyettinger.dl.data.Items;
 import com.github.tommyettinger.dl.data.Roles;
 import squidpony.ArrayTools;
-import squidpony.FakeLanguageGen;
 import squidpony.NaturalLanguageCipher;
 import squidpony.StringKit;
 import squidpony.squidai.DijkstraMap;
@@ -23,7 +22,10 @@ import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
 import squidpony.squidgrid.mapping.LineKit;
-import squidpony.squidmath.*;
+import squidpony.squidmath.Coord;
+import squidpony.squidmath.GreasedRegion;
+import squidpony.squidmath.OrderedMap;
+import squidpony.squidmath.StatefulRNG;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,7 +109,8 @@ public class DastardlyLands extends ApplicationAdapter {
                     "too, it is better to recapture an army entire than to destroy it, to capture " +
                     "a regiment, a detachment or a company entire than to destroy them. Hence to fight " +
                     "and conquer in all your battles is not supreme excellence; supreme excellence " +
-                    "consists in breaking the enemy's resistance without fighting.";
+                    "consists in breaking the enemy's resistance without fighting.",
+    introText = "Hello and welcome to Dastardly Lands! Move over items to get their descriptions.";
     // A translation dictionary for going back and forth between English and an imaginary language that this generates
     // words for, using some of the rules that the English language tends to follow to determine if two words should
     // share a common base word (such as "read" and "reader" needing similar translations). This is given randomly
@@ -305,16 +308,7 @@ public class DastardlyLands extends ApplicationAdapter {
         lang = new ArrayList<>(16);
         // StringKit has various utilities for dealing with text, including wrapping text so it fits in a specific width
         // and inserting the lines into a List of Strings, as we do here with the List lang and the text artOfWar.
-        StringKit.wrap(lang, artOfWar, split-2);
-        // FakeLanguageGen.registered is an array of the hand-made languages in FakeLanguageGen, not any random ones and
-        // not most mixes of multiple languages. We get a random language from it with our GWTRNG, and use that to build
-        // our current NaturalLanguageCipher. This NaturalLanguageCipher will act as an English-to-X dictionary for
-        // whatever X is our randomly chosen language, and will try to follow the loose rules English follows when
-        // it translates a word into an imaginary word in the fake language.
-        translator = new NaturalLanguageCipher(rng.getRandomElement(FakeLanguageGen.registered));
-        StringKit.wrap(lang, translator.cipher(artOfWar), split-2);
-        // the 0L here can be used to adjust the languages generated; it acts a little like a seed for an RNG.
-        translator.initialize(rng.getRandomElement(FakeLanguageGen.registered), 0L);
+        StringKit.wrap(lang, introText, split-2);
 
         // this is a big one.
         // SquidInput can be constructed with a KeyHandler (which just processes specific keypresses), a SquidMouse
@@ -490,14 +484,12 @@ public class DastardlyLands extends ApplicationAdapter {
                     , new float[]{SColor.CW_FADED_PURPLE.toFloatBits()}
                     ));
         }
-        // removes the first line displayed of the Art of War text or its translation.
-        lang.remove(0);
-        // if the last line reduced the number of lines we can show to less than what we try to show, we fill in more
-        // lines using a randomly selected fake language to translate the same Art of War text.
-        while (lang.size() < bonusHeight - 1)
-        {
-            StringKit.wrap(lang, translator.cipher(artOfWar), split-2);
-            translator.initialize(rng.getRandomElement(FakeLanguageGen.registered), 0L);
+        Item it = things.get(player);
+        if(it != null) {
+            StringKit.wrap(lang, it.name + ": " + it.description, split - 2);
+            while (lang.size() >= bonusHeight) {
+                lang.remove(0);
+            }
         }
     }
 
@@ -556,7 +548,7 @@ public class DastardlyLands extends ApplicationAdapter {
         }
         splitDisplay.clear(0);
         splitDisplay.fillBackground(FLOAT_LIGHTING);
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < lang.size(); i++) {
             splitDisplay.put(1, i, lang.get(i), SColor.DB_LEAD);
         }
         splitDisplay.fillArea(VERY_DARK_FLOAT, split, 0, gridWidth - split, bonusHeight);
