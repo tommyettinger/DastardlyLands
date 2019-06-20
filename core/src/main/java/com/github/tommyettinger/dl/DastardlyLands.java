@@ -562,7 +562,7 @@ public class DastardlyLands extends ApplicationAdapter {
             splitDisplay.put(split+1, 2, "You must defeat an " + enemyRole.getKey() + ".", FLOAT_LIGHTING, 0f);
         else
             splitDisplay.put(split+1, 2, "You must defeat a " + enemyRole.getKey() + ".", FLOAT_LIGHTING, 0f);
-        splitDisplay.put(split+1, 4, (playerRole.getValue().getPerks().first().toString()), FLOAT_LIGHTING, 0f);
+        splitDisplay.put(split+1, 4, (playerRole.getValue().getPerks().first().getBindings().toYaml()), FLOAT_LIGHTING, 0f);
 //        for(ObText.ObTextEntry ent : playerRole.associated)
 //        {
 //            if(ent.primary.equals("attack"))

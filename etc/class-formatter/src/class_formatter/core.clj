@@ -21,15 +21,15 @@
   		#"scavenging" [["other" "downtime"] ["forage" "junk"]]
   		#"reveal" [["other" "instant"] ["reveal" "traps"]]
   		#"maintenance" [["other" "downtime"] ["maintain" "all"]]
-  		#"break items to regain sp" [["action" "break"] ["restore" 1]]
-  		#"break items to dominate" [["action" "break"] ["dominate" 1]]
-  		#"break items to disrupt" [["action" "break"] ["disrupt" 1]]
+  		#"break items to regain sp" [["action" "break"] ["restore" "1"]]
+  		#"break items to dominate" [["action" "break"] ["dominate" "1"]]
+  		#"break items to disrupt" [["action" "break"] ["disrupt" "1"]]
   	))
   (defn parse-upgrade [st]
   	(condp re-matches st
-  		#"better (\w+)" :>> (fn [[_ alpha]] [alpha 1])
-  		#"dominating" ["dominate" 1]
-  		#"disrupting" ["disrupt" 1]
+  		#"better (\w+)" :>> (fn [[_ alpha]] [alpha "1"])
+  		#"dominating" ["dominate" "1"]
+  		#"disrupting" ["disrupt" "1"]
   		#"(\w+) bane" :>> (fn [[_ alpha]] ["anti" alpha])
   		#"strong against (\w+)" :>> (fn [[_ alpha]] ["anti" alpha])
   		#"may inflict (\w+)" :>> (fn [[_ alpha]] ["state" alpha])
@@ -74,7 +74,7 @@
                	[[_ role-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [role-name (vec (conj (apply concat (map parse-entry more)) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))
                	 (line-seq rdr))))
             roles2 (into (sorted-map)
-                    (mapv (fn [c] [(key c) (assoc (into {} (mapv (fn[[k v]] [k (read-string v)]) (first (fnext c)))) "perks" (vec (rest (fnext c))))]) roles))
+                    (mapv (fn [c] [(key c) (assoc (into {} (mapv (fn[[k v]] [k (read-string v)]) (first (fnext c)))) "perks" (mapv #(into {} %) (rest (fnext c))))]) roles))
             items (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/all-items.txt" :encoding "UTF-8")]
                              (mapv (fn [st] (let
                              	[[_ item-name symbol description] (re-find #"([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [item-name {"symbol" symbol "description" description}]))

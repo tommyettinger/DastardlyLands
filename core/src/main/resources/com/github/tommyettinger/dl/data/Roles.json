@@ -4,8 +4,8 @@
   "type": "object",
   "definitions": {
     "PerkRaw": {
-      "type": "array",
-      "items": {
+      "type": "object",
+      "additionalProperties": {
         "type": "string"
       }
     },
