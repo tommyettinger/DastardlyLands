@@ -5,9 +5,34 @@
   "definitions": {
     "PerkRaw": {
       "type": "object",
-      "additionalProperties": {
-        "type": "string"
-      }
+      "properties": {
+        "action": {"type": "string"},
+        "filter": {"type": "string"},
+        "counter": {"type": "string"},
+        "stance": {"type": "string"},
+        "mode": {"type": "string"},
+        "needs": {"type": "string"},
+        "item": {"type": "string"},
+        "claim": {"type": "string"},
+        "global": {"type": "string"},
+        "affects": {"type": "string"},
+        "passive": {"type": "string"},
+        "control": {"type": "string"},
+        "adjust": {"type": "string"},
+        "other": {"type": "string"},
+        "immune": {"type": "string"},
+        "anti": {"type": "string"},
+        "state": {"type": "string"},
+        "element": {"type": "string"},
+        "fused": {"type": "string"},
+        "accuracy": {"type": "integer"},
+        "damage": {"type": "integer"},
+        "speed": {"type": "integer"},
+        "spread": {"type": "integer"},
+        "duration": {"type": "integer"},
+        "range": {"type": "integer"}
+      },
+      "additionalProperties": {"type": "string"}
     },
     "Role": {
       "type": "object",

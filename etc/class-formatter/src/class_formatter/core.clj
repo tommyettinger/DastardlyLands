@@ -12,53 +12,64 @@
   		#"acquire (\w+)" :>> (fn [[_ alpha]] [["other" "downtime"] ["acquire" alpha]])
   		#"identify (\w+)" :>> (fn [[_ alpha]] [["other" "instant"] ["identify" alpha]])
   		#"upgrade ([^,]+)" :>> (fn [[_ alpha]] [["other" "downtime"] ["upgrade" alpha]])
-  		#"ruin (\w+)" :>> (fn [[_ alpha]] [["action" "ruin"]])
+  		#"ruin (\w+)" :>> (fn [[_ alpha]] [["adjust" "ruin"]])
   		#"limitless ([^,]+)" :>> (fn [[_ alpha]] [["item" alpha] ["claim" "limitless"]])
-  		#"(\w+) items" :>> (fn [[_ alpha]] [["action" alpha]])
+  		#"(\w+) items" :>> (fn [[_ alpha]] [["adjust" alpha]])
   		#"poach monsters" [["other" "victory"] ["corpse" "poach"]]
   		#"preserve corpses" [["other" "victory"] ["corpse" "preserve"]]
   		#"foraging" [["other" "downtime"] ["forage" "wild"]]
   		#"scavenging" [["other" "downtime"] ["forage" "junk"]]
   		#"reveal" [["other" "instant"] ["reveal" "traps"]]
   		#"maintenance" [["other" "downtime"] ["maintain" "all"]]
-  		#"break items to regain sp" [["action" "break"] ["restore" "1"]]
-  		#"break items to dominate" [["action" "break"] ["dominate" "1"]]
-  		#"break items to disrupt" [["action" "break"] ["disrupt" "1"]]
+  		#"break items to regain sp" [["other" "instant"] ["break" "restore"]]
+  		#"break items to dominate" [["other" "instant"] ["break" "dominate"]]
+  		#"break items to disrupt" [["other" "instant"] ["break" "disrupt"]]
   	))
   (defn parse-upgrade [st]
   	(condp re-matches st
-  		#"better (\w+)" :>> (fn [[_ alpha]] [alpha "1"])
-  		#"dominating" ["dominate" "1"]
-  		#"disrupting" ["disrupt" "1"]
+  		#"better (\w+)" :>> (fn [[_ alpha]] [alpha 1])
+  		#"dominating" ["dominate" 1]
+  		#"disrupting" ["disrupt" 1]
   		#"(\w+) bane" :>> (fn [[_ alpha]] ["anti" alpha])
   		#"strong against (\w+)" :>> (fn [[_ alpha]] ["anti" alpha])
   		#"may inflict (\w+)" :>> (fn [[_ alpha]] ["state" alpha])
   		#"acts as (.+)" :>> (fn [[_ alpha]] ["fused" alpha])
   		#"(\w+) element" :>> (fn [[_ alpha]] ["element" alpha])
   	))
+  	  ;;action string, filter string, up
+      ;;skill string, filter string, up
+      ;;counter string, up
+      ;;stance string, up
+      ;;mode string, element string, needs string
+      ;;item string, claim string, up
+      ;;global string, (affects string)|(immune string)
+      ;;passive string, immune string
+      ;;control string
+      ;;adjust string
+      ;;other string, (string string)
   (defn parse-entry [st]
   	(condp re-matches (s/lower-case st)
   		#"(\w+) attacks, (.+)" :>> (fn [[_ beta up]] [[["action" "weapon"] ["filter" beta] (parse-upgrade up)]])
   		#"(\w+) (spell|cantrip)s, (.+)" :>> (fn [[_ beta kind up]] [[["action" kind] ["filter" beta] (parse-upgrade up)]])
   		#"(\w+) (tricks|arcana), (.+)" :>> (fn [[_ beta kind up]] [[["skill" kind] ["filter" beta] (parse-upgrade up)]])
   		#"(\w+) counter, (.+)" :>> (fn [[_ beta up]] [[["counter" beta] (parse-upgrade up)]])
-  		#"(\w+) field, (.+)" :>> (fn [[_ beta up]] [[["action" "field"] ["state" beta] (parse-upgrade up)]])
-  		#"(\w+) aura, (.+)" :>> (fn [[_ beta up]] [[["action" "aura"] ["state" beta] (parse-upgrade up)]])
-  		#"(\w+) affliction, (.+)" :>> (fn [[_ beta up]] [[["action" "afflict"] ["state" beta] (parse-upgrade up)]])
-  		#"(\w+) boost, (.+)" :>> (fn [[_ beta up]] [[["action" "boost"] ["state" beta] (parse-upgrade up)]])
-  		#"stance, suffer (\w+), (.+)" :>> (fn [[_ beta up]] [[["mode" "stance"] ["suffer" "beta"] (parse-upgrade up)]])
-  		#"infuse weapons with (\w+), uses sp" :>> (fn [[_ beta]] [[["mode" "infuse"] ["element" "beta"] ["needs" "sp"]]])
-  		#"infuse weapons with (\w+), ambush required" :>> (fn [[_ beta]] [[["mode" "infuse"] ["element" "beta"] ["needs" "ambush"]]])
-  		#"infuse weapons with (\w+), pause required" :>> (fn [[_ beta]] [[["mode" "infuse"] ["element" "beta"] ["needs" "pause"]]])
+  		#"(\w+) field, (.+)" :>> (fn [[_ beta up]] [[["action" "field"] ["filter" beta] (parse-upgrade up)]])
+  		#"(\w+) aura, (.+)" :>> (fn [[_ beta up]] [[["action" "aura"] ["filter" beta] (parse-upgrade up)]])
+  		#"(\w+) affliction, (.+)" :>> (fn [[_ beta up]] [[["action" "afflict"] ["filter" beta] (parse-upgrade up)]])
+  		#"(\w+) boost, (.+)" :>> (fn [[_ beta up]] [[["action" "boost"] ["filter" beta] (parse-upgrade up)]])
+  		#"stance, suffer (\w+), (.+)" :>> (fn [[_ beta up]] [[["stance" beta] (parse-upgrade up)]])
+  		#"infuse weapons with (\w+), uses sp" :>> (fn [[_ beta]] [[["mode" "infuse"] ["element" beta] ["needs" "sp"]]])
+  		#"infuse weapons with (\w+), ambush required" :>> (fn [[_ beta]] [[["mode" "infuse"] ["element" beta] ["needs" "ambush"]]])
+  		#"infuse weapons with (\w+), pause required" :>> (fn [[_ beta]] [[["mode" "infuse"] ["element" beta] ["needs" "pause"]]])
   		#"(superior|twin) ([^,]+), (.+)" :>> (fn [[_ claim beta up]] [[["item" beta] ["claim" claim] (parse-upgrade up)]])
   		#"party is immune to (\w+) when fielded" :>> (fn [[_ beta]] [[["global" "assist"] ["immune" beta]]])
   		#"immune to (\w+), (\w+), (\w+)" :>> (fn [[_ beta1 beta2 beta3]] [[["passive" "self"] ["immune" beta1]] [["passive" "self"] ["immune" beta2]] [["passive" "self"] ["immune" beta3]]])
         
-  		#"dominance from movement" [[["passive" "control"] ["method" "mobile"]]]
-  		#"dominance from being seen" [[["passive" "control"] ["method" "apparent"]]]
-  		#"dominance from taking damage" [[["passive" "control"] ["method" "masochistic"]]]
-  		#"dominance from enemy ailments" [[["passive" "control"] ["method" "sadistic"]]]
-  		#"dominance from enemies using skills" [[["passive" "control"] ["method" "perceptive"]]]
+  		#"dominance from movement" [[["control" "mobile"]]]
+  		#"dominance from being seen" [[["control" "apparent"]]]
+  		#"dominance from taking damage" [[["control" "masochistic"]]]
+  		#"dominance from enemy ailments" [[["control" "sadistic"]]]
+  		#"dominance from enemies using skills" [[["control" "perceptive"]]]
   		#"raise dominance earned by allies" [[["global" "assist"] ["affects" "dominate"]]]
   		#"raise disruption caused by allies" [[["global" "assist"] ["affects" "disrupt"]]]
   		#"reduce disruption affecting allies" [[["global" "hamper"] ["affects" "disrupt"]]]
