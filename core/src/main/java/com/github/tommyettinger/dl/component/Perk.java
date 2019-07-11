@@ -1,5 +1,7 @@
 package com.github.tommyettinger.dl.component;
 
+import com.github.tommyettinger.dl.data.Roles;
+
 /**
  * Any kind of improvement applied to a specific category of action, specified by {@link #category} and
  * {@link #filter}, such as axe attacks when category is "attack" and filter is "axe".
@@ -15,17 +17,65 @@ public class Perk {
     public int damage;
     public int accuracy;
     public int speed;
-    public int spread;
-    public int duration;
-    public boolean dominate;
-    public boolean disrupt;
-    public String element; // also used for status ailments; resistance to an element or ailment is interchangeable
-    public String bane;
+	public int range;
+	public int spread;
+	public int duration;
+    public int dominate;
+    public int disrupt;
+    public String element;
+    public String state;
+    public String anti;
     public String item;
     public String fused;
     public String category;
     public String filter;
+    public String action;
+	public String skill;
+	public String counter;
+	public String adjust;
+	public String assist;
+	public String hamper;
+	public String claim;
+	public String control;
+	public String passive;
+	public String immune;
+	public String other;
+	public String mode;
+	public String needs;
     
+    public Perk(Roles.PerkRaw raw)
+	{
+		filter = raw.getFilter();
+		action = raw.getAction();
+		skill = raw.getSkill();
+		counter = raw.getCounter();
+		adjust = raw.getAdjust();
+		assist = raw.getAssist();
+		hamper = raw.getHamper();
+		item = raw.getItem();
+		claim = raw.getClaim();
+		control = raw.getControl();
+		passive = raw.getPassive();
+		immune = raw.getImmune();
+		other = raw.getOther();
+		mode = raw.getMode();
+		needs = raw.getNeeds();
+		
+		// upgrades
+		damage = raw.getDamage();
+		accuracy = raw.getAccuracy();
+		speed = raw.getSpeed();
+		range = raw.getRange();
+		spread = raw.getSpread();
+		duration = raw.getDuration();
+		dominate = raw.getDominate();
+		disrupt = raw.getDisrupt();
+		element = raw.getElement();
+		state = raw.getState();
+		anti = raw.getAnti();
+		fused = raw.getFused();
+		
+	}
     
     @Override
     public String toString() {
