@@ -42,10 +42,11 @@
       ;;stance string, up
       ;;mode string, element string, needs string
       ;;item string, claim string, up
-      ;;global string, (affects string)|(immune string)
       ;;passive string, immune string
       ;;control string
       ;;adjust string
+      ;;assist string
+      ;;hamper string
       ;;other string, (string string)
   (defn parse-entry [st]
   	(condp re-matches (s/lower-case st)
@@ -62,7 +63,7 @@
   		#"infuse weapons with (\w+), ambush required" :>> (fn [[_ beta]] [[["mode" "infuse"] ["element" beta] ["needs" "ambush"]]])
   		#"infuse weapons with (\w+), pause required" :>> (fn [[_ beta]] [[["mode" "infuse"] ["element" beta] ["needs" "pause"]]])
   		#"(superior|twin) ([^,]+), (.+)" :>> (fn [[_ claim beta up]] [[["item" beta] ["claim" claim] (parse-upgrade up)]])
-  		#"party is immune to (\w+) when fielded" :>> (fn [[_ beta]] [[["global" "assist"] ["immune" beta]]])
+  		#"party is immune to (\w+) when fielded" :>> (fn [[_ beta]] [[["passive" "party"] ["immune" beta]]])
   		#"immune to (\w+), (\w+), (\w+)" :>> (fn [[_ beta1 beta2 beta3]] [[["passive" "self"] ["immune" beta1]] [["passive" "self"] ["immune" beta2]] [["passive" "self"] ["immune" beta3]]])
         
   		#"dominance from movement" [[["control" "mobile"]]]
@@ -70,9 +71,9 @@
   		#"dominance from taking damage" [[["control" "masochistic"]]]
   		#"dominance from enemy ailments" [[["control" "sadistic"]]]
   		#"dominance from enemies using skills" [[["control" "perceptive"]]]
-  		#"raise dominance earned by allies" [[["global" "assist"] ["affects" "dominate"]]]
-  		#"raise disruption caused by allies" [[["global" "assist"] ["affects" "disrupt"]]]
-  		#"reduce disruption affecting allies" [[["global" "hamper"] ["affects" "disrupt"]]]
+  		#"raise dominance earned by allies" [[["assist" "dominate"]]]
+  		#"raise disruption caused by allies" [[[ "assist" "disrupt"]]]
+  		#"reduce disruption affecting allies" [[[ "hamper" "disrupt"]]]
         
   		#"([^,]+), (.+)" :>> (fn [[_ half1 half2]] [(parse-half half1) (parse-half half2)])
   	))
