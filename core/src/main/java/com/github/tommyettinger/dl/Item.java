@@ -16,6 +16,6 @@ public class Item {
 		symbol = it.getSymbol().charAt(0);
 		this.name = name;
 		description = it.getDescription();
-		color = SColor.randomColorWheel(rng, rng.next(1), rng.next(1)).toFloatBits();
+		color = SColor.randomColorWheel(rng, rng.next(1), rng.next(1) + 1).toFloatBits();
 	}
 }

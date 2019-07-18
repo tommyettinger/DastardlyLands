@@ -143,7 +143,6 @@ public class DastardlyLands extends ApplicationAdapter {
         // gotta have a random number generator. We can seed a GWTRNG with any long we want, or even a String.
 //        rng = new GWTRNG("Welcome to SquidLib!");
         rng = new StatefulRNG();
-        final String fileText = Gdx.files.internal("classes-obtext.txt").readString();
         roles = new OrderedMap<>((Map<String, Roles.Role>) Roles.load().fromJson(Gdx.files.internal("roles.json").readString("UTF8")));
         
         //roles = new ObText(fileText);

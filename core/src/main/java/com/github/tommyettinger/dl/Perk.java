@@ -1,4 +1,4 @@
-package com.github.tommyettinger.dl.component;
+package com.github.tommyettinger.dl;
 
 import com.github.tommyettinger.dl.data.Roles;
 
@@ -42,7 +42,11 @@ public class Perk {
 	public String other;
 	public String mode;
 	public String needs;
-    
+	
+	public Perk()
+    {
+        
+    }
     public Perk(Roles.PerkRaw raw)
 	{
 		filter = raw.getFilter();

@@ -22,7 +22,7 @@ configure(subprojects) {
   dependencies {
     api "systems.manifold:manifold-all:$manifoldVersion"
 //    annotationProcessor "systems.manifold:manifold-all:$manifoldVersion"
-    compile files("${System.properties['java.home']}/lib/tools.jar")
+    compile files("${System.properties['java.home']}/../lib/tools.jar")
 
   }
   compileJava {

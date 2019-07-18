@@ -27,9 +27,9 @@
   	))
   (defn parse-upgrade [st]
   	(condp re-matches st
-  		#"better (\w+)" :>> (fn [[_ alpha]] [alpha 1])
-  		#"dominating" ["dominate" 1]
-  		#"disrupting" ["disrupt" 1]
+  		#"better (\w+)" :>> (fn [[_ alpha]] [alpha "1"])
+  		#"dominating" ["dominate" "1"]
+  		#"disrupting" ["disrupt" "1"]
   		#"(\w+) bane" :>> (fn [[_ alpha]] ["anti" alpha])
   		#"strong against (\w+)" :>> (fn [[_ alpha]] ["anti" alpha])
   		#"may inflict (\w+)" :>> (fn [[_ alpha]] ["state" alpha])
