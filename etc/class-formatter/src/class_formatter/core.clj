@@ -4,8 +4,10 @@
       [clojure.string :as s]
       [clojure.pprint :as ppr]
       [clojure.data.json :as json])
-  (:import [java.io BufferedReader StringReader])
-  )
+  (:import [java.io BufferedReader StringReader]
+           [java.util ArrayList]
+           [squidpony.squidmath OrderedMap]
+           [squidpony StringConvert Converters StringKit]))
   (defn parse-half [st]
   	(condp re-matches st
   		#"craft (\w+)" :>> (fn [[_ alpha]] [["other" "downtime"] ["craft" alpha]])
@@ -81,29 +83,35 @@
   	  ""
       [& args]
       #_'[attack, spell, cantrip, tricks, arcana, stance, afflict, aura, boost, field, infuse, item, control, assist, hamper, other]
-      (let [roles (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/complex-classes.txt")]
-               (mapv (fn [st] (let
-               	[[_ role-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [role-name (vec (conj (apply concat (map parse-entry more)) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))
-               	 (line-seq rdr))))
-            roles2 (into (sorted-map)
-                    (mapv (fn [c] [(key c) (assoc (into {} (mapv (fn[[k v]] [k (read-string v)]) (first (fnext c)))) "perks" (mapv #(into {} %) (rest (fnext c))))]) roles))
+      (let [roles (into (sorted-map)
+                    (mapv (fn [c] [(key c) (assoc (into {} (mapv (fn[[k v]] [k (read-string v)]) (first (fnext c)))) "perks" (mapv #(into {} %) (rest (fnext c))))]) 
+                    (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/complex-classes.txt")]
+                                   (mapv (fn [st] (let
+                                   	[[_ role-name melee-res ranged-res magic-res ailment-res & more] (re-find #"([^\t]+)\t(\d)\t(\d)\t(\d)\t(\d)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [role-name (vec (conj (apply concat (map parse-entry more)) {"melee" melee-res "ranged" ranged-res "magic" magic-res "ailment" ailment-res}))]))
+                                   	 (line-seq rdr))))))
+            convOMSS (Converters/convertOrderedMap Converters/convertString  Converters/convertString)
+            convALOMSS (Converters/convertArrayList convOMSS)
             items (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/all-items.txt" :encoding "UTF-8")]
                              (mapv (fn [st] (let
                              	[[_ item-name symbol description] (re-find #"([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [item-name {"symbol" symbol "description" description}]))
                              	 (line-seq rdr))))
             replacer (fn [text] (-> text
-                   (s/replace "\"hunger\"" "\"starve\"")
-                   (s/replace "\"berserk\"" "\"enrage\"")
-                   (s/replace "\"bloodlet\"" "\"cut\"")
-                   (s/replace "\"pain\"" "\"agonize\"")
-                   (s/replace "\"fear\"" "\"frighten\"")
-                   (s/replace "\"serene\"" "\"calm\"")
-                   (s/replace "\"haste\"" "\"hasten\"")
-                   (s/replace "\"lucky\"" "\"bless\"")
-                   (s/replace "\"aware\"" "\"advise\"")
+                   (s/replace #"\bhunger\b" "starve")
+                   (s/replace #"\bberserk\b" "enrage")
+                   (s/replace #"\bbloodlet\b" "cut")
+                   (s/replace #"\bpain\b" "agonize")
+                   (s/replace #"\bfear\b" "frighten")
+                   (s/replace #"\bserene\b" "calm")
+                   (s/replace #"\bhaste\b" "hasten")
+                   (s/replace #"\blucky\b" "bless")
+                   (s/replace #"\baware\b" "advise")
                  ))
             ]
-            (spit (str "roles-" (System/currentTimeMillis) ".json") (replacer (json/write-str roles2)))
+            (spit (str "roles-" (System/currentTimeMillis) ".json") (replacer (json/write-str roles)))
+            (spit (str "roles-" (System/currentTimeMillis) ".txt") (replacer
+              (clojure.string/join ",\n" (for [[nm rl] roles]
+                (str "{'" nm "';" (rl "melee") ";" (rl "ranged") ";" (rl "magic") ";" (rl "ailment") ";"
+                (.stringify convALOMSS (ArrayList. (mapv (fn [pk] (OrderedMap. pk)) (rl "perks"))))"}")))))
             (spit (str "items-" (System/currentTimeMillis) ".json") (replacer (json/write-str items :escape-unicode false)))
             ))
 #_[

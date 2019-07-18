@@ -126,7 +126,6 @@ public class DastardlyLands extends ApplicationAdapter {
     private ArrayList<String> lang;
 //    private ObText.ObTextEntry playerRole, enemyRole;
 //    private ObText roles;
-    private Roles rolesJson;
     private OrderedMap<String,  Roles.Role> roles;
     private OrderedMap<String, Items.Item> items;
     private Map.Entry<String, Roles.Role> playerRole, enemyRole;
