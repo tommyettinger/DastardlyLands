@@ -43,17 +43,17 @@ public class Role {
 
         @Override
         public OrderedMap<String, Role> restore(String text) {
-            int len = StringKit.count(text, '{');
+            int len = StringKit.count(text, '}');
             OrderedMap<String, Role> roles = new OrderedMap<>(len);
             if(len == 0)
                 return roles;
-            int start = 0, end = text.indexOf('\n') - 1;
+            int start = 0, end = text.indexOf('}') + 1;
             do {
                 Role role = convertRole.restore(text.substring(start, end));
                 roles.put(role.name, role);
                 start = text.indexOf('{', start+1);
-                end = text.indexOf('\n', end+2)-1;
-            }while (end >= 0);
+                end = text.indexOf('}', end)+1;
+            }while (start >= 0);
             return roles;
         }
     };
@@ -78,7 +78,7 @@ public class Role {
         r.ranged = StringKit.intFromDec(data, delim = data.indexOf(';', delim)+1, len);
         r.magic = StringKit.intFromDec(data, delim = data.indexOf(';', delim)+1, len);
         r.ailment = StringKit.intFromDec(data, delim = data.indexOf(';', delim)+1, len);
-        r.perks = convertPerks.restore(data.substring(delim, len - 1));
+        r.perks = convertPerks.restore(data.substring(data.indexOf(';', delim)+1, len - 1));
         return r;
     }
 }

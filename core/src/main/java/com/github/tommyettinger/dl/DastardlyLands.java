@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.github.tommyettinger.dl.data.Items;
-import com.github.tommyettinger.dl.data.Roles;
 import squidpony.ArrayTools;
 import squidpony.NaturalLanguageCipher;
 import squidpony.StringKit;
@@ -126,9 +125,9 @@ public class DastardlyLands extends ApplicationAdapter {
     private ArrayList<String> lang;
 //    private ObText.ObTextEntry playerRole, enemyRole;
 //    private ObText roles;
-    private OrderedMap<String,  Roles.Role> roles;
+    private OrderedMap<String, Role> roles;
     private OrderedMap<String, Items.Item> items;
-    private Map.Entry<String, Roles.Role> playerRole, enemyRole;
+    private Map.Entry<String, Role> playerRole, enemyRole;
     private double[][] resistance;
     private double[][] visible;
     private GreasedRegion floors, blockage, seen;
@@ -142,7 +141,8 @@ public class DastardlyLands extends ApplicationAdapter {
         // gotta have a random number generator. We can seed a GWTRNG with any long we want, or even a String.
 //        rng = new GWTRNG("Welcome to SquidLib!");
         rng = new StatefulRNG();
-        roles = new OrderedMap<>((Map<String, Roles.Role>) Roles.load().fromJson(Gdx.files.internal("roles.json").readString("UTF8")));
+        roles = Role.convertRoles.restore(Gdx.files.internal("roles.txt").readString("UTF8"));
+//        roles = new OrderedMap<>((Map<String, Roles.Role>) Roles.load().fromJson(Gdx.files.internal("roles.json").readString("UTF8")));
         
         //roles = new ObText(fileText);
         playerRole = roles.randomEntry(rng);
@@ -561,7 +561,7 @@ public class DastardlyLands extends ApplicationAdapter {
             splitDisplay.put(split+1, 2, "You must defeat an " + enemyRole.getKey() + ".", FLOAT_LIGHTING, 0f);
         else
             splitDisplay.put(split+1, 2, "You must defeat a " + enemyRole.getKey() + ".", FLOAT_LIGHTING, 0f);
-        splitDisplay.put(split+1, 4, (playerRole.getValue().getPerks().first().getBindings().toYaml()), FLOAT_LIGHTING, 0f);
+        splitDisplay.put(split+1, 4, (playerRole.getValue().perks.first().toString()), FLOAT_LIGHTING, 0f);
 //        for(ObText.ObTextEntry ent : playerRole.associated)
 //        {
 //            if(ent.primary.equals("attack"))
