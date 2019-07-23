@@ -30,7 +30,7 @@ public class Role {
     public static final StringConvert<OrderedMap<String, Role>> convertRoles = new StringConvert<OrderedMap<String, Role>>() {
         @Override
         public String stringify(OrderedMap<String, Role> item) {
-            StringBuilder sb = new StringBuilder(100);
+            StringBuilder sb = new StringBuilder(10000);
             Role v;
             for (int i = 0; i < item.size(); ) {
                 v = item.getAt(i);
@@ -62,6 +62,7 @@ public class Role {
     {
         
     }
+    
     public String serializeToString()
     {
         return "{'" + name + "';"+ melee + ";" + ranged + ";" + magic + ";" + ailment + ";" +

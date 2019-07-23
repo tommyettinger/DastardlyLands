@@ -30,7 +30,7 @@ Pole	┃	Whether an collapsible pole or just a piece of bamboo, a Pole is excell
 Polearm	↟	A Polearm could be a halberd, glaive, ranseur, guan do, or just about any sharp thing on a long stick.
 Razor Deck	⍰	An fine deck of cards with razor-sharp wire running around each card's edge; a tricky thrown weapon.
 Saber	ɭ	An elegant dueling weapon that is sharp all along its blade; ideal for thrusting attacks and parries.
-Scepter	∤	A magician's response to the firearm; this is a two-handed heavy staff that "fires" massive magic blasts.
+Scepter	∤	A magician's response to the firearm; this is an ornate two-handed staff that “fires” energy blasts.
 Scimitar	ɭ	A strongly curved one-handed blade meant for drawing blood from multiple foes with one sweeping slice
 Shield	⊕	Not esteemed as a weapon, Shields greatly support a bearer's defenses, and for that they are common.
 Shortsword	▶	Not quite a knife or a sword, Shortswords are heavier than they look, but can still be swung quickly.
