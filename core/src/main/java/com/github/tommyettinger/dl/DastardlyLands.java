@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.github.tommyettinger.dl.data.Items;
 import squidpony.ArrayTools;
 import squidpony.NaturalLanguageCipher;
 import squidpony.StringKit;
@@ -126,7 +125,7 @@ public class DastardlyLands extends ApplicationAdapter {
 //    private ObText.ObTextEntry playerRole, enemyRole;
 //    private ObText roles;
     private OrderedMap<String, Role> roles;
-    private OrderedMap<String, Items.Item> items;
+    private OrderedMap<String, Item> items;
     private Map.Entry<String, Role> playerRole, enemyRole;
     private double[][] resistance;
     private double[][] visible;
@@ -147,7 +146,8 @@ public class DastardlyLands extends ApplicationAdapter {
         //roles = new ObText(fileText);
         playerRole = roles.randomEntry(rng);
         enemyRole = roles.randomEntry(rng);
-        items = new OrderedMap<>((Map<String, Items.Item>)Items.load().fromJson(Gdx.files.internal("items.json").readString("UTF8")));
+        items = Item.convertItems.restore(Gdx.files.internal("items.txt").readString("UTF8"));
+//        items = new OrderedMap<>((Map<String, Items.Item>)Items.load().fromJson(Gdx.files.internal("items.json").readString("UTF8")));
         //Some classes in SquidLib need access to a batch to render certain things, so it's a good idea to have one.
         batch = new SpriteBatch();
         StretchViewport mainViewport = new StretchViewport(gridWidth * cellWidth, gridHeight * cellHeight),
@@ -233,8 +233,7 @@ public class DastardlyLands extends ApplicationAdapter {
         things = new OrderedMap<>(itemPositions.length);
         for (Coord c : itemPositions)
         {
-            final int pos = rng.nextSignedInt(items.size());
-            things.put(c, new Item(rng, items.keyAt(pos), items.getAt(pos)));
+            things.put(c, items.randomValue(rng));
         }
         //These need to have their positions set before adding any entities if there is an offset involved.
         //There is no offset used here, but it's still a good practice here to set positions early on.

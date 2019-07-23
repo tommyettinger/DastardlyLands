@@ -112,6 +112,9 @@
               (clojure.string/join ",\n" (for [[nm rl] roles]
                 (str "{'" nm "';" (rl "melee") ";" (rl "ranged") ";" (rl "magic") ";" (rl "ailment") ";"
                 (.stringify convALOMSS (ArrayList. (mapv (fn [pk] (OrderedMap. pk)) (rl "perks"))))"}")))))
+            (spit (str "items-" (System/currentTimeMillis) ".txt")
+              (clojure.string/join ",\n" (for [[nm rl] items]
+                (str "{\"" nm "\";\"" (rl "symbol") "\";\"" (rl "description") "\";\"\"}"))))
             (spit (str "items-" (System/currentTimeMillis) ".json") (replacer (json/write-str items :escape-unicode false)))
             ))
 #_[

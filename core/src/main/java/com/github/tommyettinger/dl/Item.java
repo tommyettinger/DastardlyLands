@@ -69,7 +69,7 @@ public class Item {
         this.name = name;
         description = it.getDescription();
         SColor sc = SColor.DAWNBRINGER_AURORA[rng.between(1, 256)];
-        color = sc.toFloatBits();
+        color = sc.toEditedFloat(0f, -0.15f, 0.25f);
         colorName = sc.name;
         //color = SColor.randomColorWheel(rng, rng.next(1), rng.next(1) + 1).toFloatBits();
     }
@@ -85,10 +85,10 @@ public class Item {
 		i.name = data.substring(delim, delim = data.indexOf('\"', delim));
         i.symbol = data.charAt(delim+3);
         delim = data.indexOf('\"', delim+3);
-        i.description = data.substring(delim+3, delim = data.indexOf('\"', delim));
+        i.description = data.substring(delim+3, delim = data.indexOf('\"', delim + 4));
         //i.color = data.substring(delim+3, delim = data.indexOf('\"', delim));
         SColor sc = SColor.DAWNBRINGER_AURORA[DiverRNG.determineBounded(CrossHash.hash64(data), 255)+1];
-        i.color = sc.toFloatBits();
+        i.color = sc.toEditedFloat(0f, -0.15f, 0.25f);
         i.colorName = sc.name;
         return i;
 	}
