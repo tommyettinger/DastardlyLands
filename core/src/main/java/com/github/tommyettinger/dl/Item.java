@@ -1,12 +1,11 @@
 package com.github.tommyettinger.dl;
 
-import com.github.tommyettinger.dl.data.Items;
+import com.badlogic.gdx.graphics.Colors;
 import squidpony.StringConvert;
 import squidpony.StringKit;
 import squidpony.squidgrid.gui.gdx.SColor;
 import squidpony.squidmath.CrossHash;
 import squidpony.squidmath.DiverRNG;
-import squidpony.squidmath.IRNG;
 import squidpony.squidmath.OrderedMap;
 
 /**
@@ -64,14 +63,21 @@ public class Item {
     {
     }
 
-    public Item(IRNG rng, String name, Items.Item it){
-        symbol = it.getSymbol().charAt(0);
+    public Item(String name, char symbol, String description){
+        this.symbol = symbol;
         this.name = name;
-        description = it.getDescription();
-        SColor sc = SColor.DAWNBRINGER_AURORA[rng.between(1, 256)];
+        this.description = description;
+        final SColor sc = SColor.DAWNBRINGER_AURORA[DiverRNG.determineBounded(CrossHash.hash64(name), 255)+1];
         color = sc.toEditedFloat(0f, -0.15f, 0.25f);
         colorName = sc.name;
-        //color = SColor.randomColorWheel(rng, rng.next(1), rng.next(1) + 1).toFloatBits();
+    }
+
+    public Item(String name, char symbol, String description, String colorName){
+        this.symbol = symbol;
+        this.name = name;
+        this.description = description;
+        this.colorName = colorName;
+        color = SColor.toEditedFloat(Colors.get(colorName), 0f, -0.15f, 0.25f);
     }
 	public String serializeToString()
 	{
@@ -87,7 +93,7 @@ public class Item {
         delim = data.indexOf('\"', delim+3);
         i.description = data.substring(delim+3, delim = data.indexOf('\"', delim + 4));
         //i.color = data.substring(delim+3, delim = data.indexOf('\"', delim));
-        SColor sc = SColor.DAWNBRINGER_AURORA[DiverRNG.determineBounded(CrossHash.hash64(data), 255)+1];
+        SColor sc = SColor.DAWNBRINGER_AURORA[DiverRNG.determineBounded(CrossHash.hash64(i.name), 255)+1];
         i.color = sc.toEditedFloat(0f, -0.15f, 0.25f);
         i.colorName = sc.name;
         return i;
