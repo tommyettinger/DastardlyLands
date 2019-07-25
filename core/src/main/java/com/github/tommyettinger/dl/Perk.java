@@ -1,7 +1,5 @@
 package com.github.tommyettinger.dl;
 
-import com.github.tommyettinger.dl.data.Roles;
-
 /**
  * Any kind of improvement applied to a specific category of action, specified by {@link #category} and
  * {@link #filter}, such as axe attacks when category is "attack" and filter is "axe".
@@ -47,39 +45,38 @@ public class Perk {
     {
         
     }
-    public Perk(Roles.PerkRaw raw)
-	{
-		filter = raw.getFilter();
-		action = raw.getAction();
-		skill = raw.getSkill();
-		counter = raw.getCounter();
-		adjust = raw.getAdjust();
-		assist = raw.getAssist();
-		hamper = raw.getHamper();
-		item = raw.getItem();
-		claim = raw.getClaim();
-		control = raw.getControl();
-		passive = raw.getPassive();
-		immune = raw.getImmune();
-		other = raw.getOther();
-		mode = raw.getMode();
-		needs = raw.getNeeds();
-		
-		// upgrades
-		damage = raw.getDamage();
-		accuracy = raw.getAccuracy();
-		speed = raw.getSpeed();
-		range = raw.getRange();
-		spread = raw.getSpread();
-		duration = raw.getDuration();
-		dominate = raw.getDominate();
-		disrupt = raw.getDisrupt();
-		element = raw.getElement();
-		state = raw.getState();
-		anti = raw.getAnti();
-		fused = raw.getFused();
-		
-	}
+//    public Perk(Roles.PerkRaw raw)
+//	{
+//		filter = raw.getFilter();
+//		action = raw.getAction();
+//		skill = raw.getSkill();
+//		counter = raw.getCounter();
+//		adjust = raw.getAdjust();
+//		assist = raw.getAssist();
+//		hamper = raw.getHamper();
+//		item = raw.getItem();
+//		claim = raw.getClaim();
+//		control = raw.getControl();
+//		passive = raw.getPassive();
+//		immune = raw.getImmune();
+//		other = raw.getOther();
+//		mode = raw.getMode();
+//		needs = raw.getNeeds();
+//		
+//		// upgrades
+//		damage = raw.getDamage();
+//		accuracy = raw.getAccuracy();
+//		speed = raw.getSpeed();
+//		range = raw.getRange();
+//		spread = raw.getSpread();
+//		duration = raw.getDuration();
+//		dominate = raw.getDominate();
+//		disrupt = raw.getDisrupt();
+//		element = raw.getElement();
+//		state = raw.getState();
+//		anti = raw.getAnti();
+//		fused = raw.getFused();
+//	}
     
     @Override
     public String toString() {
