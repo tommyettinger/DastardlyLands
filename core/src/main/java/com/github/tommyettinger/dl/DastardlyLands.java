@@ -61,6 +61,7 @@ public class DastardlyLands extends ApplicationAdapter {
     //   are removed from rendering; unlike the others, it is frequently changed.
     private char[][] decoDungeon, bareDungeon, lineDungeon, prunedDungeon;
     private float[][] colors, bgColors;
+    private StringBuilder builder;
 
     //Here, gridHeight refers to the total number of rows to be displayed on the screen.
     //We're displaying 25 rows of dungeon, then 7 more rows of text generation to show some tricks with language.
@@ -84,7 +85,7 @@ public class DastardlyLands extends ApplicationAdapter {
     /** In number of cells */
     private static final int bigHeight = gridHeight * 2;
     
-    private static final int split = 60;
+    private static final int split = 50;
     
     /** In number of cells */
     private static final int bonusHeight = 7;
@@ -176,6 +177,7 @@ public class DastardlyLands extends ApplicationAdapter {
         
         splitDisplay = new SparseLayers(gridWidth, bonusHeight - 1, cellWidth, cellHeight, display.font);
         splitDisplay.defaultPackedBackground = FLOAT_LIGHTING;
+        builder = new StringBuilder(gridWidth);
 
         //This uses the seeded GWTRNG we made earlier to build a procedural dungeon using a method that takes
         //rectangular sections of pre-drawn dungeon and drops them into place in a tiling pattern. It makes good winding
@@ -560,7 +562,8 @@ public class DastardlyLands extends ApplicationAdapter {
             splitDisplay.put(split+1, 2, "You must defeat an " + enemyRole.getKey() + ".", FLOAT_LIGHTING, 0f);
         else
             splitDisplay.put(split+1, 2, "You must defeat a " + enemyRole.getKey() + ".", FLOAT_LIGHTING, 0f);
-        splitDisplay.put(split+1, 4, (playerRole.getValue().perks.get(0).toString()), FLOAT_LIGHTING, 0f);
+        builder.setLength(0);
+        splitDisplay.put(split+1, 4, Perk.show(builder, playerRole.getValue().perks.get(0)).toString(), FLOAT_LIGHTING, 0f);
 //        for(ObText.ObTextEntry ent : playerRole.associated)
 //        {
 //            if(ent.primary.equals("attack"))

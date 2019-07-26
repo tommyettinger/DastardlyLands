@@ -1,5 +1,7 @@
 package com.github.tommyettinger.dl;
 
+import squidpony.squidmath.OrderedMap;
+
 /**
  * Any kind of improvement applied to a specific category of action, specified by {@link #category} and
  * {@link #filter}, such as axe attacks when category is "attack" and filter is "axe".
@@ -92,7 +94,7 @@ public class Perk {
                 sb.append("can evoke ").append(filter).append(" cantrips");
                 break;
             case "tricks":
-                sb.append("can use ").append(filter).append(" tricks");
+                sb.append("can perform ").append(filter).append(" tricks");
                 break;
             case "arcana":
                 sb.append("can weave ").append(filter).append(" arcana");
@@ -173,5 +175,129 @@ public class Perk {
                 break;
         }
         return sb.toString();
+    }
+    
+    public static StringBuilder show(StringBuilder sb, OrderedMap<String, String> perks)
+    {
+        String t;
+        int startLength = sb.length();
+        if((t = perks.get("action")) != null)
+        {
+            switch (t)
+            {
+                case "weapon":
+                    sb.append("can make ").append(perks.getOrDefault("filter", "blade")).append(" attacks, with ");
+                    break;
+                case "spell":
+                    sb.append("can cast ").append(perks.getOrDefault("filter", "hex")).append(" spells, with ");
+                    break;
+                case "cantrip":
+                    sb.append("can evoke ").append(perks.getOrDefault("filter", "hex")).append(" cantrips, with ");
+                    break;
+                case "field":
+                    sb.append("can ").append(perks.getOrDefault("filter", "calm")).append(" nearby friends, with ");
+                    break;
+                case "aura":
+                    sb.append("can ").append(perks.getOrDefault("filter", "pin")).append(" nearby foes, with ");
+                    break;
+                case "afflict":
+                    sb.append("can ").append(perks.getOrDefault("filter", "pin")).append(" a foe, with ");
+                    break;
+//                case "boost":
+                default:
+                    sb.append("can ").append(perks.getOrDefault("filter", "calm")).append(" a friend, with ");
+                    break;
+                
+            }
+        }
+        else if((t = perks.get("skill")) != null)
+        {
+            if(t.equals("tricks"))
+                sb.append("can perform ").append(perks.getOrDefault("filter", "quick")).append(" tricks, with ");
+            else 
+                sb.append("can weave ").append(perks.getOrDefault("filter", "quick")).append(" arcana, with ");
+        }
+        else if((t = perks.get("counter")) != null)
+        {
+            sb.append("can counter ").append(t).append(" attacks, with ");
+        }
+        else if((t = perks.get("stance")) != null)
+        {
+            sb.append("can enter a stance by suffering ").append(t).append(", gaining ");
+        }
+        else if((t = perks.get("item")) != null && !"limitless".equals(perks.get("claim"))) { 
+            if("superior".equals(perks.get("claim"))) 
+                sb.append("claims a superior ").append(t).append(" with ");
+            else
+                sb.append("claims a bonded ").append(t).append(" pair with ");
+        }
+        if(sb.length() != startLength)
+        {
+            String k = perks.keyAt(perks.size() - 1), v = perks.getAt(perks.size() - 1);
+            if(v.equals("1"))
+            {
+                sb.append("+1 ").append(k);
+            }
+            else{
+                switch (k)
+                {
+                    case "anti": 
+                        sb.append(v).append("-bane");
+                    break;
+                    case "state":
+                        sb.append("may inflict ").append(v);
+                        break;
+                    case "element":
+                        sb.append(v).append(" energy");
+                        break;
+                    case "fused":
+                        sb.append("acts as ").append(v);
+                        break;
+                }
+            }
+        }
+        /*
+        #"dominance from movement" [[["control" "mobile"]]]
+  		#"dominance from being seen" [[["control" "apparent"]]]
+  		#"dominance from taking damage" [[["control" "masochistic"]]]
+  		#"dominance from enemy ailments" [[["control" "sadistic"]]]
+  		#"dominance from enemies using skills" [[["control" "perceptive"]]]
+  		#"raise dominance earned by allies" [[["assist" "dominate"]]]
+  		#"raise disruption caused by allies" [[[ "assist" "disrupt"]]]
+  		#"reduce disruption affecting allies" [[[ "hamper" "disrupt"]]]
+         */
+
+        if((t = perks.get("control")) != null)
+        {
+            switch (t)
+            {
+                case "mobile":
+                    sb.append("gains dominance from movement");
+                    break;
+                case "apparent":
+                    sb.append("gains dominance from being seen");
+                    break;
+                case "masochistic":
+                    sb.append("gains dominance from taking damage");
+                    break;
+                case "sadistic":
+                    sb.append("gains dominance from enemies suffering ailments");
+                    break;
+            }
+        } 
+        else if((t = perks.get("assist")) != null)
+        {
+            sb.append("helps allied ").append(t).append(" attempts");
+        }
+        else if(perks.get("hamper") != null)
+        {
+            sb.append("hinders enemy disrupt attempts");
+        }
+        else if(sb.length() == startLength)
+        {
+            sb.append("unknown perk");
+        }
+
+        return sb;
     }
 }
