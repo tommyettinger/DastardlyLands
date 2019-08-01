@@ -93,7 +93,7 @@
             convALOMSS (Converters/convertArrayList convOMSS)
             items (into (sorted-map) (with-open [rdr (clojure.java.io/reader "resources/all-items.txt" :encoding "UTF-8")]
                              (mapv (fn [st] (let
-                             	[[_ item-name symbol description] (re-find #"([^\t]+)\t([^\t]+)\t([^\t]+)" st)] [item-name {"symbol" symbol "description" description}]))
+                             	[[_ item-name symbol description color] (re-find #"([^\t]+)\t([^\t]+)\t([^\t]+)\t?([^\t]*)" st)] [item-name {"symbol" symbol "description" description "color" color}]))
                              	 (line-seq rdr))))
             replacer (fn [text] (-> text
                    (s/replace #"\bhunger\b" "starve")
@@ -114,7 +114,7 @@
                 (.stringify convALOMSS (ArrayList. (mapv (fn [pk] (OrderedMap. pk)) (rl "perks"))))"}")))))
             (spit (str "items-" (System/currentTimeMillis) ".txt")
               (clojure.string/join ",\n" (for [[nm rl] items]
-                (str "{\"" nm "\";\"" (rl "symbol") "\";\"" (rl "description") "\";\"\"}"))))
+                (str "{\"" nm "\";\"" (rl "symbol") "\";\"" (rl "description") "\";\"" (rl "color" "Silver") "\"}"))))
             (spit (str "items-" (System/currentTimeMillis) ".json") (replacer (json/write-str items :escape-unicode false)))
             ))
 #_[

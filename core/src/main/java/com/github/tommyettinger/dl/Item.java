@@ -92,10 +92,15 @@ public class Item {
         i.symbol = data.charAt(delim+3);
         delim = data.indexOf('\"', delim+3);
         i.description = data.substring(delim+3, delim = data.indexOf('\"', delim + 4));
-        //i.color = data.substring(delim+3, delim = data.indexOf('\"', delim));
-        SColor sc = SColor.DAWNBRINGER_AURORA[DiverRNG.determineBounded(CrossHash.hash64(i.name), 255)+1];
-        i.color = sc.toEditedFloat(0f, -0.15f, 0.25f);
-        i.colorName = sc.name;
+        if(data.indexOf('\"', delim + 4) >= 0) {
+            i.colorName = data.substring(delim + 3, data.indexOf('\"', delim + 4));
+            i.color = SColor.toEditedFloat(Colors.get(i.colorName), 0f, -0.15f, 0.25f);
+        }
+        else {
+            SColor sc = SColor.DAWNBRINGER_AURORA[DiverRNG.determineBounded(CrossHash.hash64(i.name), 255) + 1];
+            i.color = sc.toEditedFloat(0f, -0.15f, 0.25f);
+            i.colorName = sc.name;
+        }
         return i;
 	}
 }

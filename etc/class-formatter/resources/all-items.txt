@@ -1,46 +1,46 @@
-Angelic	⋁	Those who can take the form of Celestials grow shining wings that can buffet enemies.
-Bomb Set	ᵘ	A satchel filled with primitive grenades, each a simple clay pot filled with black powder.
-Bow	〉	An old variety of ranged weapon that has seen considerable improvement to compete with firearms.
-Broadsword	♠	A wide-bladed two-handed sword that mixes the savagery of an axe with the precision of a sword.
-Cannon	ɼ	A very-long-ranged weapon that can obliterate one enemy with fire, though it takes ages to load.
-Cape	⍝	Among the least effective ways to kill someone, but great for confusing foes and deflecting projectiles.
-Carving Knife	▶	This sharpened chef's implement is just as good at slicing up a steak as it is slashing living flesh.
-Chakram Set	°	A collection of bladed hoops, meant to be worn along the forearms for blocking or hurled quickly at foes.
-Crossbow	⊢	Part-way between the Bow and the Musket, Crossbows are highly accurate and easily pierce armor.
-Dagger Set	▶	A versatile choice, the Dagger Set is typically concealed between layers of clothing for surprise stabs.
-Derringer Set	ᵣ	Carrying many small loaded firearms lets you avoid loading a gun in combat, though the range isn't great.
-Flail	¡	A nasty spiked ball whipped around on a heavy chain; it's simply brutal against armored foes.
-Fossil Fang	ɿ	A gift of the land to those who protect it, this massive tooth carries primal magic power.
-Greataxe	⚑	It's hard to beat this two-handed axe when it comes to overkill; the destruction these wreak is legendary.
-Grimoire	⍗	A Black Book, with a Shadow attack that turns magic defense against the target but is otherwise weak.
-Hammer	℉	A heavy one-handed tool converted into a weapon of war that is especially strong against armor.
-Handaxe Set	⚑	Some call them tomahawks, others hunga munga; this is a bag of throwing axes by any name.
-Hatchet	⚑	A medium-sized axe balanced for carving wood rather than throwing, it can carve flesh just as well.
-Instrument	♪	A fine musical instrument designed to play clear notes for casting spells, with a simple Sound attack.
-Javelin Set	↗	A back-carried container of short spear-like weapons balanced more for throwing than thrusting.
-Katana	ɭ	A curved blade attributed mystical power that can make effortless quick slices with impressive accuracy.
-Lance	↑	An uncommon weapon, the Lance can't attack a close-by enemy but can annihilate further-away foes.
-Longspear	↑	The art of killing a man with a pointed stick has gotten more complex over time, but the weapon has not.
-Longsword	†	Longswords have good accuracy, damage, and parrying ability, helping their bearer excel in every battle.
-Musket	ɼ	A two-handed firearm that spits out a heavy lead ball; its damage is impressive, but its load time isn't.
-Net	⍯	A tool used for fishing or trapping, refitted for bringing down human targets without harming them.
-Orb	●	A perfectly round crystal that allows its bearer to both contemplate Void and attack with Void magic.
-Pistol	ᵣ	A one-handed firearm that pierces armor easily and at decent range, but is slow to reload.
-Pole	┃	Whether an collapsible pole or just a piece of bamboo, a Pole is excellent at whacking multiple foes.
-Polearm	↟	A Polearm could be a halberd, glaive, ranseur, guan do, or just about any sharp thing on a long stick.
-Razor Deck	⍰	An fine deck of cards with razor-sharp wire running around each card's edge; a tricky thrown weapon.
-Saber	ɭ	An elegant dueling weapon that is sharp all along its blade; ideal for thrusting attacks and parries.
-Scepter	∤	A magician's response to the firearm; this is an ornate two-handed staff that “fires” energy blasts.
-Scimitar	ɭ	A strongly curved one-handed blade meant for drawing blood from multiple foes with one sweeping slice
-Shield	⊕	Not esteemed as a weapon, Shields greatly support a bearer's defenses, and for that they are common.
-Shortsword	▶	Not quite a knife or a sword, Shortswords are heavier than they look, but can still be swung quickly.
-Shuriken Set	★	Some dismiss Dagger Sets and prefer these throwing stars; they cause brutal damage to exposed skin.
-Staff	⍭	A Staff can sweep but otherwise is a lackluster weapon; its mirror and parry abilities make it useful.
-Symbol	ᴴ	A holy symbol, regardless of religion, can issue divine judgment even when simply worn or carried.
-Unarmed	ɱ	Since Unarmed attacks can be mixed into weapon attacks, many warriors pick up basic brawling skills.
-Vile	✗	Those who can take the form of Fiends exude horrid tentacles that rot the flesh of their enemies.
-Whip	ʆ	The tool of a harsh taskmaster or possibly a beast tamer, Whips are strong against unarmored foes.
-Wild	ʬ	Those who can take the form of Animals gain better defenses and attacks, but can't wield weapons.
+Angelic	⋁	Those who can take the form of Celestials grow shining wings that can buffet enemies.	Aurora Angel Wing
+Bomb Set 	ᵘ	A satchel filled with primitive grenades, each a simple clay pot filled with black powder.	Aurora Brick
+Bow	〉	An old variety of ranged weapon that has seen considerable improvement to compete with firearms.	Yellow Sea Pine Brown
+Broadsword 	♠	A wide-bladed two-handed sword that mixes the savagery of an axe with the precision of a sword.	DB Iron
+Cannon 	ɼ	A very-long-ranged weapon that can obliterate one enemy with fire, though it takes ages to load.	Aurora Lead
+Cape 	⍝	Among the least effective ways to kill someone, but great for confusing foes and deflecting projectiles.	Aurora Grape Soda
+Carving Knife 	▶	This sharpened chef's implement is just as good at slicing up a steak as it is slashing living flesh.	Pure Crimson
+Chakram Set 	°	A collection of bladed hoops, meant to be worn along the forearms for blocking or hurled quickly at foes.	CW Gold
+Crossbow 	⊢	Part-way between the Bow and the Musket, Crossbows are highly accurate and easily pierce armor.	CW Drab Apricot
+Dagger Set 	▶	A versatile choice, the Dagger Set is typically concealed between layers of clothing for surprise stabs.	Sumac
+Derringer Set 	ᵣ	Carrying many small loaded firearms lets you avoid loading a gun in combat, though the range isn't great.	Dark Gray
+Flail 	¡	A nasty spiked ball whipped around on a heavy chain; it's simply brutal against armored foes.	Black Kite
+Fossil Fang	ɿ	A gift of the land to those who protect it, this massive tooth carries primal magic power.	Ecru
+Greataxe 	⚑	It's hard to beat this two-handed axe when it comes to overkill; the destruction these wreak is legendary.	Lye
+Grimoire 	⍗	A Black Book, with a Shadow attack that turns magic defense against the target but is otherwise weak.	Aurora Eggplant
+Hammer	℉	A heavy one-handed tool converted into a weapon of war that is especially strong against armor.	Light Khaki
+Handaxe Set 	⚑	Some call them tomahawks, others hunga munga; this is a bag of throwing axes by any name.	Flax
+Hatchet	⚑	A medium-sized axe balanced for carving wood rather than throwing, it can carve flesh just as well.	Gold
+Instrument 	♪	A fine musical instrument designed to play clear notes for casting spells, with a simple Sound attack.	Golden
+Javelin Set 	↗	A back-carried container of short spear-like weapons balanced more for throwing than thrusting.	CW Pale Lime
+Katana 	ɭ	A curved blade attributed mystical power that can make effortless quick slices with impressive accuracy.	Aurora Aquamarine
+Lance 	↑	An uncommon weapon, the Lance can't attack a close-by enemy but can annihilate further-away foes.	CW Pale Brown
+Longspear 	↑	The art of killing a man with a pointed stick has gotten more complex over time, but the weapon has not.	Aurora Honeydew
+Longsword 	†	Longswords have good accuracy, damage, and parrying ability, helping their bearer excel in every battle.	Aurora Slow Creek
+Musket 	ɼ	A two-handed firearm that spits out a heavy lead ball; its damage is impressive, but its load time isn't.	Aurora Boysenberry
+Net	⍯	A tool used for fishing or trapping, refitted for bringing down human targets without harming them.	Fern Green
+Orb 	●	A perfectly round crystal that allows its bearer to both contemplate Void and attack with Void magic.	Indigo
+Pistol 	ᵣ	A one-handed firearm that pierces armor easily and at decent range, but is slow to reload.	CW Faded Sapphire
+Pole 	┃	Whether an collapsible pole or just a piece of bamboo, a Pole is excellent at whacking multiple foes.	Aurora Eucalyptus
+Polearm 	↟	A Polearm could be a halberd, glaive, ranseur, guan do, or just about any sharp thing on a long stick.	CW Pale Chartreuse
+Razor Deck 	⍰	An fine deck of cards with razor-sharp wire running around each card's edge; a tricky thrown weapon.	CW Flush Magenta
+Saber 	ɭ	An elegant dueling weapon that is sharp all along its blade; ideal for thrusting attacks and parries.	Aurora Tropic Mist
+Scepter 	∤	A magician's response to the firearm; this is an ornate two-handed staff that “fires” energy blasts.	Aurora Fruit Punch
+Scimitar 	ɭ	A strongly curved one-handed blade meant for drawing blood from multiple foes with one sweeping slice	Aurora Slow Creek
+Shield 	⊕	Not esteemed as a weapon, Shields greatly support a bearer's defenses, and for that they are common.	Cherry Blossom Mouse
+Shortsword 	▶	Not quite a knife or a sword, Shortswords are heavier than they look, but can still be swung quickly.	CW Pale Red
+Shuriken Set 	★	Some dismiss Dagger Sets and prefer these throwing stars; they cause brutal damage to exposed skin.	Aurora Ninja
+Staff 	⍭	A Staff can sweep but otherwise is a lackluster weapon; its mirror and parry abilities make it useful.	Safflower
+Symbol 	ᴴ	A holy symbol, regardless of religion, can issue divine judgment even when simply worn or carried.	Lemon Chiffon
+Unarmed	ɱ	Since Unarmed attacks can be mixed into weapon attacks, many warriors pick up basic brawling skills.	DB Nude
+Vile	✗	Those who can take the form of Fiends exude horrid tentacles that rot the flesh of their enemies.	Electric Lime
+Whip 	ʆ	The tool of a harsh taskmaster or possibly a beast tamer, Whips are strong against unarmored foes.	Chestnut Leather Brown
+Wild	ʬ	Those who can take the form of Animals gain better defenses and attacks, but can't wield weapons.	Horsetail
 Amulet	ɤ	A chunk of a strange stone that fell from between the stars, now worn as a necklace to grant magical power and sometimes resilience against Atomic attacks.
 Armor Spikes	ˇ	A series of heavily spiked straps meant to fit over armor, these defenses make fighting you in melee a challenge.
 Black Belt	₋	A martial artist's best friend, the Black Belt is a common reward from a dojo to a long-time student.
@@ -62,38 +62,38 @@ Stealth Garb	ᴥ	A black, tightly-fitting garment that can be worn over armor an
 Suit	Ʌ	A finely tailored garment that helps your confidence; may carry enchantment against Entropy attacks.
 Totem	ᴕ	A small amulet made of hand-carved wood and bone that helps protect from nature's most common nuisances, sometimes including Poison attacks.
 Utility Harness	‡	A cluster of cables linking a harness over your body to items you want to hold onto; good ones are designed to ground the user against Storm attacks.
-Acid	※	A foul-smelling liquid that scalds flesh, but is easily stopped by armor.
+Acid 	※	A foul-smelling liquid that scalds flesh, but is easily stopped by armor.
 Ambrosia	ᵈ	A cup of the milky nectar of the gods that replenishes both body and mind.
 Armor Seed	ᶳ	A small green seed that grows into flexible armor made of vines when watered.
-Beer	ᵈ	A favorite of those who don't want to stop drinking.
+Beer 	ᵈ	A favorite of those who don't want to stop drinking.
 Black Spot	※	A pirate's foul mouth is nothing compared to the curse they can emit with a Black Spot.
-Blast Powder	ᶳ	For one shot, it's an incredible improvement over the black powder firearms typically use.
-Bread	ᶠ	Wholesome, pure, and very filling, Bread is the simplest way to ease an aching belly.
+Blast Powder 	ᶳ	For one shot, it's an incredible improvement over the black powder firearms typically use.
+Bread 	ᶠ	Wholesome, pure, and very filling, Bread is the simplest way to ease an aching belly.
 Cake	ᶠ	A baked delight decorated with sugary icing; it isn't as filling as you'd hope.
-Candy	ᶠ	Once you start eating Candy, you don't want to stop eating Candy.
-Cheese	ᶠ	A fairly nutritious food that makes you briefly more robust, but rots quickly.
+Candy 	ᶠ	Once you start eating Candy, you don't want to stop eating Candy.
+Cheese 	ᶠ	A fairly nutritious food that makes you briefly more robust, but rots quickly.
 Cold Snap	※	A frigid piece of blue alchemical crystal that instantly chills its surroundings when broken.
-Dispel Gel	ɂ	A cube of gray jelly in a paper wrapper that absorbs magic power when the wrapper breaks.
-Egg	ᶠ	Eating a raw Egg is a great way to feel strong, but eating too many makes you ill instead.
-Fish	ᶠ	Even a small fish is powerfully nutritious and helps sharpen your reflexes.
+Dispel Gel 	ɂ	A cube of gray jelly in a paper wrapper that absorbs magic power when the wrapper breaks.
+Egg 	ᶠ	Eating a raw Egg is a great way to feel strong, but eating too many makes you ill instead.
+Fish 	ᶠ	Even a small fish is powerfully nutritious and helps sharpen your reflexes.
 Forbidden Scroll	※	Illegal, but still sometimes used by mages as a last resort to avoid other mages' spells.
 Fruit	ᶠ	A small sweet fruit that is nicely invigorating; commonly found by foraging.
-Fury Froth	※	A roiling foam held in a sealed lead flask; when opened it lashes out at everything nearby.
-Pure Water	ᵈ	A glass vessel filled with water so clear it might be divine; can cleanse evil from objects.
+Fury Froth 	※	A roiling foam held in a sealed lead flask; when opened it lashes out at everything nearby.
+Pure Water 	ᵈ	A glass vessel filled with water so clear it might be divine; can cleanse evil from objects.
 Honey	ᶠ	A chunk of honeycomb laden with sweet, sticky goodness; sometimes found by foraging.
-Liquor	ᵈ	Liquor gets you drunk quicker, but it can be sickeningly strong.
-Meat	ᶠ	Though not quite as strengthening as an Egg, Meat is much more filling.
-Nut	ᶠ	Gobbling down Nuts helps keep your body hardened to attack, while continuing to be filling.
-Prayer Bead	※	A tiny, rune-inscribed stone; when the rune is read aloud, it erupts in deific power.
+Liquor 	ᵈ	Liquor gets you drunk quicker, but it can be sickeningly strong.
+Meat 	ᶠ	Though not quite as strengthening as an Egg, Meat is much more filling.
+Nut 	ᶠ	Gobbling down Nuts helps keep your body hardened to attack, while continuing to be filling.
+Prayer Bead 	※	A tiny, rune-inscribed stone; when the rune is read aloud, it erupts in deific power.
 Rumble Stone	※	A fist-sized rock painted to depict a scene of disaster; when thrown, the earth trembles.
-Safety Rune	ɂ	A scroll containing a calligraphic word; when dropped to the ground it shields those nearby.
+Safety Rune 	ɂ	A scroll containing a calligraphic word; when dropped to the ground it shields those nearby.
 Serum	ᶳ	An oily fluid made mostly from monster organs; grants a drinker brief but mighty strength.
-Shackle Glyph	※	An alphabetical letter made of thin iron chains that contorts to trap an enemy of the law.
+Shackle Glyph 	※	An alphabetical letter made of thin iron chains that contorts to trap an enemy of the law.
 Soul Smoke	ɂ	A bottle of smoke that can replenish exhausted items, but may carry a curse if overused.
 Sticky Flame	※	A white blob of alchemical origin, it burns fiercely when exposed to air or even water.
-Sun Drop	※	A pouch holding a glass vial with shining fluid inside; the light is strong enough to burn.
+Sun Drop 	※	A pouch holding a glass vial with shining fluid inside; the light is strong enough to burn.
 Tornado Fan	※	What appears to be a simple paper fan can be activated once to summon a mighty gale.
-Uranium Ore	※	A chunk of greenish-yellow rock with a magic spell holding its radiation in... until it's thrown.
+Uranium Ore 	※	A chunk of greenish-yellow rock with a magic spell holding its radiation in... until it's thrown.
 Vegetable	ᶠ	Vegetables are commonly found by foraging, and are filling even if somewhat boring.
-Wine	ᵈ	An elegant drink that only gets finer with age, and helps a drinker stay safe from magic.
+Wine 	ᵈ	An elegant drink that only gets finer with age, and helps a drinker stay safe from magic.
 Rotten Food	ᵠ	A putrid lump of unidentifiable garbage that can defile whatever it is smeared on.
