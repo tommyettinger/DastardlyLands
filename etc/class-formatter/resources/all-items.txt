@@ -41,27 +41,27 @@ Unarmed	ɱ	Since Unarmed attacks can be mixed into weapon attacks, many warriors
 Vile	✗	Those who can take the form of Fiends exude horrid tentacles that rot the flesh of their enemies.	Electric Lime
 Whip 	ʆ	The tool of a harsh taskmaster or possibly a beast tamer, Whips are strong against unarmored foes.	Chestnut Leather Brown
 Wild	ʬ	Those who can take the form of Animals gain better defenses and attacks, but can't wield weapons.	Horsetail
-Amulet	ɤ	A chunk of a strange stone that fell from between the stars, now worn as a necklace to grant magical power and sometimes resilience against Atomic attacks.
-Armor Spikes	ˇ	A series of heavily spiked straps meant to fit over armor, these defenses make fighting you in melee a challenge.
-Black Belt	₋	A martial artist's best friend, the Black Belt is a common reward from a dojo to a long-time student.
-Cloak	ᴖ	An overcloak that helps protect against ailments and magic, and sometimes is waterproof enough to guard against Water attacks.
-Crown	ᵕ	A royal headpiece that ensures the wearer won't be belittled; the best Crowns protect against Holy attacks, the result of mistrust between churches and kings.
-Crystal	⬠	A potent meditation aid that allows its holder to ignore hunger and may scatter Light attacks.
-Elegant Garb	Ω	A dress or toga so beautiful that anyone charming you can't concentrate; it may flow and divert Wind attacks.
-Encyclopedia	⍃	Just carrying an Encyclopedia helps you feel confident in your mental faculties and may shield against subtle Void attacks.
-Hat	ʍ	A headpiece that carries minor protective spells; some are built to divert Sound attacks from the wearer's head.
-Heavy Armor	∏	Though it is one of the strongest protections available against physical attack, Heavy Armor is exhausting to wear.
-Light Armor	∩	Light Armor helps protect its wearer from physical attack, and may also protect against magic or other forms of attack as well.
-Marque	⌺	A letter written by an authority that gives its holder a disciplined calm, and may protect from effects related to the laws of the land.
-Mask	⊛	A primitive wood face-covering, it serves the simple purpose of protecting the eyes and face, but may also grant protection from Fire.
-Quiver	″	A container filled with arrows or bolts meant for Bows or Crossbows, having a better Quiver means you are better at archery.
-Relic	ͼ	A preserved piece of an object involved in a miracle long ago, a Relic protects against curses and may even work against deadly Wasting attacks.
-Robe	⍬	Though this appears to be an overly-decorated bathrobe, it is known to magicians as a potent reflector of their spells.
-Sandals	ᴌ	An easy way to move more quickly that provides resistance to entangling effects, and may carry protection against Earth attacks.
-Stealth Garb	ᴥ	A black, tightly-fitting garment that can be worn over armor and helps wriggle out of immobilization; may shield against Shadow attacks.
-Suit	Ʌ	A finely tailored garment that helps your confidence; may carry enchantment against Entropy attacks.
-Totem	ᴕ	A small amulet made of hand-carved wood and bone that helps protect from nature's most common nuisances, sometimes including Poison attacks.
-Utility Harness	‡	A cluster of cables linking a harness over your body to items you want to hold onto; good ones are designed to ground the user against Storm attacks.
+Amulet	ɤ	A chunk of a strange stone that fell from between the stars, now worn as a necklace to grant magical power and sometimes resilience against Atomic attacks.	Chartreuse Green
+Armor Spikes	ˇ	A series of heavily spiked straps meant to fit over armor, these defenses make fighting you in melee a challenge.	Aurora Wet Stone
+Black Belt	₋	A martial artist's best friend, the Black Belt is a common reward from a dojo to a long-time student.	CW Almost Black
+Cloak	ᴖ	An overcloak that helps protect against ailments and magic, and sometimes is waterproof enough to guard against Water attacks.	White Tea Dye
+Crown	ᵕ	A royal headpiece that ensures the wearer won't be belittled; the best Crowns protect against Holy attacks, the result of mistrust between churches and kings.	Golden
+Crystal	⬠	A potent meditation aid that allows its holder to ignore hunger and may scatter Light attacks.	CW Dark Magenta
+Elegant Garb	Ω	A dress or toga so beautiful that anyone charming you can't concentrate; it may flow and divert Wind attacks.	CW Pale Purple
+Encyclopedia	⍃	Just carrying an Encyclopedia helps you feel confident in your mental faculties and may shield against subtle Void attacks.	Corn
+Hat	ʍ	A headpiece that carries minor protective spells; some are built to divert Sound attacks from the wearer's head.	Chestnut Leather Brown
+Heavy Armor	∏	Though it is one of the strongest protections available against physical attack, Heavy Armor is exhausting to wear.	CW Dark Gray
+Light Armor	∩	Light Armor helps protect its wearer from physical attack, and may also protect against magic or other forms of attack as well.	CW Gray White
+Marque	⌺	A letter written by an authority that gives its holder a disciplined calm, and may protect from effects related to the laws of the land.	Indigo Dye
+Mask	⊛	A primitive wood face-covering, it serves the simple purpose of protecting the eyes and face, but may also grant protection from Fire.	Burgundy
+Quiver	″	A container filled with arrows or bolts meant for Bows or Crossbows, having a better Quiver means you are better at archery.	Pale Oak
+Relic	ͼ	A preserved piece of an object involved in a miracle long ago, a Relic protects against curses and may even work against deadly Wasting attacks.	Lemon Chiffon
+Robe	⍬	Though this appears to be an overly-decorated bathrobe, it is known to magicians as a potent reflector of their spells.	CW Dark Violet
+Sandals	ᴌ	An easy way to move more quickly that provides resistance to entangling effects, and may carry protection against Earth attacks.	CW Light Brown
+Stealth Garb	ᴥ	A black, tightly-fitting garment that can be worn over armor and helps wriggle out of immobilization; may shield against Shadow attacks.	Aurora Pitch Black
+Suit	Ʌ	A finely tailored garment that helps your confidence; may carry enchantment against Entropy attacks.	Dark Gray
+Totem	ᴕ	A small amulet made of hand-carved wood and bone that helps protect from nature's most common nuisances, sometimes including Poison attacks.	Fern Green
+Utility Harness	‡	A cluster of cables linking a harness over your body to items you want to hold onto; good ones are designed to ground the user against Storm attacks.	Aurora Chinchilla
 Acid 	※	A foul-smelling liquid that scalds flesh, but is easily stopped by armor.
 Ambrosia	ᵈ	A cup of the milky nectar of the gods that replenishes both body and mind.
 Armor Seed	ᶳ	A small green seed that grows into flexible armor made of vines when watered.
